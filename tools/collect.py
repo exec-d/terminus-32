@@ -5,7 +5,7 @@
 (numéros extraits de line32.json, présent à la racine du dépôt), fusionne
 l'observation dans history/<date>.json (clé = date de service du trip, ce qui
 rend les runs idempotents et permet au run du matin de rattraper la veille),
-puis recalcule stats/line32.json sur une fenêtre glissante.
+puis recalcule stats/line32.json sur trois fenêtres glissantes (semaine, mois, année).
 
 Le flux est un instantané : il retient la journée de service en cours (retards
 finaux des trains déjà arrivés inclus), d'où un échantillonnage 3×/jour au lieu
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FEED_URL = "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates"
 TRAIN_RE = re.compile(r"OCESN(\d+)")
 ON_TIME_S = 300  # seuil SNCF : à l'heure si retard final <= 5 min
-WINDOW_DAYS = 60
+WINDOWS = {"week": 7, "month": 30, "year": 365}  # fenêtres glissantes, en jours
 
 
 def train_number(trip_id):
@@ -100,27 +100,38 @@ def merge_history(obs, now_iso):
         path.write_text(json.dumps(day, indent=1, sort_keys=True) + "\n")
 
 
+def _aggregate(recs):
+    cancelled = sum(1 for r in recs if r["cancelled"])
+    delays = sorted(
+        r["finalDelayS"] for r in recs if r["finalDelayS"] is not None and not r["cancelled"]
+    )
+    entry = {"obs": len(recs), "cancelledPct": round(100 * cancelled / len(recs))}
+    if delays:
+        entry["onTimePct"] = round(100 * sum(1 for d in delays if d <= ON_TIME_S) / len(delays))
+        entry["medianDelayMin"] = round(delays[len(delays) // 2] / 60)
+        entry["maxDelayMin"] = round(max(delays) / 60)
+    return entry
+
+
 def compute_stats(now_iso):
-    cutoff = datetime.now(timezone.utc).date() - timedelta(days=WINDOW_DAYS)
-    per_train, days = {}, 0
+    today = datetime.now(timezone.utc).date()
+    horizon = today - timedelta(days=max(WINDOWS.values()))
+    per_train, days_seen = {}, []
     for path in sorted((ROOT / "history").glob("*.json")):
-        if datetime.strptime(path.stem, "%Y-%m-%d").date() < cutoff:
+        day = datetime.strptime(path.stem, "%Y-%m-%d").date()
+        if day < horizon:
             continue
-        days += 1
+        days_seen.append(day)
         for num, rec in json.loads(path.read_text())["trains"].items():
-            per_train.setdefault(num, []).append(rec)
+            per_train.setdefault(num, []).append((day, rec))
 
     trains = {}
-    for num, recs in sorted(per_train.items()):
-        cancelled = sum(1 for r in recs if r["cancelled"])
-        delays = sorted(
-            r["finalDelayS"] for r in recs if r["finalDelayS"] is not None and not r["cancelled"]
-        )
-        entry = {"obs": len(recs), "cancelledPct": round(100 * cancelled / len(recs))}
-        if delays:
-            entry["onTimePct"] = round(100 * sum(1 for d in delays if d <= ON_TIME_S) / len(delays))
-            entry["medianDelayMin"] = round(delays[len(delays) // 2] / 60)
-            entry["maxDelayMin"] = round(max(delays) / 60)
+    for num, dated in sorted(per_train.items()):
+        entry = {}
+        for name, days in WINDOWS.items():
+            recs = [r for d, r in dated if d >= today - timedelta(days=days)]
+            if recs:
+                entry[name] = _aggregate(recs)
         trains[num] = entry
 
     stats_dir = ROOT / "stats"
@@ -130,8 +141,11 @@ def compute_stats(now_iso):
             {
                 "meta": {
                     "updatedAt": now_iso,
-                    "windowDays": WINDOW_DAYS,
-                    "daysWithData": days,
+                    "windows": WINDOWS,
+                    "daysWithData": {
+                        name: sum(1 for d in days_seen if d >= today - timedelta(days=days))
+                        for name, days in WINDOWS.items()
+                    },
                     "onTimeThresholdMin": ON_TIME_S // 60,
                 },
                 "trains": trains,
