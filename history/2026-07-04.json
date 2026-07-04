@@ -3,7 +3,8 @@
  "samples": [
   "2026-07-04T06:27:27+00:00",
   "2026-07-04T06:28:30+00:00",
-  "2026-07-04T08:31:31+00:00"
+  "2026-07-04T08:31:31+00:00",
+  "2026-07-04T13:48:12+00:00"
  ],
  "trains": {
   "889415": {
@@ -24,10 +25,22 @@
    "maxDelayS": 0,
    "skippedStops": 0
   },
+  "889431": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0
+  },
   "889469": {
    "cancelled": false,
    "finalDelayS": 300,
    "maxDelayS": 300,
+   "skippedStops": 0
+  },
+  "889481": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
    "skippedStops": 0
   }
  }
