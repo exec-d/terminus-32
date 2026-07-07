@@ -67,6 +67,12 @@ a:hover { text-decoration: underline; }
   color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 13px;
   background: var(--bg-card);
 }
+.hero-shot { margin-top: 42px; }
+.hero-shot img {
+  display: block; width: auto; max-width: 78vw; max-height: 50vh;
+  border-radius: 28px; border: 1px solid var(--border);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.75);
+}
 .hero .scroll-hint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
   color: rgba(0, 255, 255, 0.4); font-size: 1.2rem; animation: bob 2.2s ease-in-out infinite; }
 @keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
