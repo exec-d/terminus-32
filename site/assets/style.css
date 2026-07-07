@@ -175,11 +175,12 @@ h2 {
 .lightbox__close:hover { color: var(--neon); border-color: rgba(0, 255, 255, 0.4); }
 
 /* ---------- Effet : ligne 32 pilotée par le scroll ---------- */
-.linerail { position: fixed; left: 0; top: 0; height: 100vh; z-index: 30; pointer-events: none; }
+/* --p = progression (0→1) mise à jour au scroll ; --f = fraction fixe de chaque gare. */
+.linerail { position: fixed; left: 0; top: 0; height: 100vh; z-index: 30; pointer-events: none; --p: 0; }
 .linerail__track { position: absolute; left: 22px; top: 6vh; height: 88vh; width: 2px; background: #1c1c1c; }
-.linerail__fill { position: absolute; left: 0; top: 0; width: 2px; height: 0; background: var(--neon); box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
+.linerail__fill { position: absolute; left: 0; top: 0; width: 2px; height: calc(var(--p) * 100%); background: var(--neon); box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
 .linerail__stop {
-  position: absolute; left: -4px; width: 10px; height: 10px; border-radius: 50%;
+  position: absolute; left: -4px; top: calc(var(--f) * 100%); width: 10px; height: 10px; border-radius: 50%;
   background: var(--bg); border: 2px solid #2a2a2a; transform: translateY(-50%);
   transition: border-color 0.3s, background 0.3s;
 }
@@ -191,20 +192,26 @@ h2 {
 .linerail__end--top { top: calc(6vh - 22px); }
 .linerail__end--bottom { top: calc(94vh + 10px); }
 .linerail__train {
-  position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%;
+  position: absolute; left: -6px; top: calc(var(--p) * 100%); width: 14px; height: 14px; border-radius: 50%;
   background: var(--neon); box-shadow: 0 0 6px var(--neon), 0 0 16px rgba(0, 255, 255, 0.5);
   transform: translateY(-50%);
 }
 .linerail__name {
-  position: absolute; left: 18px; transform: translateY(-50%); white-space: nowrap;
+  position: absolute; left: 18px; top: calc(var(--p) * 100%); transform: translateY(-50%); white-space: nowrap;
   font-family: var(--mono); font-size: 0.72rem; color: var(--text);
   background: rgba(0, 0, 0, 0.72); border: 1px solid var(--border); border-radius: 6px;
   padding: 3px 9px; opacity: 0; transition: opacity 0.25s;
 }
 .linerail__name.show { opacity: 1; }
+
+/* Mobile : pas de gouttière → on bascule en fine barre horizontale en haut, sans texte. */
 @media (max-width: 767px) {
-  .linerail__end { font-size: 0.55rem; }
-  .linerail__name { display: none; }
+  .linerail { height: auto; left: 0; right: 0; width: 100%; }
+  .linerail__track { left: 0; top: 0; width: 100%; height: 2px; }
+  .linerail__fill { width: calc(var(--p) * 100%); height: 2px; }
+  .linerail__stop { top: -4px; left: calc(var(--f) * 100%); transform: translateX(-50%); }
+  .linerail__train { top: -6px; left: calc(var(--p) * 100%); transform: translateX(-50%); }
+  .linerail__end, .linerail__name { display: none; }
 }
 
 /* ---------- Effet : ponctualité en direct ---------- */

@@ -286,7 +286,7 @@
     var dots = [];
     for (var i = 0; i < n; i++) {
       var dot = document.createElement('div'); dot.className = 'linerail__stop';
-      dot.style.top = (i / (n - 1) * 100) + '%';
+      dot.style.setProperty('--f', (i / (n - 1)).toFixed(4));
       track.appendChild(dot); dots.push(dot);
     }
     var train = document.createElement('div'); train.className = 'linerail__train';
@@ -301,9 +301,7 @@
     function frame() {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       var p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
-      fill.style.height = (p * 100) + '%';
-      train.style.top = (p * 100) + '%';
-      name.style.top = (p * 100) + '%';
+      rail.style.setProperty('--p', p.toFixed(4));
       for (var i = 0; i < n; i++) dots[i].classList.toggle('reached', (i / (n - 1)) <= p + 0.0001);
       var idx = Math.round(p * (n - 1));
       if (idx !== cur) {
