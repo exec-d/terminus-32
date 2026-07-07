@@ -176,7 +176,7 @@ h2 {
 
 /* ---------- Effet : ligne 32 pilotée par le scroll ---------- */
 .linerail { position: fixed; left: 0; top: 0; height: 100vh; z-index: 30; pointer-events: none; }
-.linerail__track { position: absolute; left: 22px; top: 14vh; height: 72vh; width: 2px; background: #1c1c1c; }
+.linerail__track { position: absolute; left: 22px; top: 6vh; height: 88vh; width: 2px; background: #1c1c1c; }
 .linerail__fill { position: absolute; left: 0; top: 0; width: 2px; height: 0; background: var(--neon); box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
 .linerail__stop {
   position: absolute; left: -4px; width: 10px; height: 10px; border-radius: 50%;
@@ -188,8 +188,8 @@ h2 {
   position: absolute; left: 20px; white-space: nowrap; font-family: var(--mono);
   font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
 }
-.linerail__end--top { top: calc(14vh - 24px); }
-.linerail__end--bottom { top: calc(86vh + 12px); }
+.linerail__end--top { top: calc(6vh - 22px); }
+.linerail__end--bottom { top: calc(94vh + 10px); }
 .linerail__train {
   position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%;
   background: var(--neon); box-shadow: 0 0 6px var(--neon), 0 0 16px rgba(0, 255, 255, 0.5);
