@@ -12,8 +12,13 @@ La partie **publique** du projet [TERMinus](https://github.com/exec-d/terminus) 
   5 min, retard médian, % suppression) sur **trois fenêtres glissantes** (semaine, mois, année),
   recalculées **3 fois par jour** par le workflow `collect-stats.yml` de ce dépôt
   (`tools/collect.py` échantillonne le flux GTFS-RT).
+- **`stats/downloads.json`** — téléchargements de l'APK par version (`download_count` des assets
+  GitHub Releases), recalculés quotidiennement par le workflow `collect-downloads.yml`
+  (`tools/collect_downloads.py`).
 - **`history/AAAA-MM-JJ.json`** — observations brutes par journée de service (retard final,
   retard max, arrêts sautés, suppression), auditables dans l'historique git.
+- **`history/downloads-AAAA-MM-JJ.json`** — snapshot quotidien des téléchargements APK par version,
+  pour garder un historique temporel.
 - **`app/latest.json`** — manifeste de la dernière version de l'application (version, URL de
   l'APK), publié par la CI du repo app à chaque tag ; c'est lui que l'app consulte pour proposer
   ses mises à jour in-app.
