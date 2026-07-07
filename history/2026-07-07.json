@@ -2,7 +2,8 @@
  "date": "2026-07-07",
  "samples": [
   "2026-07-07T07:02:13+00:00",
-  "2026-07-07T14:51:35+00:00"
+  "2026-07-07T14:51:35+00:00",
+  "2026-07-07T18:09:01+00:00"
  ],
  "trains": {
   "887435": {
@@ -10,6 +11,12 @@
    "finalDelayS": 0,
    "maxDelayS": 0,
    "skippedStops": 0
+  },
+  "887439": {
+   "cancelled": true,
+   "finalDelayS": null,
+   "maxDelayS": 0,
+   "skippedStops": 8
   },
   "887483": {
    "cancelled": false,
@@ -65,6 +72,18 @@
    "maxDelayS": 0,
    "skippedStops": 0
   },
+  "889439": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0
+  },
+  "889441": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0
+  },
   "889465": {
    "cancelled": false,
    "finalDelayS": 0,
@@ -84,6 +103,24 @@
    "skippedStops": 0
   },
   "889483": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0
+  },
+  "889487": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 1
+  },
+  "889489": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0
+  },
+  "889490": {
    "cancelled": false,
    "finalDelayS": 0,
    "maxDelayS": 0,
