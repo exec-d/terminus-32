@@ -1,0 +1,117 @@
+name: Nettoyage CI
+
+on:
+  schedule:
+    - cron: "0 3 * * 0" # dimanche 03:00 UTC
+  workflow_dispatch:
+
+# Moindre privilège : actions (artifacts, caches, runs) + contents (suppression
+# des branches claudettes mergées) + pull-requests en lecture (détection des
+# branches dont la PR est mergée). Rien d'autre.
+permissions:
+  actions: write
+  contents: write
+  pull-requests: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+    steps:
+      # Les APK utiles vivent dans les Releases ; les artifacts ne servent qu'à
+      # récupérer un build entre deux releases. On garde le plus récent de chaque
+      # nom, on supprime le reste au-delà de 7 jours.
+      - name: Artifacts de plus de 7 jours (sauf le dernier de chaque nom)
+        run: |
+          ids=$(gh api "repos/$REPO/actions/artifacts" --paginate -q '.artifacts' \
+            | jq -s 'add // []
+                | group_by(.name)
+                | map(sort_by(.created_at) | reverse | .[1:])
+                | flatten
+                | map(select((.created_at | fromdateiso8601) < (now - 7*86400)))
+                | .[].id')
+          count=0
+          while read -r id; do
+            [ -z "$id" ] && continue
+            count=$((count + 1))
+                echo "suppression artifact $id"
+                gh api -X DELETE "repos/$REPO/actions/artifacts/$id"
+          done <<< "$ids"
+          echo "ARTIFACTS_DELETED=$count" >> "$GITHUB_ENV"
+
+      # Les caches créés par les runs sur tags (releases) ne sont jamais réutilisés :
+      # seuls ceux de main servent aux builds suivants.
+      - name: Caches hors main
+        run: |
+          ids=$(gh api "repos/$REPO/actions/caches" --paginate \
+            -q '.actions_caches[] | select(.ref != "refs/heads/main") | .id')
+          count=0
+          while read -r id; do
+            [ -z "$id" ] && continue
+            count=$((count + 1))
+                echo "suppression cache $id"
+                gh api -X DELETE "repos/$REPO/actions/caches/$id"
+          done <<< "$ids"
+          echo "CACHES_DELETED=$count" >> "$GITHUB_ENV"
+
+      # Purge les runs terminés de plus de 30 jours (logs + artifacts résiduels).
+      - name: Runs terminés de plus de 30 jours
+        run: |
+          ids=$(gh api "repos/$REPO/actions/runs?status=completed" --paginate \
+            -q '.workflow_runs[] | select((.created_at | fromdateiso8601) < (now - 30*86400)) | .id')
+          count=0
+          while read -r id; do
+            [ -z "$id" ] && continue
+            count=$((count + 1))
+                echo "suppression run $id"
+                gh api -X DELETE "repos/$REPO/actions/runs/$id"
+          done <<< "$ids"
+          echo "RUNS_DELETED=$count" >> "$GITHUB_ENV"
+
+      # Les branches claudettes/issue-N sont mergées en squash : leurs commits
+      # n'existent pas tels quels dans main, impossible de comparer les refs.
+      # On se fie à l'état des PRs : supprimée si sa PR est mergée et qu'aucune
+      # PR ouverte ne la référence. La PR reste consultable sur GitHub.
+      - name: Branches claudettes mergées
+        run: |
+          merged=$(gh pr list -R "$REPO" --state merged --limit 200 --json headRefName -q '.[].headRefName' | sort -u)
+          open=$(gh pr list -R "$REPO" --state open --limit 200 --json headRefName -q '.[].headRefName' | sort -u)
+          branches=$(gh api "repos/$REPO/branches" --paginate -q '.[].name' | grep '^claudettes/' || true)
+          scanned=0
+          deleted=0
+          kept=0
+          while read -r br; do
+            [ -z "$br" ] && continue
+            scanned=$((scanned + 1))
+            if echo "$open" | grep -qxF "$br"; then
+              kept=$((kept + 1))
+              echo "branche $br : PR ouverte — conservée"
+            elif echo "$merged" | grep -qxF "$br"; then
+              deleted=$((deleted + 1))
+              echo "suppression branche $br (PR mergée)"
+              gh api -X DELETE "repos/$REPO/git/refs/heads/$br"
+            else
+              kept=$((kept + 1))
+              echo "branche $br : aucune PR mergée — conservée"
+            fi
+          done <<< "$branches"
+          echo "BRANCHES_SCANNED=$scanned" >> "$GITHUB_ENV"
+          echo "BRANCHES_DELETED=$deleted" >> "$GITHUB_ENV"
+          echo "BRANCHES_KEPT=$kept" >> "$GITHUB_ENV"
+
+      - name: Résumé du nettoyage
+        run: |
+          {
+            echo "## Résumé nettoyage CI"
+            echo
+            echo "| Élément | Supprimés |"
+            echo "|---|---:|"
+            echo "| Artifacts (>7 jours, sauf dernier par nom) | ${ARTIFACTS_DELETED:-0} |"
+            echo "| Caches hors main | ${CACHES_DELETED:-0} |"
+            echo "| Runs terminés >30 jours | ${RUNS_DELETED:-0} |"
+            echo "| Branches claudettes/* mergées | ${BRANCHES_DELETED:-0} |"
+            echo
+            echo "Branches claudettes inspectées: ${BRANCHES_SCANNED:-0} (conservées: ${BRANCHES_KEPT:-0})"
+          } >> "$GITHUB_STEP_SUMMARY"
