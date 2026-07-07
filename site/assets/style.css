@@ -204,14 +204,9 @@ h2 {
 }
 .linerail__name.show { opacity: 1; }
 
-/* Mobile : pas de gouttière → on bascule en fine barre horizontale en haut, sans texte. */
+/* Mobile : pas de gouttière → on masque complètement le rail. */
 @media (max-width: 767px) {
-  .linerail { height: auto; left: 0; right: 0; width: 100%; }
-  .linerail__track { left: 0; top: 0; width: 100%; height: 2px; }
-  .linerail__fill { width: calc(var(--p) * 100%); height: 2px; }
-  .linerail__stop { top: -4px; left: calc(var(--f) * 100%); transform: translateX(-50%); }
-  .linerail__train { top: -6px; left: calc(var(--p) * 100%); transform: translateX(-50%); }
-  .linerail__end, .linerail__name { display: none; }
+  .linerail { display: none; }
 }
 
 /* ---------- Effet : ponctualité en direct ---------- */
