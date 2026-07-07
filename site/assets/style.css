@@ -174,18 +174,38 @@ h2 {
 }
 .lightbox__close:hover { color: var(--neon); border-color: rgba(0, 255, 255, 0.4); }
 
-/* ---------- Effet : ligne 32 animée ---------- */
-.route-band { padding: 44px 0 4px; }
-.route-ends {
-  display: flex; justify-content: space-between; padding: 0 4px; margin-bottom: 12px;
-  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+/* ---------- Effet : ligne 32 pilotée par le scroll ---------- */
+.linerail { position: fixed; left: 0; top: 0; height: 100vh; z-index: 30; pointer-events: none; }
+.linerail__track { position: absolute; left: 22px; top: 14vh; height: 72vh; width: 2px; background: #1c1c1c; }
+.linerail__fill { position: absolute; left: 0; top: 0; width: 2px; height: 0; background: var(--neon); box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
+.linerail__stop {
+  position: absolute; left: -4px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--bg); border: 2px solid #2a2a2a; transform: translateY(-50%);
+  transition: border-color 0.3s, background 0.3s;
 }
-.route-svg { width: 100%; height: 40px; display: block; overflow: visible; }
-.route-rail { stroke: #202020; stroke-width: 2; }
-.route-station { fill: var(--bg); stroke: var(--neon-dim); stroke-width: 1.5; }
-.route-station.on { animation: stationPulse 3s ease-in-out infinite; }
-.route-train { fill: var(--neon); filter: drop-shadow(0 0 5px var(--neon)) drop-shadow(0 0 12px rgba(0, 255, 255, 0.5)); }
-@keyframes stationPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.linerail__stop.reached { border-color: var(--neon); background: var(--neon-dim); }
+.linerail__end {
+  position: absolute; left: 20px; white-space: nowrap; font-family: var(--mono);
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+}
+.linerail__end--top { top: calc(14vh - 24px); }
+.linerail__end--bottom { top: calc(86vh + 12px); }
+.linerail__train {
+  position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--neon); box-shadow: 0 0 6px var(--neon), 0 0 16px rgba(0, 255, 255, 0.5);
+  transform: translateY(-50%);
+}
+.linerail__name {
+  position: absolute; left: 18px; transform: translateY(-50%); white-space: nowrap;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--text);
+  background: rgba(0, 0, 0, 0.72); border: 1px solid var(--border); border-radius: 6px;
+  padding: 3px 9px; opacity: 0; transition: opacity 0.25s;
+}
+.linerail__name.show { opacity: 1; }
+@media (max-width: 767px) {
+  .linerail__end { font-size: 0.55rem; }
+  .linerail__name { display: none; }
+}
 
 /* ---------- Effet : ponctualité en direct ---------- */
 #ponctualite .punct { max-width: 760px; margin: 0 auto; text-align: center; }
@@ -207,9 +227,7 @@ h2 {
 .hero-shot img { transition: transform 0.25s ease-out; will-change: transform; }
 .section-illu img[data-parallax] { will-change: transform; }
 @media (prefers-reduced-motion: reduce) {
-  .route-train { display: none; }
-  .route-station.on { animation: none; opacity: 0.7; }
-  .hero-shot img { transition: none; }
+  .linerail__stop, .linerail__fill, .linerail__train, .linerail__name, .hero-shot img { transition: none; }
 }
 
 /* Installation */

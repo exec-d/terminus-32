@@ -47,20 +47,7 @@
   <span class="scroll-hint">↧</span>
 </header>
 
-<div class="route-band" aria-hidden="true">
-  <div class="wrap">
-    <div class="route-ends"><span>Bourg-en-Bresse</span><span>Lyon</span></div>
-    <svg class="route-svg" viewBox="0 0 1000 40" role="img" aria-label="Tracé de la ligne 32 entre Bourg-en-Bresse et Lyon">
-      <line class="route-rail" x1="12" y1="20" x2="988" y2="20"/>
-      <g class="route-stations"></g>
-      <circle class="route-train" r="5" cy="20" cx="12">
-        <animate attributeName="cx" values="12;988;12" dur="7s"
-          calcMode="spline" keyTimes="0;0.5;1"
-          keySplines="0.45 0 0.15 1;0.45 0 0.15 1" repeatCount="indefinite"/>
-      </circle>
-    </svg>
-  </div>
-</div>
+<div class="linerail" aria-hidden="true"></div>
 
 <section id="pourquoi">
   <div class="wrap">
@@ -138,7 +125,7 @@
     <div class="punct fade-in" data-punct>
       <div class="punct-hero">
         <div class="punct-big">
-          <span class="punct-num" data-count="0" data-decimals="0">0</span><span class="punct-pct">%</span>
+          <span class="punct-num" data-count="0" data-decimals="1">0</span><span class="punct-pct">%</span>
         </div>
         <p class="punct-label">à l'heure <span class="muted">· seuil SNCF 5 min</span></p>
       </div>
@@ -147,7 +134,7 @@
         <div class="kpi"><span class="kpi-num" data-count="0" data-decimals="1" data-suffix=" %">0</span><span class="kpi-lbl">supprimés</span></div>
         <div class="kpi"><span class="kpi-num" data-count="0" data-decimals="0">0</span><span class="kpi-lbl">jours de données</span></div>
       </div>
-      <p class="punct-foot muted">Mesuré en continu sur <b data-obs>—</b> passages observés · mis à jour <span data-updated>…</span> · <a href="https://github.com/exec-d/terminus-32/blob/main/stats/line32.json">données ouvertes</a></p>
+      <p class="punct-foot muted">Données collectées depuis le 1<sup>er</sup> juillet 2026 — le flux SNCF ne conserve que la journée en cours, sans historique antérieur. <b data-obs>—</b> passages observés · mis à jour <span data-updated>…</span> · <a href="https://github.com/exec-d/terminus-32/blob/main/stats/line32.json">données ouvertes</a></p>
     </div>
   </div>
 </section>
@@ -285,20 +272,51 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
   })();
 
-  // Effet ligne 32 : place les 13 gares le long du tracé (rappel du logo).
+  // Effet ligne 32 : rail vertical piloté par le scroll — le train descend de
+  // Bourg-en-Bresse (haut) vers Lyon (bas), les gares s'allument au passage.
   (function () {
-    var g = document.querySelector('.route-stations');
-    if (!g) return;
-    var n = 13, x0 = 12, x1 = 988, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var rail = document.querySelector('.linerail');
+    if (!rail) return;
+    var STOPS = ['Bourg-en-Bresse', 'Servas-Lent', 'Saint-Paul-de-Varax', 'Marlieux-Châtillon',
+      'Villars-les-Dombes', 'Saint-Marcel-en-Dombes', 'Saint-André-de-Corcy', 'Mionnay',
+      'Les Échets', 'Sathonay-Rillieux', 'Lyon Part-Dieu', 'Lyon Vaise', 'Lyon Perrache'];
+    var n = STOPS.length;
+    var track = document.createElement('div'); track.className = 'linerail__track';
+    var fill = document.createElement('div'); fill.className = 'linerail__fill'; track.appendChild(fill);
+    var dots = [];
     for (var i = 0; i < n; i++) {
-      var cx = x0 + (x1 - x0) * i / (n - 1);
-      var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', cx.toFixed(1)); c.setAttribute('cy', '20');
-      c.setAttribute('r', (i === 0 || i === n - 1) ? '4.5' : '3');
-      c.setAttribute('class', 'route-station' + (reduce ? '' : ' on'));
-      c.style.animationDelay = (i * 0.16) + 's';
-      g.appendChild(c);
+      var dot = document.createElement('div'); dot.className = 'linerail__stop';
+      dot.style.top = (i / (n - 1) * 100) + '%';
+      track.appendChild(dot); dots.push(dot);
     }
+    var train = document.createElement('div'); train.className = 'linerail__train';
+    var name = document.createElement('div'); name.className = 'linerail__name';
+    track.appendChild(train); track.appendChild(name);
+    rail.appendChild(track);
+    var topEnd = document.createElement('div'); topEnd.className = 'linerail__end linerail__end--top'; topEnd.textContent = STOPS[0];
+    var botEnd = document.createElement('div'); botEnd.className = 'linerail__end linerail__end--bottom'; botEnd.textContent = 'Lyon';
+    rail.appendChild(topEnd); rail.appendChild(botEnd);
+
+    var ticking = false, cur = -1;
+    function frame() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+      fill.style.height = (p * 100) + '%';
+      train.style.top = (p * 100) + '%';
+      name.style.top = (p * 100) + '%';
+      for (var i = 0; i < n; i++) dots[i].classList.toggle('reached', (i / (n - 1)) <= p + 0.0001);
+      var idx = Math.round(p * (n - 1));
+      if (idx !== cur) {
+        cur = idx;
+        if (idx === 0 || idx === n - 1) { name.classList.remove('show'); }
+        else { name.textContent = STOPS[idx]; name.classList.add('show'); }
+      }
+      ticking = false;
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    frame();
   })();
 
   // Effet scroll cinématique : parallaxe, inclinaison du téléphone, révélation en cascade.
@@ -375,19 +393,23 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
         if (!d || !d.trains) { hide(); return; }
-        var win = 'month', num = 0, den = 0, cn = 0, cd = 0;
+        // À l'heure sur TOUS les passages prévus : une suppression n'est pas « à l'heure ».
+        var win = 'month', totalObs = 0, cancelled = 0, onTime = 0;
         Object.keys(d.trains).forEach(function (k) {
           var w = d.trains[k][win] || {}, obs = w.obs || 0;
-          if (typeof w.onTimePct === 'number' && obs) { num += w.onTimePct * obs; den += obs; }
-          if (obs) { cn += (w.cancelledPct || 0) * obs; cd += obs; }
+          if (!obs) return;
+          var ran = obs * (1 - (w.cancelledPct || 0) / 100);
+          totalObs += obs;
+          cancelled += obs * (w.cancelledPct || 0) / 100;
+          if (typeof w.onTimePct === 'number') onTime += ran * w.onTimePct / 100;
         });
-        if (!den) { hide(); return; }
-        band.querySelector('.punct-num').setAttribute('data-count', num / den);
+        if (!totalObs) { hide(); return; }
+        band.querySelector('.punct-num').setAttribute('data-count', 100 * onTime / totalObs);
         var kpis = band.querySelectorAll('.kpi-num');
         kpis[0].setAttribute('data-count', Object.keys(d.trains).length);
-        kpis[1].setAttribute('data-count', cd ? cn / cd : 0);
+        kpis[1].setAttribute('data-count', 100 * cancelled / totalObs);
         kpis[2].setAttribute('data-count', (d.meta && d.meta.daysWithData && d.meta.daysWithData[win]) || 0);
-        var obsEl = band.querySelector('[data-obs]'); if (obsEl) obsEl.textContent = den;
+        var obsEl = band.querySelector('[data-obs]'); if (obsEl) obsEl.textContent = totalObs;
         var upEl = band.querySelector('[data-updated]'); if (upEl && d.meta) upEl.textContent = relTime(d.meta.updatedAt);
 
         var io = new IntersectionObserver(function (entries) {
