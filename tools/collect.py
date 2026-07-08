@@ -224,6 +224,14 @@ def main():
     obs = observe(fetch_feed(), numbers)
     seen = sum(len(t) for t in obs.values())
     print(f"trains ligne 32 dans le flux : {seen} (dates de service : {sorted(obs)})")
+
+    # Diagnostic : log des arrêts non mappés (validation du mapping UIC au 1er run live)
+    known = {uic_of(s["id"]) for s in json.loads((ROOT / "line32.json").read_text())["stations"]}
+    seen_uics = {s["uic"] for t in obs.values() for rec in t.values() for s in rec.get("stops", [])}
+    unknown = seen_uics - known
+    if unknown:
+        print(f"⚠ arrêts hors référentiel (UIC non mappés) : {sorted(unknown)}")
+
     merge_history(obs, now_iso)
     compute_stats(now_iso)
     print("history/ et stats/line32.json à jour")
