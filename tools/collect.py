@@ -20,7 +20,7 @@ from pathlib import Path
 
 from google.transit import gtfs_realtime_pb2
 
-from stats_lib import uic_of
+from stats_lib import aggregate_stations, daily_trend_point, merge_stops, uic_of
 
 ROOT = Path(__file__).resolve().parent.parent
 FEED_URL = "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates"
@@ -114,6 +114,7 @@ def merge_history(obs, now_iso):
                     "maxDelayS": max(old["maxDelayS"], rec["maxDelayS"]),
                     "skippedStops": max(old["skippedStops"], rec["skippedStops"]),
                     "cancelled": old["cancelled"] or rec["cancelled"],
+                    "stops": merge_stops(old.get("stops", []), rec.get("stops", [])),
                 }
             day["trains"][num] = rec
         path.write_text(json.dumps(day, indent=1, sort_keys=True) + "\n")
@@ -168,6 +169,35 @@ def compute_stats(now_iso):
                     "onTimeThresholdMin": ON_TIME_S // 60,
                 },
                 "trains": trains,
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+
+    station_ref = json.loads((ROOT / "line32.json").read_text())["stations"]
+    days_records = [
+        json.loads(p.read_text())
+        for p in sorted((ROOT / "history").glob("*.json"))
+        if datetime.strptime(p.stem, "%Y-%m-%d").date() >= horizon
+    ]
+    (stats_dir / "trend.json").write_text(
+        json.dumps(
+            {
+                "meta": {"updatedAt": now_iso, "onTimeThresholdMin": ON_TIME_S // 60},
+                "points": [daily_trend_point(d) for d in days_records],
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+    (stats_dir / "stations.json").write_text(
+        json.dumps(
+            {
+                "meta": {"updatedAt": now_iso},
+                "stations": aggregate_stations(days_records, station_ref),
             },
             indent=1,
             sort_keys=True,
