@@ -23,6 +23,7 @@ from google.transit import gtfs_realtime_pb2
 ROOT = Path(__file__).resolve().parent.parent
 FEED_URL = "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates"
 TRAIN_RE = re.compile(r"OCESN(\d+)")
+OBS_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ON_TIME_S = 300  # seuil SNCF : à l'heure si retard final <= 5 min
 WINDOWS = {"week": 7, "month": 30, "year": 365}  # fenêtres glissantes, en jours
 
@@ -118,6 +119,11 @@ def compute_stats(now_iso):
     horizon = today - timedelta(days=max(WINDOWS.values()))
     per_train, days_seen = {}, []
     for path in sorted((ROOT / "history").glob("*.json")):
+        # `history/` contient aussi des snapshots de téléchargements
+        # (`downloads-YYYY-MM-DD.json`) : on ne doit agréger que les observations
+        # de ponctualité `YYYY-MM-DD.json`.
+        if not OBS_DATE_RE.match(path.stem):
+            continue
         day = datetime.strptime(path.stem, "%Y-%m-%d").date()
         if day < horizon:
             continue
