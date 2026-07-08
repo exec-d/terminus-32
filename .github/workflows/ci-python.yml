@@ -1,0 +1,34 @@
+name: CI pipeline (Python)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/**'
+      - '.github/workflows/ci-python.yml'
+  pull_request:
+    paths:
+      - 'tools/**'
+      - '.github/workflows/ci-python.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-python-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Dépendances
+        run: pip install -r tools/requirements.txt
+      - name: Tests
+        run: python -m pytest tools -q
