@@ -11,7 +11,21 @@ export default [
   ...svelte.configs['flat/prettier'],
   {
     languageOptions: {
-      globals: { fetch: 'readonly', process: 'readonly' }
+      globals: {
+        fetch: 'readonly',
+        process: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        requestAnimationFrame: 'readonly'
+      }
+    },
+    rules: {
+      // Autorise les identifiants préfixés `_` (ex. `{#each items as _, i}` quand
+      // seul l'index est utilisé) à rester non utilisés.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }
+      ]
     }
   },
   {
