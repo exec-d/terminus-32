@@ -8,7 +8,7 @@
 </script>
 
 <Header />
-<main class="container">
+<main>
   {@render children()}
 </main>
 <Footer />

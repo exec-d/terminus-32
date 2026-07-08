@@ -12,9 +12,11 @@
         'https://raw.githubusercontent.com/exec-d/terminus-32/main/app/latest.json'
       );
       const info = r.ok ? await r.json() : null;
-      if (!info?.apkUrl) return;
-      apkUrl = info.apkUrl;
-      version = info.version;
+      const next = info?.apkUrl;
+      if (typeof next === 'string' && /^https:\/\//i.test(next)) {
+        apkUrl = next;
+        version = typeof info.version === 'string' ? info.version : null;
+      }
     } catch {
       // le bouton retombe sur la page des releases
     }

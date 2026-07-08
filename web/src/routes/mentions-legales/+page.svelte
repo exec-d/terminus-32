@@ -5,7 +5,9 @@
 
 <style>
   .placeholder {
-    padding-block: var(--space-6) var(--space-5);
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding: var(--space-6) var(--space-3) var(--space-5);
   }
   h1 {
     margin: 0 0 var(--space-2);
