@@ -15,13 +15,7 @@ const config = {
       precompress: false,
       strict: true
     }),
-    paths: { base: dev ? '' : '/terminus-32', relative: false },
-    prerender: {
-      // Le Hero lie "#pourquoi" (ancre vers la section "Pourquoi", ajoutée par
-      // un composant ultérieur du portage) : ne pas casser le build tant que
-      // la cible n'existe pas encore sur la page.
-      handleMissingId: 'warn'
-    }
+    paths: { base: dev ? '' : '/terminus-32', relative: false }
   }
 };
 

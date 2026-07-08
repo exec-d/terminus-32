@@ -5,7 +5,8 @@
 <footer class="site-footer">
   <div class="container">
     TERMinus est une application <b>non officielle</b>, non affiliée à la SNCF.<br />
-    Données SNCF · transport.data.gouv.fr · licence ODbL ·
+    Données SNCF · <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a> · licence
+    ODbL ·
     <a href="https://github.com/exec-d/terminus-32">GitHub</a> ·
     <a href="https://github.com/sponsors/kdelfour">Soutenir le projet</a><br />
     © 2026 Kevin Delfour
