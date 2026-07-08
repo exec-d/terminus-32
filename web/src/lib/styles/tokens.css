@@ -4,6 +4,9 @@
   --fg: #f2f4f5;
   --muted: #9aa3a8;
   --accent: #22d3ee; /* cyan « TER » */
+  --accent-dim: #0e9bb5; /* cyan « TER » atténué (ex- --neon-dim) */
+  --warning: #fbbf24;
+  --bg-card: var(--surface); /* alias de compat pour le portage landing */
   --surface: #0b0d0e;
   --border: #1c2224;
 
