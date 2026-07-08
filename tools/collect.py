@@ -133,11 +133,23 @@ def _aggregate(recs):
     return entry
 
 
+_DATE_STEM = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def _history_paths():
+    """Fichiers d'historique journaliers, triés par date.
+
+    Exclut history/downloads-*.json (écrits par collect_downloads.py) dont le nom
+    ne parse pas en date — sinon strptime lève ValueError et le calcul plante.
+    """
+    return [p for p in sorted((ROOT / "history").glob("*.json")) if _DATE_STEM.match(p.stem)]
+
+
 def compute_stats(now_iso):
     today = datetime.now(timezone.utc).date()
     horizon = today - timedelta(days=max(WINDOWS.values()))
     per_train, days_seen = {}, []
-    for path in sorted((ROOT / "history").glob("*.json")):
+    for path in _history_paths():
         day = datetime.strptime(path.stem, "%Y-%m-%d").date()
         if day < horizon:
             continue
@@ -179,7 +191,7 @@ def compute_stats(now_iso):
     station_ref = json.loads((ROOT / "line32.json").read_text())["stations"]
     days_records = [
         json.loads(p.read_text())
-        for p in sorted((ROOT / "history").glob("*.json"))
+        for p in _history_paths()
         if datetime.strptime(p.stem, "%Y-%m-%d").date() >= horizon
     ]
     (stats_dir / "trend.json").write_text(
