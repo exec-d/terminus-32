@@ -11,13 +11,7 @@ export default [
   ...svelte.configs['flat/prettier'],
   {
     languageOptions: {
-      globals: {
-        fetch: 'readonly',
-        process: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
-        requestAnimationFrame: 'readonly'
-      }
+      globals: { fetch: 'readonly', process: 'readonly' }
     },
     rules: {
       // Autorise les identifiants préfixés `_` (ex. `{#each items as _, i}` quand
@@ -30,7 +24,11 @@ export default [
   },
   {
     files: ['**/*.svelte'],
-    languageOptions: { parserOptions: { parser: ts.parser } }
+    languageOptions: { parserOptions: { parser: ts.parser } },
+    // `no-undef` est désactivé pour les `.svelte` comme il l'est déjà pour les `.ts`
+    // (ts-eslint recommended) : svelte-check fait autorité sur les identifiants non
+    // définis dans les `<script>` ; ESLint core ne connaît pas les globals navigateur.
+    rules: { 'no-undef': 'off' }
   },
   {
     ignores: ['build/', '.svelte-kit/', 'package/', 'node_modules/']
