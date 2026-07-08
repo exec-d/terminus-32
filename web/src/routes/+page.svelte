@@ -3,6 +3,7 @@
   import Hero from '$lib/components/Hero.svelte';
   import WhySection from '$lib/components/WhySection.svelte';
   import FeaturesSection from '$lib/components/FeaturesSection.svelte';
+  import PunctSummary from '$lib/components/PunctSummary.svelte';
 </script>
 
 <Seo
@@ -13,3 +14,4 @@
 <Hero />
 <WhySection />
 <FeaturesSection />
+<PunctSummary />
