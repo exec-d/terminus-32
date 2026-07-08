@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "updatedAt": "2026-07-08T08:43:45+00:00",
+    "source": "github-releases",
+    "repo": "exec-d/terminus-32"
+  },
+  "versions": [
+    {
+      "tag": "v0.5.0",
+      "publishedAt": "2026-07-07T18:22:12Z",
+      "apkName": "terminus-v0.5.0.apk",
+      "downloadCount": 2
+    },
+    {
+      "tag": "v0.4.3",
+      "publishedAt": "2026-07-07T07:23:40Z",
+      "apkName": "terminus-v0.4.3.apk",
+      "downloadCount": 2
+    },
+    {
+      "tag": "v0.4.2",
+      "publishedAt": "2026-07-06T16:42:13Z",
+      "apkName": "terminus-v0.4.2.apk",
+      "downloadCount": 3
+    },
+    {
+      "tag": "v0.4.1",
+      "publishedAt": "2026-07-06T16:22:44Z",
+      "apkName": "terminus-v0.4.1.apk",
+      "downloadCount": 1
+    },
+    {
+      "tag": "v0.4.0",
+      "publishedAt": "2026-07-06T13:03:35Z",
+      "apkName": "terminus-v0.4.0.apk",
+      "downloadCount": 2
+    },
+    {
+      "tag": "v0.3.0",
+      "publishedAt": "2026-07-05T12:05:03Z",
+      "apkName": "terminus-v0.3.0.apk",
+      "downloadCount": 4
+    },
+    {
+      "tag": "v0.2.0",
+      "publishedAt": "2026-07-05T09:34:08Z",
+      "apkName": "terminus-v0.2.0.apk",
+      "downloadCount": 1
+    }
+  ],
+  "totals": {
+    "allApkDownloads": 15
+  }
+}
