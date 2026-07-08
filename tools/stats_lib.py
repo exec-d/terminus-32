@@ -43,3 +43,49 @@ def daily_trend_point(day):
         "onTimePct": round(100 * on_time / obs),
         "cancelledPct": round(100 * cancelled / obs),
     }
+
+
+def merge_stops(a, b):
+    """Fusionne deux listes d'arrêts {uic, delayS, skipped} par uic (idempotent)."""
+    merged = {}
+    for s in list(a) + list(b):
+        cur = merged.get(s["uic"])
+        if cur is None:
+            merged[s["uic"]] = {"uic": s["uic"], "delayS": s.get("delayS"), "skipped": bool(s.get("skipped"))}
+        else:
+            if s.get("delayS") is not None:
+                cur["delayS"] = s["delayS"]
+            cur["skipped"] = cur["skipped"] or bool(s.get("skipped"))
+    return [merged[k] for k in sorted(merged)]
+
+
+def _median(values):
+    vs = sorted(values)
+    return vs[len(vs) // 2] if vs else None
+
+
+def aggregate_stations(days, station_ref):
+    """Agrège le retard par gare sur plusieurs journées, dans l'ordre de station_ref."""
+    delays, skips, obs = {}, {}, {}
+    for day in days:
+        for rec in day.get("trains", {}).values():
+            for s in rec.get("stops", []):
+                u = s["uic"]
+                obs[u] = obs.get(u, 0) + 1
+                if s.get("skipped"):
+                    skips[u] = skips.get(u, 0) + 1
+                elif s.get("delayS") is not None:
+                    delays.setdefault(u, []).append(s["delayS"])
+    out = []
+    for order, station in enumerate(station_ref):
+        u = uic_of(station["id"])
+        n = obs.get(u, 0)
+        out.append({
+            "uic": u,
+            "name": station["name"],
+            "order": order,
+            "obs": n,
+            "medianDelayS": _median(delays.get(u, [])),
+            "skippedPct": round(100 * skips.get(u, 0) / n) if n else 0,
+        })
+    return out
