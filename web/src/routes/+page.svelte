@@ -4,6 +4,7 @@
   import WhySection from '$lib/components/WhySection.svelte';
   import FeaturesSection from '$lib/components/FeaturesSection.svelte';
   import PunctSummary from '$lib/components/PunctSummary.svelte';
+  import Gallery from '$lib/components/Gallery.svelte';
 </script>
 
 <Seo
@@ -15,3 +16,4 @@
 <WhySection />
 <FeaturesSection />
 <PunctSummary />
+<Gallery />
