@@ -227,6 +227,7 @@
     border: 1px solid var(--border);
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8);
     will-change: transform;
+    transition: transform 0.25s ease-out;
   }
   @media (max-width: 820px) {
     .hero-inner {

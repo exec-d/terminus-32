@@ -4,17 +4,17 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p class="muted">
-      Application non officielle, non affiliée à la SNCF. Données SNCF (ODbL) via
-      <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a>.
-    </p>
-    <p class="muted links">
+    TERMinus est une application <b>non officielle</b>, non affiliée à la SNCF.<br />
+    Données SNCF · transport.data.gouv.fr · licence ODbL ·
+    <a href="https://github.com/exec-d/terminus-32">GitHub</a> ·
+    <a href="https://github.com/sponsors/kdelfour">Soutenir le projet</a><br />
+    © 2026 Kevin Delfour
+    <div class="footer-legal">
       <a href="{base}/mentions-legales/">Mentions légales</a> ·
       <a href="{base}/confidentialite/">Confidentialité</a> ·
       <a href="{base}/cgu/">CGU</a> ·
-      <a href="{base}/contact/">Contact</a> ·
-      <a href="https://github.com/exec-d/terminus-32">GitHub</a>
-    </p>
+      <a href="{base}/contact/">Contact</a>
+    </div>
   </div>
 </footer>
 
@@ -22,10 +22,22 @@
   .site-footer {
     border-top: 1px solid var(--border);
     margin-top: var(--space-6);
-    padding-block: var(--space-5);
-    font-size: 0.9rem;
+    padding: 44px 0 56px;
+    text-align: center;
+    color: #555;
+    font-size: 0.78rem;
+    line-height: 2.1;
   }
-  .links {
-    margin-top: var(--space-2);
+  .site-footer b {
+    color: var(--muted);
+  }
+  .footer-legal {
+    margin-top: 6px;
+  }
+  .footer-legal a {
+    color: var(--muted);
+  }
+  .footer-legal a:hover {
+    color: var(--accent);
   }
 </style>
