@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { aggregatePunctuality, type Line32Stats } from '$lib/data/punctuality';
+  import { aggregatePunctuality } from '$lib/data/punctuality';
+  import { fetchLine32Stats } from '$lib/data/sources';
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import { reveal } from '$lib/actions/reveal';
@@ -65,10 +66,7 @@
 
     (async () => {
       try {
-        const res = await fetch(
-          'https://raw.githubusercontent.com/exec-d/terminus-32/main/stats/line32.json'
-        );
-        const d = (res.ok ? await res.json() : null) as Line32Stats | null;
+        const d = await fetchLine32Stats();
         if (!d || !d.trains) {
           show = false;
           return;

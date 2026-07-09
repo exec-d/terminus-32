@@ -1,24 +1,19 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
+  import { fetchLatestApp } from '$lib/data/sources';
 
   let version = $state<string | null>(null);
   let apkUrl = $state('https://github.com/exec-d/terminus-32/releases/latest');
 
   onMount(async () => {
     // Version + lien direct depuis le manifeste publié par la CI à chaque release.
-    try {
-      const r = await fetch(
-        'https://raw.githubusercontent.com/exec-d/terminus-32/main/app/latest.json'
-      );
-      const info = r.ok ? await r.json() : null;
-      const next = info?.apkUrl;
-      if (typeof next === 'string' && /^https:\/\//i.test(next)) {
-        apkUrl = next;
-        version = typeof info.version === 'string' ? info.version : null;
-      }
-    } catch {
-      // le bouton retombe sur la page des releases
+    // Si la récupération échoue ou que l'URL n'est pas https, le bouton
+    // retombe silencieusement sur la page des releases (cf. fetchLatestApp).
+    const app = await fetchLatestApp();
+    if (app) {
+      apkUrl = app.apkUrl;
+      version = app.version || null;
     }
   });
 </script>
