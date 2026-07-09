@@ -42,8 +42,9 @@ export interface TrendData {
   meta: { updatedAt: string; onTimeThresholdMin: number };
   points: TrendPoint[];
 }
-export function fetchTrend(): Promise<TrendData | null> {
-  return fetchJson<TrendData>('stats/trend.json');
+export async function fetchTrend(): Promise<TrendData | null> {
+  const data = await fetchJson<TrendData>('stats/trend.json');
+  return data && Array.isArray(data.points) ? data : null;
 }
 
 export interface StationStat {
@@ -58,6 +59,7 @@ export interface StationsData {
   meta: { updatedAt: string };
   stations: StationStat[];
 }
-export function fetchStations(): Promise<StationsData | null> {
-  return fetchJson<StationsData>('stats/stations.json');
+export async function fetchStations(): Promise<StationsData | null> {
+  const data = await fetchJson<StationsData>('stats/stations.json');
+  return data && Array.isArray(data.stations) ? data : null;
 }

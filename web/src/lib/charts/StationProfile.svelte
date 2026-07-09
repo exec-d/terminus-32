@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { StationStat } from '../data/sources';
-  import { linePath } from './geometry';
 
   // Profil du retard médian (en minutes) le long de la ligne, gare par gare
   // (ordre Bourg-en-Bresse → Lyon). Le pipeline vient de démarrer la collecte
@@ -20,7 +19,26 @@
   const withData = $derived(sorted.filter((s) => s.medianDelayS != null));
   const mins = $derived(sorted.map((s) => (s.medianDelayS ?? 0) / 60));
   const max = $derived(Math.max(2, ...mins));
-  const path = $derived(linePath(mins, W, H, 0, max));
+
+  // Le tracé ne relie que les gares consécutives qui ont une donnée : une
+  // gare sans donnée (medianDelayS null) coupe la ligne plutôt que d'y
+  // injecter un faux 0 (honnêteté — cf. commentaire en tête de fichier).
+  const linePathSegmented = $derived.by(() => {
+    const n = sorted.length;
+    let d = '';
+    let pen = false; // pen down = la gare précédente avait une donnée
+    sorted.forEach((s, i) => {
+      if (s.medianDelayS == null) {
+        pen = false;
+        return;
+      }
+      const px = n > 1 ? (i / (n - 1)) * W : W / 2;
+      const py = max === 0 ? H / 2 : H - (s.medianDelayS / 60 / max) * H;
+      d += `${pen ? 'L' : 'M'}${px.toFixed(2)},${py.toFixed(2)} `;
+      pen = true;
+    });
+    return d.trim();
+  });
 
   function x(i: number): number {
     return sorted.length < 2 ? W / 2 : (i / (sorted.length - 1)) * W;
@@ -52,7 +70,7 @@
       <text class="grid-label" x="0" y="14">{max.toFixed(0)} min</text>
       <line class="grid" x1="0" y1={H - 1} x2={W} y2={H - 1} />
       <text class="grid-label" x="0" y={H - 6}>0 min</text>
-      <path class="line" d={path} />
+      <path class="line" d={linePathSegmented} />
       {#each sorted as s, i (s.order)}
         <circle
           class="point"

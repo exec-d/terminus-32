@@ -80,6 +80,9 @@
 </p>
 
 <style>
+  h1 {
+    margin: 0 0 var(--space-2);
+  }
   .stats-big {
     display: flex;
     align-items: baseline;

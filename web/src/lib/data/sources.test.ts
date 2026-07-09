@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { isHttpsUrl, fetchJson, fetchLatestApp } from './sources';
+import { isHttpsUrl, fetchJson, fetchLatestApp, fetchTrend } from './sources';
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -48,5 +48,20 @@ describe('fetchLatestApp', () => {
         new Response(JSON.stringify({ version: '1.2', apkUrl: 'https://x/y.apk' }), { status: 200 })
     );
     expect(await fetchLatestApp()).toEqual({ version: '1.2', apkUrl: 'https://x/y.apk' });
+  });
+});
+
+describe('fetchTrend', () => {
+  it('renvoie null si trend.json est mal formé (pas de points)', async () => {
+    stubFetch(() => new Response(JSON.stringify({}), { status: 200 }));
+    expect(await fetchTrend()).toBeNull();
+  });
+  it('renvoie les données quand trend.json est valide', async () => {
+    const data = {
+      meta: { updatedAt: '2026-07-08', onTimeThresholdMin: 5 },
+      points: [{ date: '2026-07-01', obs: 10, onTimePct: 95, cancelledPct: 1 }]
+    };
+    stubFetch(() => new Response(JSON.stringify(data), { status: 200 }));
+    expect(await fetchTrend()).toEqual(data);
   });
 });
