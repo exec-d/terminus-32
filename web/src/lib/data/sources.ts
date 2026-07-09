@@ -32,6 +32,33 @@ export function fetchLine32Stats(): Promise<Line32Stats | null> {
   return fetchJson<Line32Stats>('stats/line32.json');
 }
 
+export interface TripLabel {
+  dep: string; // heure de départ "HH:MM"
+  dir: string; // "bebToLyon" | "lyonToBeb"
+}
+
+/** Table numéro de train → heure de départ + sens, extraite du référentiel line32.json
+ *  (permet d'étiqueter les stats par horaire plutôt que par numéro de train). */
+export async function fetchTrainLabels(): Promise<Record<string, TripLabel>> {
+  const ref = await fetchJson<{
+    trips?: Array<{
+      tripId?: string;
+      direction?: string;
+      stops?: Array<{ dep?: string; arr?: string }>;
+    }>;
+  }>('line32.json');
+  const map: Record<string, TripLabel> = {};
+  if (!ref?.trips) return map;
+  for (const t of ref.trips) {
+    const m = t.tripId ? /OCESN(\d+)/.exec(t.tripId) : null;
+    if (!m || map[m[1]]) continue; // premier trip rencontré pour ce numéro
+    const first = t.stops?.[0];
+    const dep = (first?.dep ?? first?.arr ?? '').slice(0, 5); // "05:17:00" → "05:17"
+    map[m[1]] = { dep, dir: t.direction ?? '' };
+  }
+  return map;
+}
+
 export interface TrendPoint {
   date: string;
   obs: number;
