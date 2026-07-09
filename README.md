@@ -24,8 +24,8 @@ La partie **publique** du projet [TERMinus](https://github.com/exec-d/terminus) 
   ses mises à jour in-app.
 - **[Releases](https://github.com/exec-d/terminus-32/releases)** — les APK signés de chaque
   version, téléchargeables anonymement (le repo app est privé).
-- **`site/`** — la landing page, déployée sur GitHub Pages par `.github/workflows/pages.yml` :
-  <https://exec-d.github.io/terminus-32/>
+- **`web/`** — le site (application **SvelteKit**), construit puis déployé sur GitHub Pages par
+  `.github/workflows/pages.yml` : <https://exec-d.github.io/terminus-32/>
 
 L'app télécharge ces fichiers à la volée (mise à jour OTA, sans réinstallation).
 
