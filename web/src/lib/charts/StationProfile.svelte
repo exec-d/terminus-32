@@ -8,7 +8,7 @@
   // masquer — la ligne ne doit pas mentir sur ce qu'on sait vs. ce qu'on ne
   // sait pas encore. Noms de gares tronqués + tracé sans animation (safe
   // vis-à-vis de prefers-reduced-motion).
-  let { stations }: { stations: StationStat[] } = $props();
+  let { stations, emptyNote = '' }: { stations: StationStat[]; emptyNote?: string } = $props();
 
   const W = 640;
   const H = 200;
@@ -59,6 +59,7 @@
 
 {#if withData.length === 0}
   <p class="chart-empty muted">Données par gare à venir.</p>
+  {#if emptyNote}<p class="chart-note muted">{emptyNote}</p>{/if}
 {:else}
   <figure class="stationprofile">
     <svg
@@ -99,6 +100,10 @@
   .chart-empty {
     font-family: var(--font-mono);
     font-size: 0.85rem;
+  }
+  .chart-note {
+    font-size: 0.8rem;
+    margin-top: var(--space-2);
   }
   .stationprofile {
     margin: 0;

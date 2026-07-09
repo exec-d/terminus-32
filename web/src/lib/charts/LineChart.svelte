@@ -9,8 +9,16 @@
     labels,
     min = 0,
     max = 100,
-    unit = ''
-  }: { values: number[]; labels: string[]; min?: number; max?: number; unit?: string } = $props();
+    unit = '',
+    emptyNote = ''
+  }: {
+    values: number[];
+    labels: string[];
+    min?: number;
+    max?: number;
+    unit?: string;
+    emptyNote?: string;
+  } = $props();
 
   const W = 600;
   const H = 200;
@@ -21,6 +29,7 @@
 
 {#if values.length < 2}
   <p class="chart-empty muted">Pas encore assez de données.</p>
+  {#if emptyNote}<p class="chart-note muted">{emptyNote}</p>{/if}
 {:else}
   <figure class="linechart">
     <svg
@@ -46,6 +55,10 @@
   .chart-empty {
     font-family: var(--font-mono);
     font-size: 0.85rem;
+  }
+  .chart-note {
+    font-size: 0.8rem;
+    margin-top: var(--space-2);
   }
   .linechart {
     margin: 0;
