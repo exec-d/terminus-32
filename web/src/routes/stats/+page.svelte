@@ -101,7 +101,8 @@
         « Le 17h12 vers Lyon est-il souvent à l'heure ? » Une barre par horaire, selon son
         <b>heure de départ</b> et sa <b>fiabilité</b> (% à l'heure sur tous les passages, une suppression
         comptant comme non à l'heure). La ligne de tendance par-dessus montre l'allure de la journée —
-        les creux, ce sont les horaires à éviter. La couleur indique le sens.
+        les creux, ce sont les horaires à éviter. La couleur code la fiabilité : vert au-dessus de 90
+        %, orange puis rouge en dessous.
       </p>
     </div>
     <div class="stat-chart">

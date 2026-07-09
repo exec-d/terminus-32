@@ -10,6 +10,11 @@
   --surface: #0b0d0e;
   --border: #1c2224;
 
+  /* Fiabilité (diagramme horaire) : feu tricolore — vert ≥ 90 %, orange, rouge */
+  --rel-good: #34d399;
+  --rel-mid: #fb923c;
+  --rel-bad: #f87171;
+
   /* Typo */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;

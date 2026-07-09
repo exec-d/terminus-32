@@ -58,7 +58,9 @@
   });
 
   const yLines = [0, 50, 100];
-  const dirColor = (dir: string) => (dir === 'lyonToBeb' ? 'var(--accent-dim)' : 'var(--accent)');
+  // Feu tricolore selon la fiabilité : vert ≥ 90 %, orange 75–90 %, rouge < 75 %.
+  const relColor = (r: number) =>
+    r >= 90 ? 'var(--rel-good)' : r >= 75 ? 'var(--rel-mid)' : 'var(--rel-bad)';
 </script>
 
 {#if pts.length === 0}
@@ -82,7 +84,7 @@
         width={barW}
         height={baseY - yTop(p.reliability)}
         rx="1.5"
-        fill={dirColor(p.dir)}
+        fill={relColor(p.reliability)}
       >
         <title
           >{p.label} · {p.reliability} % à l'heure · {p.cancelledPct} % suppr. · {p.obs} passages</title
@@ -95,9 +97,10 @@
     {/each}
   </svg>
   <div class="hr-legend muted">
-    <span><i style="background: var(--accent)"></i> Bourg → Lyon</span>
-    <span><i style="background: var(--accent-dim)"></i> Lyon → Bourg</span>
-    <span class="hr-axis">— tendance · ↑ % à l'heure</span>
+    <span><i style="background: var(--rel-good)"></i> ≥ 90 %</span>
+    <span><i style="background: var(--rel-mid)"></i> 75–90 %</span>
+    <span><i style="background: var(--rel-bad)"></i> &lt; 75 %</span>
+    <span class="hr-axis">— tendance · ↑ % à l'heure · → heure de départ</span>
   </div>
 {/if}
 
