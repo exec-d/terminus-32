@@ -1,0 +1,44 @@
+{
+ "meta": {
+  "onTimeThresholdMin": 5,
+  "updatedAt": "2026-07-09T15:24:26+00:00"
+ },
+ "points": [
+  {
+   "cancelledPct": 0,
+   "date": "2026-07-04",
+   "obs": 6,
+   "onTimePct": 100
+  },
+  {
+   "cancelledPct": 0,
+   "date": "2026-07-05",
+   "obs": 4,
+   "onTimePct": 100
+  },
+  {
+   "cancelledPct": 0,
+   "date": "2026-07-06",
+   "obs": 13,
+   "onTimePct": 100
+  },
+  {
+   "cancelledPct": 5,
+   "date": "2026-07-07",
+   "obs": 20,
+   "onTimePct": 95
+  },
+  {
+   "cancelledPct": 0,
+   "date": "2026-07-08",
+   "obs": 16,
+   "onTimePct": 94
+  },
+  {
+   "cancelledPct": 19,
+   "date": "2026-07-09",
+   "obs": 16,
+   "onTimePct": 56
+  }
+ ]
+}

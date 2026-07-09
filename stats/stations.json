@@ -1,0 +1,111 @@
+{
+ "meta": {
+  "updatedAt": "2026-07-09T15:24:26+00:00"
+ },
+ "stations": [
+  {
+   "medianDelayS": 0,
+   "name": "Saint-Paul-de-Varax",
+   "obs": 8,
+   "order": 0,
+   "skippedPct": 25,
+   "uic": "87723783"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Villars-les-Dombes",
+   "obs": 11,
+   "order": 1,
+   "skippedPct": 27,
+   "uic": "87723759"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Saint-Andr\u00e9-de-Corcy",
+   "obs": 10,
+   "order": 2,
+   "skippedPct": 30,
+   "uic": "87723734"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Bourg-en-Bresse",
+   "obs": 8,
+   "order": 3,
+   "skippedPct": 25,
+   "uic": "87743005"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Servas - Lent",
+   "obs": 8,
+   "order": 4,
+   "skippedPct": 25,
+   "uic": "87723791"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Marlieux - Ch\u00e2tillon",
+   "obs": 8,
+   "order": 5,
+   "skippedPct": 25,
+   "uic": "87723767"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Saint-Marcel en Dombes",
+   "obs": 10,
+   "order": 6,
+   "skippedPct": 30,
+   "uic": "87723742"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Mionnay",
+   "obs": 10,
+   "order": 7,
+   "skippedPct": 30,
+   "uic": "87723726"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Les \u00c9chets",
+   "obs": 10,
+   "order": 8,
+   "skippedPct": 30,
+   "uic": "87723718"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Sathonay - Rillieux",
+   "obs": 11,
+   "order": 9,
+   "skippedPct": 27,
+   "uic": "87723700"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Lyon Part Dieu",
+   "obs": 11,
+   "order": 10,
+   "skippedPct": 27,
+   "uic": "87723197"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Lyon Perrache",
+   "obs": 11,
+   "order": 11,
+   "skippedPct": 18,
+   "uic": "87722025"
+  },
+  {
+   "medianDelayS": 0,
+   "name": "Lyon Vaise",
+   "obs": 10,
+   "order": 12,
+   "skippedPct": 30,
+   "uic": "87721001"
+  }
+ ]
+}
