@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Conteneur large (ex-.wrap de la landing) */
+.wrap {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Marque bicolore, factorisée (utilisée par Header, Hero, etc.) */
+.w-ter {
+  color: var(--accent);
+}
+.w-minus {
+  color: #fff;
+}
+
+/* Sections de contenu de la landing */
+section {
+  padding: 96px 0;
+}
+section + section {
+  border-top: 1px solid var(--border);
+}
+h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 3.4vw, 1.75rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Révélation au scroll (posée par l'action reveal) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Contenu documentaire (docs + pages légales) */
+.doc {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-3) var(--space-6);
+}
+.doc h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--accent);
+  margin: 0 0 var(--space-2);
+}
+.doc .updated {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-5);
+}
+.doc h2 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  text-align: left;
+  color: var(--fg);
+  margin: var(--space-5) 0 var(--space-2);
+}
+.doc p {
+  color: var(--muted);
+  margin-bottom: var(--space-3);
+}
+.doc .lead {
+  color: var(--fg);
+  font-size: 1.05rem;
+}
+.doc ul {
+  color: var(--muted);
+  margin: 0 0 var(--space-3) 1.4rem;
+}
+.doc li {
+  margin-bottom: var(--space-2);
+}
+.doc b {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* Accessibilité : neutralise les animations si l'utilisateur le demande */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

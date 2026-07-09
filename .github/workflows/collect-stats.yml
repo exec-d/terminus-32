@@ -33,7 +33,7 @@ jobs:
           python-version: '3.12'
 
       - name: Dépendances
-        run: pip install --quiet gtfs-realtime-bindings
+        run: pip install -r tools/requirements.txt
 
       - name: Collecte + stats
         run: python tools/collect.py

@@ -1,4 +1,4 @@
-# Déploie la landing page (site/) sur GitHub Pages.
+# Build SvelteKit (web/) puis déploiement sur GitHub Pages.
 # Prérequis (fait) : Settings → Pages → Source = GitHub Actions.
 name: Pages
 
@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'site/**'
+      - 'web/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -22,17 +22,35 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    defaults:
+      run:
+        working-directory: web
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Upload du site statique
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # `path` est résolu depuis la racine du dépôt (pas depuis working-directory).
+      - name: Upload du build SvelteKit
         uses: actions/upload-pages-artifact@v5
         with:
-          path: site
+          path: web/build
 
       - name: Déploiement Pages
         id: deployment

@@ -20,10 +20,11 @@ from pathlib import Path
 
 from google.transit import gtfs_realtime_pb2
 
+from stats_lib import aggregate_stations, daily_trend_point, merge_stops, uic_of
+
 ROOT = Path(__file__).resolve().parent.parent
 FEED_URL = "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates"
 TRAIN_RE = re.compile(r"OCESN(\d+)")
-OBS_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ON_TIME_S = 300  # seuil SNCF : à l'heure si retard final <= 5 min
 WINDOWS = {"week": 7, "month": 30, "year": 365}  # fenêtres glissantes, en jours
 
@@ -43,6 +44,22 @@ def fetch_feed():
     with urllib.request.urlopen(FEED_URL, timeout=60) as r:
         feed.ParseFromString(r.read())
     return feed
+
+
+def stops_from_trip_update(tu):
+    """Retard par arrêt d'un trip_update : [{uic, delayS, skipped}]."""
+    stops = []
+    for stu in tu.stop_time_update:
+        uic = uic_of(stu.stop_id)
+        if not uic:
+            continue
+        if stu.schedule_relationship == stu.SKIPPED:
+            stops.append({"uic": uic, "delayS": None, "skipped": True})
+            continue
+        ev = stu.arrival if stu.HasField("arrival") else stu.departure
+        delay = ev.delay if ev.HasField("delay") else None
+        stops.append({"uic": uic, "delayS": delay, "skipped": False})
+    return stops
 
 
 def observe(feed, numbers):
@@ -70,6 +87,7 @@ def observe(feed, numbers):
             "maxDelayS": max_delay,
             "skippedStops": skipped,
             "cancelled": cancelled,
+            "stops": stops_from_trip_update(tu),
         }
     return obs
 
@@ -96,6 +114,7 @@ def merge_history(obs, now_iso):
                     "maxDelayS": max(old["maxDelayS"], rec["maxDelayS"]),
                     "skippedStops": max(old["skippedStops"], rec["skippedStops"]),
                     "cancelled": old["cancelled"] or rec["cancelled"],
+                    "stops": merge_stops(old.get("stops", []), rec.get("stops", [])),
                 }
             day["trains"][num] = rec
         path.write_text(json.dumps(day, indent=1, sort_keys=True) + "\n")
@@ -114,16 +133,23 @@ def _aggregate(recs):
     return entry
 
 
+_DATE_STEM = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def _history_paths():
+    """Fichiers d'historique journaliers, triés par date.
+
+    Exclut history/downloads-*.json (écrits par collect_downloads.py) dont le nom
+    ne parse pas en date — sinon strptime lève ValueError et le calcul plante.
+    """
+    return [p for p in sorted((ROOT / "history").glob("*.json")) if _DATE_STEM.match(p.stem)]
+
+
 def compute_stats(now_iso):
     today = datetime.now(timezone.utc).date()
     horizon = today - timedelta(days=max(WINDOWS.values()))
     per_train, days_seen = {}, []
-    for path in sorted((ROOT / "history").glob("*.json")):
-        # `history/` contient aussi des snapshots de téléchargements
-        # (`downloads-YYYY-MM-DD.json`) : on ne doit agréger que les observations
-        # de ponctualité `YYYY-MM-DD.json`.
-        if not OBS_DATE_RE.match(path.stem):
-            continue
+    for path in _history_paths():
         day = datetime.strptime(path.stem, "%Y-%m-%d").date()
         if day < horizon:
             continue
@@ -162,6 +188,35 @@ def compute_stats(now_iso):
         + "\n"
     )
 
+    station_ref = json.loads((ROOT / "line32.json").read_text())["stations"]
+    days_records = [
+        json.loads(p.read_text())
+        for p in _history_paths()
+        if datetime.strptime(p.stem, "%Y-%m-%d").date() >= horizon
+    ]
+    (stats_dir / "trend.json").write_text(
+        json.dumps(
+            {
+                "meta": {"updatedAt": now_iso, "onTimeThresholdMin": ON_TIME_S // 60},
+                "points": [daily_trend_point(d) for d in days_records],
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+    (stats_dir / "stations.json").write_text(
+        json.dumps(
+            {
+                "meta": {"updatedAt": now_iso},
+                "stations": aggregate_stations(days_records, station_ref),
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+
 
 def main():
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -169,6 +224,14 @@ def main():
     obs = observe(fetch_feed(), numbers)
     seen = sum(len(t) for t in obs.values())
     print(f"trains ligne 32 dans le flux : {seen} (dates de service : {sorted(obs)})")
+
+    # Diagnostic : log des arrêts non mappés (validation du mapping UIC au 1er run live)
+    known = {uic_of(s["id"]) for s in json.loads((ROOT / "line32.json").read_text())["stations"]}
+    seen_uics = {s["uic"] for t in obs.values() for rec in t.values() for s in rec.get("stops", [])}
+    unknown = seen_uics - known
+    if unknown:
+        print(f"⚠ arrêts hors référentiel (UIC non mappés) : {sorted(unknown)}")
+
     merge_history(obs, now_iso)
     compute_stats(now_iso)
     print("history/ et stats/line32.json à jour")
