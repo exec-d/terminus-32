@@ -53,23 +53,50 @@
 </section>
 
 <section id="tendance">
-  <div class="wrap">
-    <h2 use:reveal>Tendance dans le temps</h2>
-    <LineChart values={trendValues} labels={trendLabels} unit=" %" />
+  <div class="wrap stat-row">
+    <div class="stat-explain">
+      <h2 use:reveal>Tendance dans le temps</h2>
+      <p class="muted">
+        Chaque point, c'est le pourcentage de trains à l'heure sur une journée, au seuil SNCF de 5
+        minutes. Une suppression compte comme un train non à l'heure — jamais masquée. La courbe
+        s'étoffe jour après jour depuis le 1<sup>er</sup> juillet 2026.
+      </p>
+    </div>
+    <div class="stat-chart">
+      <LineChart values={trendValues} labels={trendLabels} unit=" %" />
+    </div>
   </div>
 </section>
 
 <section id="palmares">
-  <div class="wrap">
-    <h2 use:reveal>Palmarès des trains</h2>
-    <BarChart {rows} />
+  <div class="wrap stat-row">
+    <div class="stat-explain">
+      <h2 use:reveal>Palmarès des trains</h2>
+      <p class="muted">
+        Chaque train de la ligne 32, classé du plus fiable au moins fiable sur les 30 derniers jours
+        : pourcentage à l'heure, retard médian et taux de suppression. Un train souvent supprimé
+        descend dans le classement — jamais caché. Pratique pour situer votre train du quotidien.
+      </p>
+    </div>
+    <div class="stat-chart">
+      <BarChart {rows} />
+    </div>
   </div>
 </section>
 
 <section id="gares">
-  <div class="wrap">
-    <h2 use:reveal>Le long de la ligne</h2>
-    <StationProfile stations={stations?.stations ?? []} />
+  <div class="wrap stat-row">
+    <div class="stat-explain">
+      <h2 use:reveal>Le long de la ligne</h2>
+      <p class="muted">
+        Le retard médian gare par gare, de Bourg-en-Bresse à Lyon, pour repérer où le retard
+        s'accumule sur le trajet. Les gares sans donnée restent creuses (aucun zéro inventé) ; le
+        profil se précise à mesure que les mesures par gare s'accumulent.
+      </p>
+    </div>
+    <div class="stat-chart">
+      <StationProfile stations={stations?.stations ?? []} />
+    </div>
   </div>
 </section>
 
@@ -96,6 +123,29 @@
     color: var(--accent);
     line-height: 1;
   }
+
+  /* Chaque section stats : explication à gauche, graphe à droite. */
+  .stat-row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+    gap: clamp(var(--space-4), 5vw, var(--space-6));
+    align-items: center;
+  }
+  .stat-explain h2 {
+    text-align: left;
+    margin: 0 0 var(--space-2);
+  }
+  .stat-explain p {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+  @media (max-width: 760px) {
+    .stat-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+
   .stats-foot {
     padding-block: var(--space-5);
     font-size: 0.8rem;

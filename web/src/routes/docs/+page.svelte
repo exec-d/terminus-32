@@ -21,44 +21,11 @@
       text: "L'app vérifie à chaque lancement si une nouvelle version existe et l'installe en un tap, données conservées."
     }
   ];
-
-  const feats = [
-    {
-      icon: '🚦',
-      title: 'Temps réel GTFS-RT',
-      text: "Les horaires affichés sur l'accueil sont ceux du flux temps réel SNCF (retards, suppressions, arrêts non desservis), rafraîchis automatiquement (30 s à 5 min, réglable). L'heure d'arrivée estimée apparaît directement sur chaque départ."
-    },
-    {
-      icon: '📌',
-      title: 'Trains épinglés',
-      text: "Depuis la liste des départs, épinglez le train que vous prenez chaque jour : il reste visible en tête d'écran, avec une confirmation dès qu'il apparaît dans le flux et une alerte s'il déraille du plan."
-    },
-    {
-      icon: '🔔',
-      title: 'Notifications utiles',
-      text: 'Dans les réglages, choisissez le seuil de retard qui déclenche une notification, les gares à surveiller, et activez le silence nocturne (22 h–6 h) — sauf vraie urgence.'
-    },
-    {
-      icon: '⚠️',
-      title: 'Perturbations décodées',
-      text: "Un badge apparaît sur les départs touchés par une grève, des travaux ou un incident ; touchez-le pour voir la cause, l'effet, la période concernée et les trains impactés."
-    },
-    {
-      icon: '🗺️',
-      title: 'Parcours complet',
-      text: 'Touchez un train dans la liste pour ouvrir son parcours gare par gare, avec les horaires estimés en temps réel et les arrêts supprimés barrés.'
-    },
-    {
-      icon: '🔄',
-      title: 'Mises à jour automatiques',
-      text: "Rien à faire : les horaires théoriques se resynchronisent chaque semaine en arrière-plan, et l'app propose elle-même ses mises à jour au lancement (cf. Installation)."
-    }
-  ];
 </script>
 
 <Seo
   title="Documentation — TERMinus"
-  description="Installer et utiliser TERMinus : installation de l'APK, guide, FAQ, dépannage."
+  description="Installer et utiliser TERMinus : installation de l'APK, guide pas à pas, FAQ, dépannage."
 />
 
 <article class="doc">
@@ -91,17 +58,47 @@
 
   <h2 id="utilisation" use:reveal>Guide d'utilisation</h2>
   <p class="note">
-    Ce guide décrit les fonctions principales de l'application ; il sera affiné au fil des usages
+    Une prise en main pas à pas des situations du quotidien. Ce guide sera affiné au fil des usages
     réels, en le relisant à l'aune de l'app.
   </p>
-  <div class="feats">
-    {#each feats as feat, i (feat.title)}
-      <div class="feat" use:reveal={i * 0.06}>
-        <span class="ico">{feat.icon}</span>
-        <h3>{feat.title}</h3>
-        <p>{feat.text}</p>
-      </div>
-    {/each}
+  <div class="guide">
+    <h3>Au premier lancement</h3>
+    <p>
+      Choisissez votre gare <b>Domicile</b> et votre gare <b>Travail</b> parmi les 13 gares de la ligne
+      32. L'app s'ouvre ensuite directement sur votre trajet — sans compte ni configuration à rallonge.
+    </p>
+
+    <h3>Voir mon prochain train</h3>
+    <p>
+      L'écran d'accueil liste les prochains départs dans votre sens : heure, numéro de train et
+      statut temps réel (à l'heure, en retard, supprimé, arrêt non desservi). La liste se rafraîchit
+      toute seule, à une fréquence que vous réglez (de 30 s à 5 min).
+    </p>
+
+    <h3>Suivre mon train du quotidien</h3>
+    <p>
+      Depuis la liste des départs, <b>épinglez</b> le train que vous prenez chaque jour : il reste en
+      tête d'écran, confirmé dès qu'il apparaît dans le flux, avec une alerte s'il déraille du plan.
+    </p>
+
+    <h3>Être prévenu au bon moment</h3>
+    <p>
+      Dans les réglages, définissez le seuil de retard qui déclenche une notification, les gares à
+      surveiller, et activez le silence nocturne (22 h–6 h) — sauf vraie urgence.
+    </p>
+
+    <h3>Comprendre un retard ou une perturbation</h3>
+    <p>
+      Touchez un train pour ouvrir son parcours gare par gare, avec les horaires estimés en temps
+      réel et les arrêts supprimés barrés. Un badge sur les départs concernés signale grève, travaux
+      ou incident : touchez-le pour la cause, l'effet, la période et les trains impactés.
+    </p>
+
+    <h3>Ne rien avoir à maintenir</h3>
+    <p>
+      Les horaires théoriques se resynchronisent seuls chaque semaine, et l'app propose elle-même
+      ses mises à jour au lancement (cf. <a href="#installation">Installation</a>).
+    </p>
   </div>
 
   <h2 id="faq" use:reveal>FAQ</h2>
@@ -246,36 +243,13 @@
     color: var(--warning);
   }
 
-  .feats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-    margin: 0 0 var(--space-4);
-  }
-  @media (max-width: 560px) {
-    .feats {
-      grid-template-columns: 1fr;
-    }
-  }
-  .feat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: var(--space-3) var(--space-4);
-  }
-  .feat .ico {
-    font-size: 1.2rem;
-  }
-  .feat h3 {
+  /* Guide « pas à pas » : sous-sections orientées tâches (prose, pas de grille de cartes
+     — pour ne pas dupliquer la vitrine de fonctions de l'accueil). */
+  .guide h3 {
     font-family: var(--font-mono);
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-size: 0.95rem;
     color: var(--accent);
-    margin: var(--space-2) 0 6px;
-  }
-  .feat p {
-    font-size: 0.85rem;
-    margin: 0;
+    margin: var(--space-4) 0 6px;
   }
 
   .qa h3 {
