@@ -40,29 +40,37 @@
   description="Ponctualité de la ligne 32 : tendance, palmarès des trains, détail par gare. Données ouvertes SNCF."
 />
 
-<section class="wrap">
-  <h1>Statistiques</h1>
-  <p class="stats-big"><span class="stats-num">{agg ? agg.onTimePct.toFixed(1) : '—'}</span> %</p>
-  <p class="muted">à l'heure</p>
-  <p class="muted">sur {agg?.totalObs ?? 0} passages · seuil 5 min</p>
-  {#if loading}
-    <p class="muted">Chargement des statistiques…</p>
-  {/if}
+<section>
+  <div class="wrap">
+    <h1>Statistiques</h1>
+    <p class="stats-big"><span class="stats-num">{agg ? agg.onTimePct.toFixed(1) : '—'}</span> %</p>
+    <p class="muted">à l'heure</p>
+    <p class="muted">sur {agg?.totalObs ?? 0} passages · seuil 5 min</p>
+    {#if loading}
+      <p class="muted">Chargement des statistiques…</p>
+    {/if}
+  </div>
 </section>
 
-<section id="tendance" class="wrap">
-  <h2 use:reveal>Tendance dans le temps</h2>
-  <LineChart values={trendValues} labels={trendLabels} unit=" %" />
+<section id="tendance">
+  <div class="wrap">
+    <h2 use:reveal>Tendance dans le temps</h2>
+    <LineChart values={trendValues} labels={trendLabels} unit=" %" />
+  </div>
 </section>
 
-<section id="palmares" class="wrap">
-  <h2 use:reveal>Palmarès des trains</h2>
-  <BarChart {rows} />
+<section id="palmares">
+  <div class="wrap">
+    <h2 use:reveal>Palmarès des trains</h2>
+    <BarChart {rows} />
+  </div>
 </section>
 
-<section id="gares" class="wrap">
-  <h2 use:reveal>Le long de la ligne</h2>
-  <StationProfile stations={stations?.stations ?? []} />
+<section id="gares">
+  <div class="wrap">
+    <h2 use:reveal>Le long de la ligne</h2>
+    <StationProfile stations={stations?.stations ?? []} />
+  </div>
 </section>
 
 <p class="stats-foot muted wrap">

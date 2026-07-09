@@ -42,7 +42,7 @@
   }
   .bar-row {
     display: grid;
-    grid-template-columns: 5.5em 1fr 3.5em;
+    grid-template-columns: 6.5em 1fr 3.5em;
     align-items: center;
     gap: var(--space-2);
   }
