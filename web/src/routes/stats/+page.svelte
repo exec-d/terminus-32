@@ -2,12 +2,12 @@
   import { onMount } from 'svelte';
   import Seo from '$lib/components/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
-  import { fetchLine32Stats, fetchTrend, fetchStations } from '$lib/data/sources';
-  import type { TrendData, StationsData } from '$lib/data/sources';
+  import { fetchLine32Stats, fetchTrend, fetchStations, fetchTrainLabels } from '$lib/data/sources';
+  import type { TrendData, StationsData, TripLabel } from '$lib/data/sources';
   import { aggregatePunctuality, type Line32Stats } from '$lib/data/punctuality';
-  import { rankTrains } from '$lib/charts/rank';
+  import { rankSlots } from '$lib/charts/rank';
   import LineChart from '$lib/charts/LineChart.svelte';
-  import BarChart from '$lib/charts/BarChart.svelte';
+  import HourlyReliability from '$lib/charts/HourlyReliability.svelte';
   import StationProfile from '$lib/charts/StationProfile.svelte';
 
   // Données récupérées côté client uniquement (le layout est prerenderé,
@@ -18,26 +18,34 @@
   let line32 = $state<Line32Stats | null>(null);
   let trend = $state<TrendData | null>(null);
   let stations = $state<StationsData | null>(null);
+  let labels = $state<Record<string, TripLabel>>({});
 
   onMount(async () => {
-    const [a, b, c] = await Promise.all([fetchLine32Stats(), fetchTrend(), fetchStations()]);
+    const [a, b, c, l] = await Promise.all([
+      fetchLine32Stats(),
+      fetchTrend(),
+      fetchStations(),
+      fetchTrainLabels()
+    ]);
     line32 = a;
     trend = b;
     stations = c;
+    labels = l;
     loading = false;
   });
 
   // Honnêteté (principe transverse n°1) : le grand pourcentage réutilise
   // exclusivement `aggregatePunctuality` — jamais recalculé ici.
   const agg = $derived(line32 ? aggregatePunctuality(line32, 'month') : null);
-  const rows = $derived(line32 ? rankTrains(line32, 'month') : []);
+  // Palmarès par créneau horaire (heure de départ + sens), pas par numéro de train.
+  const slots = $derived(line32 ? rankSlots(line32, labels, 'month') : []);
   const trendValues = $derived(trend?.points.map((p) => p.onTimePct) ?? []);
   const trendLabels = $derived(trend?.points.map((p) => p.date.slice(5)) ?? []);
 </script>
 
 <Seo
   title="Statistiques — ligne 32 TER"
-  description="Ponctualité de la ligne 32 : tendance, palmarès des trains, détail par gare. Données ouvertes SNCF."
+  description="Ponctualité de la ligne 32 : tendance, fiabilité par horaire, détail par gare. Données ouvertes SNCF."
 />
 
 <section>
@@ -68,18 +76,19 @@
   </div>
 </section>
 
-<section id="palmares">
+<section id="horaires">
   <div class="wrap stat-row">
     <div class="stat-explain">
-      <h2 use:reveal>Palmarès des trains</h2>
+      <h2 use:reveal>Fiabilité selon l'heure</h2>
       <p class="muted">
-        Chaque train de la ligne 32, classé du plus fiable au moins fiable sur les 30 derniers jours
-        : pourcentage à l'heure, retard médian et taux de suppression. Un train souvent supprimé
-        descend dans le classement — jamais caché. Pratique pour situer votre train du quotidien.
+        « Le 17h12 vers Lyon est-il souvent à l'heure ? » Chaque point est un horaire de la ligne,
+        placé selon son <b>heure de départ</b> (→) et sa <b>fiabilité</b> (↑ : % à l'heure sur tous les
+        passages, une suppression comptant comme non à l'heure). La sparkline donne la tendance au fil
+        de la journée — les creux, ce sont les horaires à éviter. La couleur indique le sens.
       </p>
     </div>
     <div class="stat-chart">
-      <BarChart {rows} />
+      <HourlyReliability {slots} />
     </div>
   </div>
 </section>
