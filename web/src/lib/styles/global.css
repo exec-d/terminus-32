@@ -84,6 +84,51 @@ h2 {
   transform: none;
 }
 
+/* Contenu documentaire (docs + pages légales) */
+.doc {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-3) var(--space-6);
+}
+.doc h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--accent);
+  margin: 0 0 var(--space-2);
+}
+.doc .updated {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-5);
+}
+.doc h2 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  text-align: left;
+  color: var(--fg);
+  margin: var(--space-5) 0 var(--space-2);
+}
+.doc p {
+  color: var(--muted);
+  margin-bottom: var(--space-3);
+}
+.doc .lead {
+  color: var(--fg);
+  font-size: 1.05rem;
+}
+.doc ul {
+  color: var(--muted);
+  margin: 0 0 var(--space-3) 1.4rem;
+}
+.doc li {
+  margin-bottom: var(--space-2);
+}
+.doc b {
+  color: var(--fg);
+  font-weight: 600;
+}
+
 /* Accessibilité : neutralise les animations si l'utilisateur le demande */
 @media (prefers-reduced-motion: reduce) {
   *,
