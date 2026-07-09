@@ -1,2 +1,6 @@
 # Documents de conception Superpowers (spec + plans) — conservés en local
 docs/superpowers/
+
+# Cache Python (tests du pipeline tools/)
+__pycache__/
+*.pyc
