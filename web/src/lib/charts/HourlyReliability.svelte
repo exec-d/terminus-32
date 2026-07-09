@@ -87,7 +87,7 @@
         fill={relColor(p.reliability)}
       >
         <title
-          >{p.label} · {p.reliability} % à l'heure · {p.cancelledPct} % suppr. · {p.obs} passages</title
+          >Départ {p.dep} · {p.reliability} % à l'heure · {p.cancelledPct} % suppr. · {p.obs} passages</title
         >
       </rect>
     {/each}

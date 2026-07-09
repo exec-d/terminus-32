@@ -38,6 +38,9 @@
   const agg = $derived(line32 ? aggregatePunctuality(line32, 'month') : null);
   // Palmarès par créneau horaire (heure de départ + sens), pas par numéro de train.
   const slots = $derived(line32 ? rankSlots(line32, labels, 'month') : []);
+  // Aller (Bourg → Lyon) et retour (Lyon → Bourg) sur deux diagrammes distincts.
+  const slotsAller = $derived(slots.filter((s) => s.dir === 'bebToLyon'));
+  const slotsRetour = $derived(slots.filter((s) => s.dir === 'lyonToBeb'));
   const trendValues = $derived(trend?.points.map((p) => p.onTimePct) ?? []);
   const trendLabels = $derived(trend?.points.map((p) => p.date.slice(5)) ?? []);
 </script>
@@ -106,10 +109,20 @@
       </p>
     </div>
     <div class="stat-chart">
-      <HourlyReliability
-        {slots}
-        emptyNote="Chaque horaire s'affiche dès que la ponctualité par train est agrégée (recalcul 3×/jour à partir du flux SNCF)."
-      />
+      <div class="dir-block">
+        <h3 class="dir-title">Aller · Bourg → Lyon</h3>
+        <HourlyReliability
+          slots={slotsAller}
+          emptyNote="Chaque horaire s'affiche dès que la ponctualité par train est agrégée (recalcul 3×/jour à partir du flux SNCF)."
+        />
+      </div>
+      <div class="dir-block">
+        <h3 class="dir-title">Retour · Lyon → Bourg</h3>
+        <HourlyReliability
+          slots={slotsRetour}
+          emptyNote="Chaque horaire s'affiche dès que la ponctualité par train est agrégée (recalcul 3×/jour à partir du flux SNCF)."
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -160,6 +173,17 @@
   }
   .stat-hero .muted {
     margin-top: var(--space-2);
+  }
+
+  /* Deux diagrammes horaires (aller / retour) empilés dans la colonne de droite. */
+  .dir-block + .dir-block {
+    margin-top: var(--space-4);
+  }
+  .dir-title {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--fg);
+    margin: 0 0 var(--space-2);
   }
 
   /* Chaque section stats : explication à gauche, stat/graphe à droite. */
