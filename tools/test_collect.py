@@ -35,3 +35,4 @@ def test_aggregate_mean_et_median():
     assert out["onTimePct"] == 83
     assert out["medianDelayMin"] == 0
     assert out["meanDelayMin"] == 3
+    assert out["cumDelayMin"] == 20

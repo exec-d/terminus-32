@@ -130,6 +130,7 @@ def _aggregate(recs):
         entry["onTimePct"] = round(100 * sum(1 for d in delays if d <= ON_TIME_S) / len(delays))
         entry["medianDelayMin"] = round(delays[len(delays) // 2] / 60)
         entry["meanDelayMin"] = round(sum(delays) / len(delays) / 60)
+        entry["cumDelayMin"] = round(sum(delays) / 60)
         entry["maxDelayMin"] = round(max(delays) / 60)
     return entry
 
