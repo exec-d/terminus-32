@@ -4,7 +4,12 @@
   import { reveal } from '$lib/actions/reveal';
   import { fetchLine32Stats, fetchTrend, fetchStations, fetchTrainLabels } from '$lib/data/sources';
   import type { TrendData, StationsData, TripLabel } from '$lib/data/sources';
-  import { aggregatePunctuality, type Line32Stats } from '$lib/data/punctuality';
+  import {
+    aggregatePunctuality,
+    delayTotals,
+    type Line32Stats,
+    type Windows
+  } from '$lib/data/punctuality';
   import { rankSlots } from '$lib/charts/rank';
   import LineChart from '$lib/charts/LineChart.svelte';
   import HourlyReliability from '$lib/charts/HourlyReliability.svelte';
@@ -33,16 +38,40 @@
     loading = false;
   });
 
+  // Fenêtre d'analyse pour les métriques agrégées (ponctualité globale, retards, horaires).
+  // La tendance (une valeur par jour) et le profil par gare (sur toutes les données) n'en
+  // dépendent pas.
+  const WINDOWS = [
+    { key: 'week', label: '7 jours', period: 'des 7 derniers jours' },
+    { key: 'month', label: '30 jours', period: 'des 30 derniers jours' },
+    { key: 'year', label: '1 an', period: 'des 12 derniers mois' }
+  ] as const;
+  let win = $state<Windows>('month');
+  const winMeta = $derived(WINDOWS.find((w) => w.key === win) ?? WINDOWS[1]);
+
   // Honnêteté (principe transverse n°1) : le grand pourcentage réutilise exclusivement
   // `aggregatePunctuality` — jamais recalculé ici.
-  const agg = $derived(line32 ? aggregatePunctuality(line32, 'month') : null);
+  const agg = $derived(line32 ? aggregatePunctuality(line32, win) : null);
+  // Retard cumulé (temps total perdu) et pire retard, toutes circulations confondues.
+  const totals = $derived(line32 ? delayTotals(line32, win) : null);
+  const hasData = $derived((agg?.totalObs ?? 0) > 0);
   // Palmarès par créneau horaire (heure de départ + sens), pas par numéro de train.
-  const slots = $derived(line32 ? rankSlots(line32, labels, 'month') : []);
+  const slots = $derived(line32 ? rankSlots(line32, labels, win) : []);
   // Aller (Bourg → Lyon) et retour (Lyon → Bourg) sur deux diagrammes distincts.
   const slotsAller = $derived(slots.filter((s) => s.dir === 'bebToLyon'));
   const slotsRetour = $derived(slots.filter((s) => s.dir === 'lyonToBeb'));
   const trendValues = $derived(trend?.points.map((p) => p.onTimePct) ?? []);
+  const trendCancelled = $derived(trend?.points.map((p) => p.cancelledPct) ?? []);
   const trendLabels = $derived(trend?.points.map((p) => p.date.slice(5)) ?? []);
+
+  // Retard cumulé en minutes → « 2 h 15 min » lisible (les grosses fenêtres dépassent l'heure).
+  function fmtDuration(min: number): string {
+    const m = Math.round(min);
+    if (m < 60) return `${m} min`;
+    const h = Math.floor(m / 60);
+    const r = m % 60;
+    return r ? `${h} h ${r} min` : `${h} h`;
+  }
 </script>
 
 <Seo
@@ -52,6 +81,20 @@
 
 <section class="wrap page-head">
   <h1>Statistiques</h1>
+  <div class="win-select" role="group" aria-label="Fenêtre d'analyse">
+    {#each WINDOWS as w (w.key)}
+      <button
+        type="button"
+        class="win-btn"
+        class:active={win === w.key}
+        aria-pressed={win === w.key}
+        onclick={() => (win = w.key)}>{w.label}</button
+      >
+    {/each}
+  </div>
+  <p class="win-hint muted">
+    Fenêtre appliquée à la ponctualité globale, aux retards et à la fiabilité par horaire.
+  </p>
 </section>
 
 <section id="global">
@@ -60,14 +103,28 @@
       <h2 use:reveal>Ponctualité globale</h2>
       <p class="muted">
         <b>Mode de calcul :</b> la part de passages à l'heure sur <b>tous les passages prévus</b>
-        des 30 derniers jours, au seuil SNCF de 5 minutes. Une
+        {winMeta.period}, au seuil SNCF de 5 minutes. Une
         <b>suppression compte comme non à l'heure</b>
-        (jamais exclue) — d'où un chiffre honnête, où « % à l'heure + % supprimé ≤ 100 ».
+        (jamais exclue) — d'où un chiffre honnête, où « % à l'heure + % supprimé ≤ 100 ». Le
+        <b>retard cumulé</b> additionne toutes les minutes de retard sur la fenêtre ; le
+        <b>pire retard</b>, c'est le plus gros écart observé.
       </p>
     </div>
     <div class="stat-chart stat-hero">
       <p class="stats-hero-num">{agg ? agg.onTimePct.toFixed(1) : '—'} %</p>
       <p class="muted">à l'heure · sur {agg?.totalObs ?? 0} passages</p>
+      <div class="kpi-row">
+        <div class="kpi">
+          <span class="kpi-num">{hasData && totals ? fmtDuration(totals.cumDelayMin) : '—'}</span>
+          <span class="kpi-lbl">de retard cumulé</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num"
+            >{hasData && totals && totals.maxDelayMin > 0 ? `${totals.maxDelayMin} min` : '—'}</span
+          >
+          <span class="kpi-lbl">pire retard</span>
+        </div>
+      </div>
       {#if loading}
         <p class="muted">Chargement…</p>
       {/if}
@@ -81,7 +138,8 @@
       <h2 use:reveal>Tendance dans le temps</h2>
       <p class="muted">
         Chaque point, c'est le pourcentage de trains à l'heure sur une journée, au seuil SNCF de 5
-        minutes. Une suppression compte comme un train non à l'heure — jamais masquée. La courbe
+        minutes. La courbe pointillée suit en parallèle la <b>part de trains supprimés</b> le même
+        jour. Une suppression compte comme un train non à l'heure — jamais masquée. La courbe
         s'étoffe jour après jour depuis le 1<sup>er</sup> juillet 2026.
       </p>
     </div>
@@ -89,6 +147,9 @@
       <LineChart
         values={trendValues}
         labels={trendLabels}
+        values2={trendCancelled}
+        label="% à l'heure"
+        label2="% supprimés"
         unit=" %"
         emptyNote="La courbe se construit un point par jour de collecte (depuis le 1ᵉʳ juillet 2026) : il faut quelques jours avant qu'une tendance se dessine."
       />
@@ -160,8 +221,69 @@
     margin: 0;
   }
 
+  /* Sélecteur de fenêtre : pastilles segmentées 7 j / 30 j / 1 an. */
+  .win-select {
+    display: inline-flex;
+    margin-top: var(--space-3);
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .win-btn {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.3em 0.9em;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition:
+      color 0.2s,
+      background 0.2s;
+  }
+  .win-btn:hover {
+    color: var(--fg);
+  }
+  .win-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .win-hint {
+    margin: var(--space-2) 0 0;
+    font-size: 0.8rem;
+  }
+
   .stat-hero {
     text-align: center;
+  }
+
+  /* Deux KPI (retard cumulé, pire retard) sous le grand pourcentage. */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    text-align: center;
+  }
+  .kpi {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--border);
+  }
+  .kpi-num {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    color: var(--fg);
+    line-height: 1.1;
+  }
+  .kpi-lbl {
+    font-size: 0.75rem;
+    color: var(--muted);
   }
   .stats-hero-num {
     font-family: var(--font-mono);

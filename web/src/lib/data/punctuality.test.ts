@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { aggregatePunctuality, type Line32Stats } from './punctuality';
+import { aggregatePunctuality, delayTotals, type Line32Stats } from './punctuality';
 
 function stats(trains: Line32Stats['trains']): Line32Stats {
   return { meta: {}, trains };
@@ -70,6 +70,28 @@ describe('aggregatePunctuality', () => {
     expect(aggregatePunctuality(s, 'week').onTimePct).toBeCloseTo(50, 5);
     expect(aggregatePunctuality(s, 'month').onTimePct).toBeCloseTo(80, 5);
     expect(aggregatePunctuality(s, 'year').onTimePct).toBeCloseTo(100, 5);
+  });
+});
+
+describe('delayTotals', () => {
+  it('retourne des zéros quand il n’y a aucune observation', () => {
+    expect(delayTotals(stats({}), 'month')).toEqual({ cumDelayMin: 0, maxDelayMin: 0 });
+  });
+
+  it('somme les retards cumulés et prend le maximum des pires retards', () => {
+    const s = stats({
+      '1': { month: { obs: 30, cumDelayMin: 120, maxDelayMin: 18 } },
+      '2': { month: { obs: 20, cumDelayMin: 45, maxDelayMin: 32 } }
+    } as unknown as Line32Stats['trains']);
+    expect(delayTotals(s, 'month')).toEqual({ cumDelayMin: 165, maxDelayMin: 32 });
+  });
+
+  it('ignore les trains sans observation sur la fenêtre', () => {
+    const s = stats({
+      '1': { month: { obs: 0, cumDelayMin: 999, maxDelayMin: 999 } },
+      '2': { month: { obs: 5, cumDelayMin: 10, maxDelayMin: 7 } }
+    } as unknown as Line32Stats['trains']);
+    expect(delayTotals(s, 'month')).toEqual({ cumDelayMin: 10, maxDelayMin: 7 });
   });
 });
 

@@ -10,7 +10,10 @@
     min = 0,
     max = 100,
     unit = '',
-    emptyNote = ''
+    emptyNote = '',
+    values2 = [],
+    label = '',
+    label2 = ''
   }: {
     values: number[];
     labels: string[];
@@ -18,6 +21,10 @@
     max?: number;
     unit?: string;
     emptyNote?: string;
+    // Série secondaire optionnelle (ex. % de suppressions) : simple ligne, sans aire.
+    values2?: number[];
+    label?: string; // légende de la série principale
+    label2?: string; // légende de la série secondaire
   } = $props();
 
   const W = 600;
@@ -25,6 +32,8 @@
 
   const path = $derived(linePath(values, W, H, min, max));
   const area = $derived(path ? `${path} L${W},${H} L0,${H} Z` : '');
+  const path2 = $derived(values2.length >= 2 ? linePath(values2, W, H, min, max) : '');
+  const hasLegend = $derived(!!path2 && !!label && !!label2);
 </script>
 
 {#if values.length < 2}
@@ -39,6 +48,7 @@
     >
       <path class="area" d={area} />
       <path class="line" d={path} />
+      {#if path2}<path class="line2" d={path2} />{/if}
       <line class="grid" x1="0" y1="1" x2={W} y2="1" />
       <text class="grid-label" x="0" y="14">{max}{unit}</text>
       <line class="grid" x1="0" y1={H - 1} x2={W} y2={H - 1} />
@@ -48,6 +58,12 @@
       <span>{labels[0]}</span>
       <span>{labels[labels.length - 1]}</span>
     </div>
+    {#if hasLegend}
+      <div class="legend">
+        <span class="key"><i class="swatch swatch-main"></i>{label}</span>
+        <span class="key"><i class="swatch swatch-alt"></i>{label2}</span>
+      </div>
+    {/if}
   </figure>
 {/if}
 
@@ -80,6 +96,15 @@
     fill: color-mix(in srgb, var(--accent) 14%, transparent);
     stroke: none;
   }
+  /* Série secondaire (suppressions) : ligne fine pointillée, couleur d'alerte. */
+  .line2 {
+    fill: none;
+    stroke: var(--warning);
+    stroke-width: 1.75;
+    stroke-dasharray: 4 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
   .grid {
     stroke: var(--border);
     stroke-width: 1;
@@ -96,5 +121,31 @@
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--muted);
+  }
+  .legend {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .key {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+  .swatch {
+    width: 1.4em;
+    height: 0;
+    border-top-width: 2px;
+    border-top-style: solid;
+  }
+  .swatch-main {
+    border-top-color: var(--accent);
+  }
+  .swatch-alt {
+    border-top-style: dashed;
+    border-top-color: var(--warning);
   }
 </style>
