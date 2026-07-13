@@ -49,13 +49,20 @@
   let win = $state<Windows>('month');
   const winMeta = $derived(WINDOWS.find((w) => w.key === win) ?? WINDOWS[1]);
 
-  // On ne propose une fenêtre que lorsqu'on a de quoi la remplir (nombre de jours de
-  // données ≥ son horizon). Sans ça, « 1 an » afficherait la même chose que « 30 jours »
-  // avec un libellé trompeur tant qu'on n'a pas un an de recul. « 30 jours » (défaut)
-  // reste toujours proposé, et le sélecteur disparaît s'il ne reste qu'une fenêtre.
+  // « 30 jours » (défaut) est toujours proposé. Une autre fenêtre n'apparaît que
+  // lorsqu'elle représente une période réellement distincte du défaut : une fenêtre plus
+  // courte (« 7 jours ») une fois qu'on a un vrai mois de recul — sinon « 30 jours » = tout
+  // l'historique et « 7 jours » y serait quasi identique (rien ne changerait à l'écran) ;
+  // une fenêtre plus longue (« 1 an ») une fois son horizon couvert. Le sélecteur disparaît
+  // s'il ne reste qu'une fenêtre, et chaque fenêtre réapparaît seule avec les données.
   const coverage = $derived((line32?.meta?.daysWithData ?? {}) as Partial<Record<Windows, number>>);
+  const monthHorizon = WINDOWS[1].horizon;
   const visibleWindows = $derived(
-    WINDOWS.filter((w) => w.key === 'month' || (coverage[w.key] ?? 0) >= w.horizon)
+    WINDOWS.filter((w) => {
+      if (w.key === 'month') return true;
+      if (w.horizon < monthHorizon) return (coverage.month ?? 0) >= monthHorizon;
+      return (coverage[w.key] ?? 0) >= w.horizon;
+    })
   );
 
   // Honnêteté (principe transverse n°1) : le grand pourcentage réutilise exclusivement
