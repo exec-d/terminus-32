@@ -5,7 +5,9 @@ export interface WindowStats {
   onTimePct?: number;
   cancelledPct?: number;
   medianDelayMin?: number;
+  meanDelayMin?: number;
   maxDelayMin?: number;
+  cumDelayMin?: number;
 }
 
 export interface Line32Stats {
@@ -18,6 +20,24 @@ export interface Aggregate {
   cancelledPct: number;
   totalObs: number;
   trains: number;
+}
+
+export interface DelayTotals {
+  cumDelayMin: number; // total des minutes de retard accumulées sur la fenêtre
+  maxDelayMin: number; // pire retard observé
+}
+
+/** Totaux de retard sur tous les trains (fenêtre donnée) : cumul et maximum. */
+export function delayTotals(stats: Line32Stats, win: Windows): DelayTotals {
+  let cum = 0;
+  let max = 0;
+  for (const key of Object.keys(stats.trains)) {
+    const w = stats.trains[key]?.[win];
+    if (!w || (w.obs ?? 0) <= 0) continue;
+    cum += w.cumDelayMin ?? 0;
+    max = Math.max(max, w.maxDelayMin ?? 0);
+  }
+  return { cumDelayMin: cum, maxDelayMin: max };
 }
 
 /**
