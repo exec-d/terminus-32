@@ -42,12 +42,21 @@
   // La tendance (une valeur par jour) et le profil par gare (sur toutes les données) n'en
   // dépendent pas.
   const WINDOWS = [
-    { key: 'week', label: '7 jours', period: 'des 7 derniers jours' },
-    { key: 'month', label: '30 jours', period: 'des 30 derniers jours' },
-    { key: 'year', label: '1 an', period: 'des 12 derniers mois' }
+    { key: 'week', label: '7 jours', period: 'des 7 derniers jours', horizon: 7 },
+    { key: 'month', label: '30 jours', period: 'des 30 derniers jours', horizon: 30 },
+    { key: 'year', label: '1 an', period: 'des 12 derniers mois', horizon: 365 }
   ] as const;
   let win = $state<Windows>('month');
   const winMeta = $derived(WINDOWS.find((w) => w.key === win) ?? WINDOWS[1]);
+
+  // On ne propose une fenêtre que lorsqu'on a de quoi la remplir (nombre de jours de
+  // données ≥ son horizon). Sans ça, « 1 an » afficherait la même chose que « 30 jours »
+  // avec un libellé trompeur tant qu'on n'a pas un an de recul. « 30 jours » (défaut)
+  // reste toujours proposé, et le sélecteur disparaît s'il ne reste qu'une fenêtre.
+  const coverage = $derived((line32?.meta?.daysWithData ?? {}) as Partial<Record<Windows, number>>);
+  const visibleWindows = $derived(
+    WINDOWS.filter((w) => w.key === 'month' || (coverage[w.key] ?? 0) >= w.horizon)
+  );
 
   // Honnêteté (principe transverse n°1) : le grand pourcentage réutilise exclusivement
   // `aggregatePunctuality` — jamais recalculé ici.
@@ -81,20 +90,22 @@
 
 <section class="wrap page-head">
   <h1>Statistiques</h1>
-  <div class="win-select" role="group" aria-label="Fenêtre d'analyse">
-    {#each WINDOWS as w (w.key)}
-      <button
-        type="button"
-        class="win-btn"
-        class:active={win === w.key}
-        aria-pressed={win === w.key}
-        onclick={() => (win = w.key)}>{w.label}</button
-      >
-    {/each}
-  </div>
-  <p class="win-hint muted">
-    Fenêtre appliquée à la ponctualité globale, aux retards et à la fiabilité par horaire.
-  </p>
+  {#if visibleWindows.length > 1}
+    <div class="win-select" role="group" aria-label="Fenêtre d'analyse">
+      {#each visibleWindows as w (w.key)}
+        <button
+          type="button"
+          class="win-btn"
+          class:active={win === w.key}
+          aria-pressed={win === w.key}
+          onclick={() => (win = w.key)}>{w.label}</button
+        >
+      {/each}
+    </div>
+    <p class="win-hint muted">
+      Fenêtre appliquée à la ponctualité globale, aux retards et à la fiabilité par horaire.
+    </p>
+  {/if}
 </section>
 
 <section id="global">
