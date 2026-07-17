@@ -8,8 +8,8 @@ rend les runs idempotents et permet au run du matin de rattraper la veille),
 puis recalcule stats/line32.json sur trois fenêtres glissantes (semaine, mois, année).
 
 Le flux est un instantané : il retient la journée de service en cours (retards
-finaux des trains déjà arrivés inclus), d'où un échantillonnage 3×/jour au lieu
-d'un polling continu.
+finaux des trains déjà arrivés inclus), d'où un échantillonnage périodique
+(toutes les 4 h) au lieu d'un polling continu.
 """
 
 import json
@@ -121,13 +121,21 @@ def merge_history(obs, now_iso):
 
 
 def _aggregate(recs):
+    n = len(recs)
     cancelled = sum(1 for r in recs if r["cancelled"])
     delays = sorted(
         r["finalDelayS"] for r in recs if r["finalDelayS"] is not None and not r["cancelled"]
     )
-    entry = {"obs": len(recs), "cancelledPct": round(100 * cancelled / len(recs))}
+    entry = {"obs": n, "cancelledPct": round(100 * cancelled / n)}
     if delays:
-        entry["onTimePct"] = round(100 * sum(1 for d in delays if d <= ON_TIME_S) / len(delays))
+        # onTimePct honnête, cohérent avec daily_trend_point : à l'heure rapporté à
+        # TOUTES les observations de la fenêtre. Une suppression — ou un trajet sans
+        # retard final publié — compte comme non-à-l'heure et n'est jamais retirée du
+        # dénominateur (sinon un train supprimé un jour sur deux afficherait 100 %).
+        # Les stats de retard (médiane / moyenne / cumul / max) ne portent, elles,
+        # que sur les trajets ayant circulé avec un retard connu.
+        on_time = sum(1 for d in delays if d <= ON_TIME_S)
+        entry["onTimePct"] = round(100 * on_time / n)
         entry["medianDelayMin"] = round(delays[len(delays) // 2] / 60)
         entry["meanDelayMin"] = round(sum(delays) / len(delays) / 60)
         entry["cumDelayMin"] = round(sum(delays) / 60)

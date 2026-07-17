@@ -1,14 +1,14 @@
 name: Collecte ponctualité ligne 32
 
-# Le flux GTFS-RT retient la journée de service en cours : 3 échantillons/jour
-# suffisent. Les crons sont en UTC (décalage Paris été +2 / hiver +1) et
-# best-effort côté GitHub — la fusion par date de service rend les runs
-# idempotents, un passage raté est rattrapé par le suivant.
+# Le flux GTFS-RT retient la journée de service en cours. Échantillonnage
+# toutes les 4 h (00/04/08/12/16/20 UTC) : couvre chaque train pendant qu'il est
+# vivant dans le flux — notamment ceux du petit matin, que l'ancien rythme
+# (14h/23h45/5h30 Paris) manquait. Les crons sont best-effort côté GitHub ; la
+# fusion par date de service rend les runs idempotents (pas de double comptage),
+# un passage raté est rattrapé par le suivant.
 on:
   schedule:
-    - cron: '0 12 * * *'  # ~14h Paris : sécurise la matinée
-    - cron: '45 21 * * *' # ~23h45 Paris (été) : journée quasi complète
-    - cron: '30 3 * * *'  # ~5h30 Paris : rattrape la fin de soirée de la veille
+    - cron: '0 */4 * * *'  # toutes les 4 h (UTC) ; Paris été 02/06/10/14/18/22
   workflow_dispatch:
 
 # Moindre privilège : contents pour committer history/ et stats/.

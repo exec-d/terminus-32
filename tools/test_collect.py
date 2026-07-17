@@ -36,3 +36,29 @@ def test_aggregate_mean_et_median():
     assert out["medianDelayMin"] == 0
     assert out["meanDelayMin"] == 3
     assert out["cumDelayMin"] == 20
+
+
+def test_aggregate_cancellations_count_against_on_time():
+    # onTimePct honnête (cohérent avec daily_trend_point) : 5 trajets à l'heure +
+    # 5 supprimés → 50 % à l'heure, pas 100 %. Les suppressions restent au
+    # dénominateur ; les stats de retard ne portent que sur les trajets circulés.
+    recs = [{"cancelled": False, "finalDelayS": 0, "skippedStops": 0}] * 5 + [
+        {"cancelled": True, "finalDelayS": None, "skippedStops": 0}
+    ] * 5
+    out = _aggregate(recs)
+    assert out["obs"] == 10
+    assert out["cancelledPct"] == 50
+    assert out["onTimePct"] == 50  # 5 à l'heure / 10 observations, pas 5/5
+    assert out["medianDelayMin"] == 0
+    assert out["maxDelayMin"] == 0
+
+
+def test_aggregate_all_cancelled_has_no_delay_stats():
+    # Que des suppressions : aucune stat de retard, onTimePct absent (fenêtre null
+    # côté app), cancelledPct = 100.
+    recs = [{"cancelled": True, "finalDelayS": None, "skippedStops": 0}] * 3
+    out = _aggregate(recs)
+    assert out["obs"] == 3
+    assert out["cancelledPct"] == 100
+    assert "onTimePct" not in out
+    assert "medianDelayMin" not in out
