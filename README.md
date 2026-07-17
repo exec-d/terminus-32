@@ -10,8 +10,10 @@ La partie **publique** du projet [TERMinus](https://github.com/exec-d/terminus) 
   GTFS national SNCF et **mis à jour automatiquement chaque semaine** par la CI du repo app.
 - **`stats/line32.json`** — statistiques de ponctualité par train (% à l'heure au seuil SNCF de
   5 min, retard médian, % suppression) sur **trois fenêtres glissantes** (semaine, mois, année),
-  recalculées **3 fois par jour** par le workflow `collect-stats.yml` de ce dépôt
-  (`tools/collect.py` échantillonne le flux GTFS-RT).
+  recalculées **toutes les 4 h** par le workflow `collect-stats.yml` de ce dépôt
+  (`tools/collect.py` échantillonne le flux GTFS-RT). Le `% à l'heure` rapporte les
+  trajets ponctuels à **toutes** les observations de la fenêtre : une suppression y
+  compte comme non-à-l'heure (jamais retirée du dénominateur).
 - **`stats/downloads.json`** — téléchargements de l'APK par version (`download_count` des assets
   GitHub Releases), recalculés quotidiennement par le workflow `collect-downloads.yml`
   (`tools/collect_downloads.py`).
