@@ -1,112 +1,112 @@
 {
  "meta": {
-  "updatedAt": "2026-07-19T06:23:47+00:00"
+  "updatedAt": "2026-07-19T09:45:10+00:00"
  },
  "stations": [
   {
-   "meanDelayS": 131,
+   "meanDelayS": 129,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
-   "obs": 108,
+   "obs": 110,
    "order": 0,
    "skippedPct": 3,
    "uic": "87743005"
   },
   {
-   "meanDelayS": 98,
+   "meanDelayS": 96,
    "medianDelayS": 0,
    "name": "Servas - Lent",
-   "obs": 108,
+   "obs": 110,
    "order": 1,
    "skippedPct": 6,
    "uic": "87723791"
   },
   {
-   "meanDelayS": 98,
+   "meanDelayS": 96,
    "medianDelayS": 0,
    "name": "Saint-Paul-de-Varax",
-   "obs": 108,
+   "obs": 110,
    "order": 2,
    "skippedPct": 6,
    "uic": "87723783"
   },
   {
-   "meanDelayS": 98,
+   "meanDelayS": 96,
    "medianDelayS": 0,
    "name": "Marlieux - Ch\u00e2tillon",
-   "obs": 108,
+   "obs": 110,
    "order": 3,
    "skippedPct": 6,
    "uic": "87723767"
   },
   {
-   "meanDelayS": 108,
+   "meanDelayS": 106,
    "medianDelayS": 0,
    "name": "Villars-les-Dombes",
-   "obs": 112,
+   "obs": 114,
    "order": 4,
    "skippedPct": 7,
    "uic": "87723759"
   },
   {
-   "meanDelayS": 99,
+   "meanDelayS": 97,
    "medianDelayS": 0,
    "name": "Saint-Marcel en Dombes",
-   "obs": 96,
+   "obs": 98,
    "order": 5,
    "skippedPct": 8,
    "uic": "87723742"
   },
   {
-   "meanDelayS": 99,
+   "meanDelayS": 97,
    "medianDelayS": 0,
    "name": "Saint-Andr\u00e9-de-Corcy",
-   "obs": 96,
+   "obs": 98,
    "order": 6,
    "skippedPct": 8,
    "uic": "87723734"
   },
   {
-   "meanDelayS": 99,
+   "meanDelayS": 97,
    "medianDelayS": 0,
    "name": "Mionnay",
-   "obs": 95,
+   "obs": 97,
    "order": 7,
    "skippedPct": 7,
    "uic": "87723726"
   },
   {
-   "meanDelayS": 99,
+   "meanDelayS": 97,
    "medianDelayS": 0,
    "name": "Les \u00c9chets",
-   "obs": 95,
+   "obs": 97,
    "order": 8,
    "skippedPct": 7,
    "uic": "87723718"
   },
   {
-   "meanDelayS": 112,
+   "meanDelayS": 110,
    "medianDelayS": 0,
    "name": "Sathonay - Rillieux",
-   "obs": 112,
+   "obs": 114,
    "order": 9,
    "skippedPct": 7,
    "uic": "87723700"
   },
   {
-   "meanDelayS": 131,
+   "meanDelayS": 128,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
-   "obs": 112,
+   "obs": 114,
    "order": 10,
    "skippedPct": 4,
    "uic": "87723197"
   },
   {
-   "meanDelayS": 105,
+   "meanDelayS": 103,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
-   "obs": 112,
+   "obs": 114,
    "order": 11,
    "skippedPct": 3,
    "uic": "87722025"
