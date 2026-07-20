@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updatedAt": "2026-07-20T17:28:00+00:00"
+  "updatedAt": "2026-07-20T17:31:08+00:00"
  },
  "stations": [
   {
@@ -112,12 +112,12 @@
    "uic": "87722025"
   },
   {
-   "meanDelayS": 102,
+   "meanDelayS": 103,
    "medianDelayS": 0,
    "name": "Lyon Vaise",
    "obs": 70,
    "order": 12,
-   "skippedPct": 7,
+   "skippedPct": 9,
    "uic": "87721001"
   }
  ]
