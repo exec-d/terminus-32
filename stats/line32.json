@@ -1,12 +1,12 @@
 {
  "meta": {
   "daysWithData": {
-   "month": 22,
-   "week": 7,
-   "year": 22
+   "month": 23,
+   "week": 8,
+   "year": 23
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-07-26T01:55:56+00:00",
+  "updatedAt": "2026-07-26T06:29:21+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -305,9 +305,9 @@
     "cancelledPct": 5,
     "cumDelayMin": 30,
     "maxDelayMin": 20,
-    "meanDelayMin": 2,
+    "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 21,
+    "obs": 22,
     "onTimePct": 86
    },
    "week": {
@@ -316,16 +316,16 @@
     "maxDelayMin": 10,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 7,
-    "onTimePct": 86
+    "obs": 8,
+    "onTimePct": 88
    },
    "year": {
     "cancelledPct": 5,
     "cumDelayMin": 30,
     "maxDelayMin": 20,
-    "meanDelayMin": 2,
+    "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 21,
+    "obs": 22,
     "onTimePct": 86
    }
   },
