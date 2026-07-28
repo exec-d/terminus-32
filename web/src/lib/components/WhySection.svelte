@@ -1,5 +1,6 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
+  import { base } from '$app/paths';
   import SectionIllu from './SectionIllu.svelte';
 </script>
 
@@ -32,8 +33,11 @@
         <p>
           L'app interroge directement les flux temps réel publics de la SNCF (<a
             href="https://transport.data.gouv.fr">transport.data.gouv.fr</a
-          >) depuis votre téléphone. Aucun backend, aucune donnée personnelle ne quitte l'appareil,
-          aucun compte à créer. Les données publiées (horaires, statistiques de ponctualité) sont
+          >) depuis votre téléphone. Aucun backend, aucun compte à créer, aucun traceur : vos gares
+          et vos réglages restent sur l'appareil, et les requêtes ne transportent ni identifiant ni
+          contenu — seulement votre adresse IP, comme n'importe quelle visite de site (cf.
+          <a href="{base}/confidentialite/">Confidentialité</a>). Les données publiées (horaires,
+          statistiques de ponctualité) sont
           <a href="https://github.com/exec-d/terminus-32">ouvertes et vérifiables</a>.
         </p>
         <p>
