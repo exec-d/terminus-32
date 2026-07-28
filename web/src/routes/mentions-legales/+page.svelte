@@ -5,12 +5,12 @@
 
 <Seo
   title="Mentions légales — TERMinus"
-  description="Mentions légales de TERMinus : éditeur, hébergement, propriété intellectuelle."
+  description="Mentions légales de TERMinus : éditeur, hébergement, sources de données, propriété intellectuelle."
 />
 
 <article class="doc">
   <h1>Mentions légales</h1>
-  <p class="updated">Dernière mise à jour : 7 juillet 2026</p>
+  <p class="updated">Dernière mise à jour : 28 juillet 2026</p>
 
   <h2>Éditeur</h2>
   <p>
@@ -28,20 +28,52 @@
     Francisco, CA 94107, États-Unis — <a href="https://github.com">github.com</a>.
   </p>
 
+  <h2>Application mobile</h2>
+  <p>
+    TERMinus est une application Android distribuée <b>hors magasin d'applications</b> : le fichier
+    d'installation est téléchargé depuis le dépôt du projet sur GitHub. L'application vérifie à
+    chaque lancement si une version plus récente existe et vous la propose ;
+    <b>le téléchargement et l'installation n'ont lieu que si vous les demandez</b>. C'est ce
+    mécanisme qui explique la permission « installer des applications inconnues » qu'Android vous
+    signale.
+  </p>
+
   <h2>Propriété intellectuelle</h2>
   <p>
-    Le nom « TERMinus », le logo et les contenus originaux du site (textes, illustrations) sont la
-    propriété de leur auteur ; toute reproduction sans autorisation est interdite. Le code de la
-    partie publique du projet est disponible sur
-    <a href="https://github.com/exec-d/terminus-32">GitHub</a>.
+    Les contenus originaux du site et de l'application — textes, illustrations, logo — sont l'œuvre
+    de leur auteur et ne peuvent être repris sans son autorisation. « TER » et « SNCF » sont des
+    marques déposées de SNCF et de SNCF Voyageurs ; elles ne sont employées ici que pour désigner la
+    ligne dont l'application donne les horaires, sans aucun lien économique avec leurs titulaires.
+  </p>
+  <p>
+    Le code du site et des données publiées est ouvert :
+    <a href="https://github.com/exec-d/terminus-32">github.com/exec-d/terminus-32</a>. Le code de
+    l'application mobile est hébergé séparément :
+    <a href="https://github.com/exec-d/terminus">github.com/exec-d/terminus</a>.
   </p>
 
   <h2>Données</h2>
+  <p>L'application agrège trois jeux de données publiques, de trois producteurs différents :</p>
+  <ul>
+    <li>
+      <b>Horaires et temps réel</b> — SNCF, via
+      <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a>, sous licence
+      <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>.
+    </li>
+    <li>
+      <b>Équipements en gare</b> (ascenseurs, escaliers mécaniques) — SNCF Gares &amp; Connexions,
+      <a href="https://ressources.data.sncf.com">ressources.data.sncf.com</a>, sous licence
+      <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a> (détail sur
+      <a href="https://data.sncf.com/pages/licence">data.sncf.com</a>).
+    </li>
+    <li>
+      <b>Vélo'v</b> — Métropole de Lyon / JCDecaux, sous
+      <a href="https://developer.jcdecaux.com/files/Open-Licence-fr.pdf">Licence Ouverte JCDecaux</a
+      >.
+    </li>
+  </ul>
   <p>
-    Les horaires et informations de circulation proviennent de la <b>SNCF</b> via
-    <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a>, sous licence
-    <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>. Voir la
-    <a href="{base}/confidentialite/">politique de confidentialité</a> et les
+    Voir aussi la <a href="{base}/confidentialite/">politique de confidentialité</a> et les
     <a href="{base}/cgu/">conditions d'utilisation</a>.
   </p>
 
