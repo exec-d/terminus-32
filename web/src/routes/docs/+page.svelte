@@ -116,16 +116,24 @@
     </p>
     <h3>Quelles permissions demande l'app ? Est-ce sûr ?</h3>
     <p>
-      Pas de compte, pas de tracking : l'application interroge directement les flux publics SNCF et
-      GitHub depuis votre téléphone, et aucune donnée personnelle ne quitte l'appareil (cf.
+      Neuf, et <b>aucune de localisation</b>. Trois vous concernent directement : Internet, les
+      notifications (refusable, l'app reste utilisable sans) et « installer des applications
+      inconnues », sans laquelle une app hors Play Store ne peut pas vous proposer ses mises à jour.
+      Les six autres sont techniques et servent au rafraîchissement de fond : état de la connexion,
+      vibration, veille, relance au démarrage, tâche en arrière-plan, et une permission interne à
+      l'app. Pas de compte, pas de traceur (cf.
       <a href="{base}/confidentialite/">Confidentialité</a>). L'APK est construit et publié
       automatiquement par une CI GitHub, donc auditable.
     </p>
     <h3>D'où viennent les données ?</h3>
     <p>
-      De la SNCF, via <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a>, sous
-      licence <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>, redistribuées avec
-      attribution.
+      De trois producteurs publics : la SNCF, via
+      <a href="https://transport.data.gouv.fr">transport.data.gouv.fr</a>, pour les horaires et le
+      temps réel (licence <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>,
+      redistribuées avec attribution) ; SNCF Gares &amp; Connexions pour l'état des ascenseurs et
+      escaliers mécaniques en gare (ODbL également) ; et la Métropole de Lyon / JCDecaux pour la
+      disponibilité des Vélo'v. Le détail des licences figure dans les
+      <a href="{base}/mentions-legales/">mentions légales</a>.
     </p>
     <h3>Combien ça coûte ?</h3>
     <p>

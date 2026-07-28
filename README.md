@@ -35,4 +35,8 @@ L'app télécharge ces fichiers à la volée (mise à jour OTA, sans réinstalla
 
 Données : **SNCF** via [transport.data.gouv.fr](https://transport.data.gouv.fr) — licence
 **ODbL** (Open Database License). Ce dépôt redistribue un extrait de ces données avec attribution,
-conformément à la licence. Application non officielle, non affiliée à la SNCF.
+conformément à la licence ; `line32.json` étant une **base dérivée**, il est lui-même publié sous
+ODbL 1.0. Application non officielle, non affiliée à la SNCF.
+
+Le détail des licences et des mentions d'attribution, jeu par jeu, figure dans
+**[`DATA-LICENSE.md`](DATA-LICENSE.md)**.
