@@ -6,7 +6,7 @@
    "year": 28
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-07-31T06:37:10+00:00",
+  "updatedAt": "2026-07-31T10:29:21+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -399,29 +399,29 @@
   "889423": {
    "month": {
     "cancelledPct": 0,
-    "cumDelayMin": 0,
-    "maxDelayMin": 0,
+    "cumDelayMin": 5,
+    "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 9,
+    "obs": 10,
     "onTimePct": 100
    },
    "week": {
     "cancelledPct": 0,
-    "cumDelayMin": 0,
-    "maxDelayMin": 0,
-    "meanDelayMin": 0,
+    "cumDelayMin": 5,
+    "maxDelayMin": 5,
+    "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 5,
+    "obs": 6,
     "onTimePct": 100
    },
    "year": {
     "cancelledPct": 0,
-    "cumDelayMin": 0,
-    "maxDelayMin": 0,
+    "cumDelayMin": 5,
+    "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 9,
+    "obs": 10,
     "onTimePct": 100
    }
   },
@@ -432,7 +432,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 10,
+    "obs": 11,
     "onTimePct": 100
    },
    "week": {
@@ -441,7 +441,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 6,
+    "obs": 7,
     "onTimePct": 100
    },
    "year": {
@@ -450,7 +450,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 10,
+    "obs": 11,
     "onTimePct": 100
    }
   },
@@ -767,30 +767,30 @@
   "889473": {
    "month": {
     "cancelledPct": 0,
-    "cumDelayMin": 5,
-    "maxDelayMin": 5,
-    "meanDelayMin": 0,
+    "cumDelayMin": 30,
+    "maxDelayMin": 25,
+    "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 13,
-    "onTimePct": 100
+    "obs": 14,
+    "onTimePct": 93
    },
    "week": {
     "cancelledPct": 0,
-    "cumDelayMin": 5,
-    "maxDelayMin": 5,
-    "meanDelayMin": 1,
+    "cumDelayMin": 30,
+    "maxDelayMin": 25,
+    "meanDelayMin": 4,
     "medianDelayMin": 0,
-    "obs": 7,
-    "onTimePct": 100
+    "obs": 8,
+    "onTimePct": 88
    },
    "year": {
     "cancelledPct": 0,
-    "cumDelayMin": 5,
-    "maxDelayMin": 5,
-    "meanDelayMin": 0,
+    "cumDelayMin": 30,
+    "maxDelayMin": 25,
+    "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 13,
-    "onTimePct": 100
+    "obs": 14,
+    "onTimePct": 93
    }
   },
   "889475": {
@@ -800,7 +800,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 9,
+    "obs": 10,
     "onTimePct": 100
    },
    "week": {
@@ -809,7 +809,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 5,
+    "obs": 6,
     "onTimePct": 100
    },
    "year": {
@@ -818,7 +818,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 9,
+    "obs": 10,
     "onTimePct": 100
    }
   },
