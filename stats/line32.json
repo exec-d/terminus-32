@@ -6,7 +6,7 @@
    "year": 28
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-07-31T10:29:21+00:00",
+  "updatedAt": "2026-07-31T13:43:21+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -238,7 +238,7 @@
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 12,
+    "obs": 13,
     "onTimePct": 100
    },
    "week": {
@@ -247,7 +247,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 2,
+    "obs": 3,
     "onTimePct": 100
    },
    "year": {
@@ -256,7 +256,7 @@
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 12,
+    "obs": 13,
     "onTimePct": 100
    }
   },
@@ -490,7 +490,7 @@
     "maxDelayMin": 20,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 25,
+    "obs": 26,
     "onTimePct": 96
    },
    "week": {
@@ -499,7 +499,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 7,
+    "obs": 8,
     "onTimePct": 100
    },
    "year": {
@@ -508,7 +508,7 @@
     "maxDelayMin": 20,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 25,
+    "obs": 26,
     "onTimePct": 96
    }
   },
@@ -858,7 +858,7 @@
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 17,
+    "obs": 18,
     "onTimePct": 100
    },
    "week": {
@@ -867,7 +867,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 6,
+    "obs": 7,
     "onTimePct": 100
    },
    "year": {
@@ -876,7 +876,7 @@
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 17,
+    "obs": 18,
     "onTimePct": 100
    }
   },
@@ -887,8 +887,8 @@
     "maxDelayMin": 25,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 22,
-    "onTimePct": 95
+    "obs": 23,
+    "onTimePct": 96
    },
    "week": {
     "cancelledPct": 0,
@@ -896,7 +896,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 6,
+    "obs": 7,
     "onTimePct": 100
    },
    "year": {
@@ -905,8 +905,8 @@
     "maxDelayMin": 25,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 22,
-    "onTimePct": 95
+    "obs": 23,
+    "onTimePct": 96
    }
   },
   "889483": {
