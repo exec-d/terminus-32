@@ -6,7 +6,7 @@
    "year": 30
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-02T13:01:06+00:00",
+  "updatedAt": "2026-08-02T16:49:42+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -543,13 +543,13 @@
   },
   "889435": {
    "month": {
-    "cancelledPct": 7,
+    "cancelledPct": 6,
     "cumDelayMin": 5,
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 15,
-    "onTimePct": 93
+    "obs": 16,
+    "onTimePct": 94
    },
    "week": {
     "cancelledPct": 0,
@@ -557,17 +557,17 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 3,
+    "obs": 4,
     "onTimePct": 100
    },
    "year": {
-    "cancelledPct": 7,
+    "cancelledPct": 6,
     "cumDelayMin": 5,
     "maxDelayMin": 5,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 15,
-    "onTimePct": 93
+    "obs": 16,
+    "onTimePct": 94
    }
   },
   "889437": {
@@ -606,7 +606,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 14,
+    "obs": 15,
     "onTimePct": 100
    },
    "week": {
@@ -615,7 +615,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 7,
+    "obs": 8,
     "onTimePct": 100
    },
    "year": {
@@ -624,7 +624,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 14,
+    "obs": 15,
     "onTimePct": 100
    }
   },
@@ -932,30 +932,30 @@
   "889485": {
    "month": {
     "cancelledPct": 0,
-    "cumDelayMin": 10,
-    "maxDelayMin": 5,
-    "meanDelayMin": 1,
+    "cumDelayMin": 25,
+    "maxDelayMin": 15,
+    "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 14,
-    "onTimePct": 100
+    "obs": 15,
+    "onTimePct": 93
    },
    "week": {
     "cancelledPct": 0,
-    "cumDelayMin": 0,
-    "maxDelayMin": 0,
-    "meanDelayMin": 0,
+    "cumDelayMin": 15,
+    "maxDelayMin": 15,
+    "meanDelayMin": 3,
     "medianDelayMin": 0,
-    "obs": 4,
-    "onTimePct": 100
+    "obs": 5,
+    "onTimePct": 80
    },
    "year": {
     "cancelledPct": 0,
-    "cumDelayMin": 10,
-    "maxDelayMin": 5,
-    "meanDelayMin": 1,
+    "cumDelayMin": 25,
+    "maxDelayMin": 15,
+    "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 14,
-    "onTimePct": 100
+    "obs": 15,
+    "onTimePct": 93
    }
   },
   "889487": {
