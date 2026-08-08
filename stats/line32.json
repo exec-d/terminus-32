@@ -1,12 +1,12 @@
 {
  "meta": {
   "daysWithData": {
-   "month": 30,
-   "week": 7,
-   "year": 35
+   "month": 31,
+   "week": 8,
+   "year": 36
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-08T00:58:11+00:00",
+  "updatedAt": "2026-08-08T04:46:49+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -289,15 +289,15 @@
     "onTimePct": 88
    }
   },
-  "889413": {
+  "889411": {
    "month": {
     "cancelledPct": 0,
-    "cumDelayMin": 45,
-    "maxDelayMin": 45,
-    "meanDelayMin": 6,
+    "cumDelayMin": 0,
+    "maxDelayMin": 0,
+    "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 7,
-    "onTimePct": 86
+    "obs": 1,
+    "onTimePct": 100
    },
    "week": {
     "cancelledPct": 0,
@@ -310,12 +310,41 @@
    },
    "year": {
     "cancelledPct": 0,
+    "cumDelayMin": 0,
+    "maxDelayMin": 0,
+    "meanDelayMin": 0,
+    "medianDelayMin": 0,
+    "obs": 1,
+    "onTimePct": 100
+   }
+  },
+  "889413": {
+   "month": {
+    "cancelledPct": 0,
     "cumDelayMin": 45,
     "maxDelayMin": 45,
     "meanDelayMin": 6,
     "medianDelayMin": 0,
-    "obs": 7,
-    "onTimePct": 86
+    "obs": 8,
+    "onTimePct": 88
+   },
+   "week": {
+    "cancelledPct": 0,
+    "cumDelayMin": 0,
+    "maxDelayMin": 0,
+    "meanDelayMin": 0,
+    "medianDelayMin": 0,
+    "obs": 2,
+    "onTimePct": 100
+   },
+   "year": {
+    "cancelledPct": 0,
+    "cumDelayMin": 45,
+    "maxDelayMin": 45,
+    "meanDelayMin": 6,
+    "medianDelayMin": 0,
+    "obs": 8,
+    "onTimePct": 88
    }
   },
   "889415": {
@@ -655,16 +684,16 @@
     "maxDelayMin": 10,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 9,
-    "onTimePct": 89
+    "obs": 10,
+    "onTimePct": 90
    },
    "week": {
     "cancelledPct": 0,
     "cumDelayMin": 5,
     "maxDelayMin": 5,
     "meanDelayMin": 2,
-    "medianDelayMin": 5,
-    "obs": 2,
+    "medianDelayMin": 0,
+    "obs": 3,
     "onTimePct": 100
    },
    "year": {
@@ -673,8 +702,8 @@
     "maxDelayMin": 10,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 10,
-    "onTimePct": 90
+    "obs": 11,
+    "onTimePct": 91
    }
   },
   "889465": {
