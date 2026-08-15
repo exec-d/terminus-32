@@ -58,13 +58,47 @@ def test_aggregate_cancellations_count_against_on_time():
 
 def test_aggregate_all_cancelled_has_no_delay_stats():
     # Que des suppressions : aucune stat de retard, onTimePct absent (fenêtre null
-    # côté app), cancelledPct = 100.
-    recs = [{"cancelled": True, "finalDelayS": None, "skippedStops": 0}] * 3
+    # côté app), cancelledPct = 100. 5 observations pour passer le seuil de publication.
+    recs = [{"cancelled": True, "finalDelayS": None, "skippedStops": 0}] * 5
     out = _aggregate(recs)
-    assert out["obs"] == 3
+    assert out["obs"] == 5
     assert out["cancelledPct"] == 100
     assert "onTimePct" not in out
     assert "medianDelayMin" not in out
+
+
+def test_aggregate_sous_le_seuil_ne_publie_aucun_pourcentage():
+    # 100 % à l'heure sur 1 trajet, c'est une anecdote affichée comme une certitude.
+    # Sous le seuil on ne publie que le brut — et surtout pas un pourcentage.
+    out = _aggregate([{"cancelled": False, "finalDelayS": 0, "skippedStops": 0}])
+    assert out == {"obs": 1, "enough": False}
+    assert _aggregate([{"cancelled": False, "finalDelayS": 0, "skippedStops": 0}] * 5)["enough"]
+
+
+def test_aggregate_p90_ignore_l_incident_unique():
+    # 9 trajets à l'heure + 1 incident à 45 min : le max reste à 45 (et le restera un
+    # an), le p90 dit ce que vit l'usager 9 fois sur 10.
+    recs = [{"cancelled": False, "finalDelayS": 0, "skippedStops": 0}] * 9 + [
+        {"cancelled": False, "finalDelayS": 2700, "skippedStops": 0}
+    ]
+    out = _aggregate(recs)
+    assert out["maxDelayMin"] == 45
+    assert out["p90DelayMin"] == 0
+
+
+def test_aggregate_exploite_maxdelay_et_skipped():
+    # maxDelayS et skippedStops étaient collectés sans être lus : un trajet parti à
+    # +10 et arrivé à l'heure a rattrapé, un trajet qui saute un arrêt s'est allégé.
+    recs = [
+        {"cancelled": False, "finalDelayS": 0, "maxDelayS": 600, "skippedStops": 1},
+        {"cancelled": False, "finalDelayS": 60, "maxDelayS": 60, "skippedStops": 0},
+        {"cancelled": False, "finalDelayS": 0, "maxDelayS": 0, "skippedStops": 0},
+        {"cancelled": False, "finalDelayS": 0, "maxDelayS": 0, "skippedStops": 0},
+        {"cancelled": False, "finalDelayS": 0, "maxDelayS": 0, "skippedStops": 0},
+    ]
+    out = _aggregate(recs)
+    assert out["recoveredPct"] == 20  # 1 trajet sur 5 a rattrapé >= 2 min
+    assert out["skippedPct"] == 20
 
 
 _LINE32 = {
