@@ -2,7 +2,7 @@
  "meta": {
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-15T15:06:17+00:00",
+  "updatedAt": "2026-08-15T15:07:11+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -4389,7 +4389,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4411,7 +4411,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4433,7 +4433,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4455,7 +4455,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4477,7 +4477,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4499,7 +4499,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4521,7 +4521,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4543,7 +4543,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4565,7 +4565,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4587,7 +4587,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4609,7 +4609,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
@@ -4631,7 +4631,7 @@
      "medianDelayS": 0,
      "obs": 7,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "week": {
