@@ -49,7 +49,9 @@ export function rankSlots(
   for (const num of Object.keys(stats.trains)) {
     const w = stats.trains[num]?.[win];
     const obs = w?.obs ?? 0;
-    if (!w || obs <= 0) continue;
+    // cf. aggregatePunctuality : sous le seuil de publication, on ne sait pas —
+    // classer un train sur une observation le mettrait en tête ou en queue pour rien.
+    if (!w || obs <= 0 || w.enough === false) continue;
 
     const l = labels[num];
     const dep = l?.dep ?? '';

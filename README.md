@@ -15,7 +15,24 @@ La partie **publique** du projet [TERMinus](https://github.com/exec-d/terminus) 
   trajets ponctuels à **toutes** les observations de la fenêtre : une suppression y
   compte comme non-à-l'heure (jamais retirée du dénominateur). `meta.coverage`
   indique quelle part du programme a effectivement été observée sur chaque fenêtre —
-  un `% à l'heure` ne se lit pas sans lui.
+  un `% à l'heure` ne se lit pas sans lui. En deçà de `meta.minObs` observations, la
+  fenêtre porte `enough: false` et **aucun pourcentage** : un taux calculé sur un
+  trajet n'est pas une statistique. Outre la médiane et le max, chaque fenêtre publie
+  un `p90DelayMin` (« j'arrive avant quelle heure 9 fois sur 10 ? », insensible à
+  l'incident unique qui fige le max pendant un an), un `skippedPct` (trajets ayant
+  sauté au moins un arrêt) et un `recoveredPct` (trajets partis en retard puis
+  rattrapés d'au moins 2 min avant le terminus).
+- **`stats/train-stations.json`** — ponctualité croisée **train × gare**, par fenêtre.
+  La régularité SNCF se mesure au terminus ; l'usager, lui, monte et descend en gare
+  intermédiaire. Le profil d'arrêts était déjà collecté, il n'était qu'écrasé en une
+  médiane par gare toutes circulations confondues. Fichier séparé (~170 Ko) : à
+  charger pour une fiche train, pas à chaque lancement.
+- **`stats/desserte.json`** — journées à venir où un train **ne dessert pas ses gares
+  habituelles** (terminus raccourci, arrêt supprimé au calendrier). La référence est
+  calculée par (train, jour de semaine), pour que le schéma propre au samedi ne sorte
+  pas en anomalie. Déductible de `line32.json`, mais au prix d'un croisement de tous
+  les trips et de toutes les dates de service : pré-calculé ici plutôt que dans chaque
+  client.
 - **`stats/downloads.json`** — téléchargements de l'APK par version (`download_count` des assets
   GitHub Releases), recalculés quotidiennement par le workflow `collect-downloads.yml`
   (`tools/collect_downloads.py`).

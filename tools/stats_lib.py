@@ -171,3 +171,119 @@ def aggregate_stations(days, station_ref, order_by_uic):
     for i, r in enumerate(rows):  # ordre final propre 0..N après tri géographique
         r["order"] = i
     return rows
+
+
+MIN_OBS = 5  # en deçà, un pourcentage ne veut rien dire — on publie le brut et rien d'autre
+
+
+def percentile(values, q):
+    """Quantile (méthode du plus proche rang) d'une liste de valeurs, ou None.
+
+    p90 plutôt que max : le max est fixé pour un an par un incident unique, alors
+    que le p90 répond à la question de l'usager — « j'arrive avant quelle heure
+    9 fois sur 10 ? ».
+    """
+    vs = sorted(values)
+    if not vs:
+        return None
+    rank = max(1, min(len(vs), -(-len(vs) * q // 100)))  # ceil(n*q/100), borné
+    return vs[rank - 1]
+
+
+def train_station_stats(days, order_by_uic, windows, today, min_obs=MIN_OBS):
+    """Ponctualité croisée train × gare, par fenêtre glissante.
+
+    La régularité SNCF se mesure au terminus ; l'usager, lui, monte et descend en
+    gare intermédiaire. Le profil d'arrêts est déjà collecté : il suffit de ne PAS
+    l'écraser en une médiane par gare toutes circulations confondues.
+    """
+    from datetime import datetime, timedelta
+
+    per_key = {}
+    for day in days:
+        date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+        for num, rec in day.get("trains", {}).items():
+            for stop in rec.get("stops", []):
+                per_key.setdefault((num, stop["uic"]), []).append((date, stop))
+
+    out = {}
+    for (num, uic), dated in sorted(per_key.items()):
+        by_window = {}
+        for name, days_back in windows.items():
+            stops = [s for d, s in dated if d >= today - timedelta(days=days_back)]
+            if not stops:
+                continue
+            by_window[name] = _stop_window(stops, min_obs)
+        if by_window:
+            out.setdefault(num, {})[uic] = by_window
+    return {
+        num: {u: w for u, w in sorted(stations.items(), key=lambda kv: order_by_uic.get(kv[0], 99))}
+        for num, stations in out.items()
+    }
+
+
+def _stop_window(stops, min_obs):
+    """Agrégat d'une gare sur une fenêtre : suppressions au dénominateur, comme ailleurs."""
+    n = len(stops)
+    skipped = sum(1 for s in stops if s.get("skipped"))
+    entry = {"obs": n, "enough": n >= min_obs}
+    if not entry["enough"]:
+        return entry
+    delays = [s["delayS"] for s in stops if not s.get("skipped") and s.get("delayS") is not None]
+    entry["skippedPct"] = round(100 * skipped / n)
+    if delays:
+        entry["onTimePct"] = round(100 * sum(1 for d in delays if d <= ON_TIME_S) / n)
+        entry["medianDelayS"] = _median(delays)
+        entry["p90DelayS"] = percentile(delays, 90)
+    return entry
+
+
+def desserte_anomalies(line32, from_date, horizon_days=120):
+    """Journées où un train ne dessert pas ses gares habituelles, à venir.
+
+    La desserte de référence est calculée par (train, jour de semaine) : le samedi
+    a son propre schéma, le signaler comme anomalie serait du bruit. Ne reste que
+    le vrai cas gênant — le train qui, tel jour, s'arrête avant son terminus
+    habituel alors que l'app en affiche le nom.
+    """
+    from collections import Counter, defaultdict
+    from datetime import datetime, timedelta
+
+    name_of = {s["id"]: s["name"] for s in line32.get("stations", [])}
+    active = defaultdict(set)
+    for c in line32.get("calendarDates", []):
+        if c["exception"] == "added":
+            active[c["serviceId"]].add(c["date"])
+
+    served = defaultdict(dict)  # train -> date -> frozenset(stationId)
+    for trip in line32.get("trips", []):
+        stops = frozenset(s["stationId"] for s in trip["stops"])
+        num = train_number(trip.get("tripId"))
+        for date in active.get(trip.get("serviceId"), ()):
+            if num:
+                served[num][date] = stops
+
+    start = datetime.strptime(from_date, "%Y-%m-%d").date()
+    end = start + timedelta(days=horizon_days)
+    out = []
+    for num, by_date in served.items():
+        usual = {}  # jour de semaine -> desserte modale
+        for date, stops in by_date.items():
+            wd = datetime.strptime(date, "%Y-%m-%d").date().weekday()
+            usual.setdefault(wd, Counter())[stops] += 1
+        for date, stops in sorted(by_date.items()):
+            day = datetime.strptime(date, "%Y-%m-%d").date()
+            if not (start <= day <= end):
+                continue
+            ref = usual[day.weekday()].most_common(1)[0][0]
+            missing = ref - stops
+            if not missing:
+                continue
+            out.append({
+                "date": date,
+                "train": num,
+                "missing": sorted(name_of.get(s, s) for s in missing),
+                "servedCount": len(stops),
+                "usualCount": len(ref),
+            })
+    return sorted(out, key=lambda a: (a["date"], a["train"]))

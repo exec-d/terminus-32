@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { aggregatePunctuality, delayTotals, type Line32Stats } from './punctuality';
+import {
+  aggregatePunctuality,
+  delayTotals,
+  type Line32Stats,
+  type WindowStats
+} from './punctuality';
 
 function stats(trains: Line32Stats['trains']): Line32Stats {
   return { meta: {}, trains };
@@ -9,6 +14,22 @@ describe('aggregatePunctuality', () => {
   it('retourne des zéros quand il n’y a aucune observation', () => {
     const out = aggregatePunctuality(stats({}), 'month');
     expect(out).toEqual({ onTimePct: 0, cancelledPct: 0, totalObs: 0, trains: 0 });
+  });
+
+  it('exclut une fenêtre sous le seuil de publication au lieu de la compter en échec', () => {
+    // `enough: false` = trop peu d'observations pour conclure. Sans exclusion, ses
+    // passages entreraient au dénominateur sans jamais créditer onTime : une lacune
+    // de mesure se lirait comme un train jamais à l'heure.
+    const out = aggregatePunctuality(
+      stats({
+        '1': mkTrain({ obs: 100, onTimePct: 90, cancelledPct: 0 }),
+        '2': mkTrain({ obs: 1, enough: false })
+      }),
+      'month'
+    );
+    expect(out.onTimePct).toBe(90);
+    expect(out.totalObs).toBe(100);
+    expect(out.trains).toBe(1);
   });
 
   it('compte une suppression comme non-à-l’heure (jamais exclue)', () => {
@@ -73,6 +94,19 @@ describe('aggregatePunctuality', () => {
   });
 });
 
+describe('seuil de publication', () => {
+  it('delayTotals ignore les fenêtres sous le seuil', () => {
+    const out = delayTotals(
+      stats({
+        '1': mkTrain({ obs: 10, cumDelayMin: 30, maxDelayMin: 12 }),
+        '2': mkTrain({ obs: 1, enough: false, cumDelayMin: 99, maxDelayMin: 99 })
+      }),
+      'month'
+    );
+    expect(out).toEqual({ cumDelayMin: 30, maxDelayMin: 12 });
+  });
+});
+
 describe('delayTotals', () => {
   it('retourne des zéros quand il n’y a aucune observation', () => {
     expect(delayTotals(stats({}), 'month')).toEqual({ cumDelayMin: 0, maxDelayMin: 0 });
@@ -95,13 +129,6 @@ describe('delayTotals', () => {
   });
 });
 
-function mkTrain(w: { obs: number; cancelledPct?: number; onTimePct?: number }): Record<
-  'week' | 'month' | 'year',
-  {
-    obs: number;
-    cancelledPct?: number;
-    onTimePct?: number;
-  }
-> {
+function mkTrain(w: WindowStats): Record<'week' | 'month' | 'year', WindowStats> {
   return { week: w, month: w, year: w };
 }

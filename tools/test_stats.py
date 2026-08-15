@@ -1,5 +1,10 @@
+from datetime import date
+
 from stats_lib import (
     aggregate_stations,
+    desserte_anomalies,
+    percentile,
+    train_station_stats,
     coverage_of,
     daily_trend_point,
     merge_stops,
@@ -176,3 +181,83 @@ def test_coverage_of_ignore_les_trains_hors_programme():
 def test_coverage_of_sans_programme_connu_reste_indetermine():
     cov = coverage_of(None, {"1": {}})
     assert cov == {"scheduled": None, "observed": 1, "pct": None, "missing": None}
+
+
+def test_percentile_plus_proche_rang():
+    assert percentile([0, 0, 0, 0, 0, 0, 0, 0, 0, 2700], 90) == 0
+    assert percentile([0, 0, 0, 0, 0, 0, 0, 0, 2700, 2700], 90) == 2700
+    assert percentile([], 90) is None
+    assert percentile([42], 90) == 42
+
+
+def _stop(uic, delay=0, skipped=False):
+    return {"uic": uic, "delayS": None if skipped else delay, "skipped": skipped}
+
+
+def _day_stops(date, trains):
+    return {"date": date, "samples": [], "trains": trains}
+
+
+def test_train_station_stats_ne_melange_pas_les_circulations():
+    # Le 06:13 à l'heure et le 20:13 en retard passent par la même gare : les agréger
+    # ensemble (ce que fait aggregate_stations) noie le train du soir. Ici on sépare.
+    days = [
+        _day_stops(
+            f"2026-08-{d:02d}",
+            {
+                "889411": {"stops": [_stop("87723759", 0)]},
+                "889439": {"stops": [_stop("87723759", 900)]},
+            },
+        )
+        for d in range(10, 16)
+    ]
+    out = train_station_stats(days, {"87723759": 0}, {"week": 7}, date(2026, 8, 16))
+    assert out["889411"]["87723759"]["week"]["onTimePct"] == 100
+    assert out["889439"]["87723759"]["week"]["onTimePct"] == 0
+    assert out["889439"]["87723759"]["week"]["p90DelayS"] == 900
+
+
+def test_train_station_stats_applique_le_seuil():
+    days = [_day_stops("2026-08-15", {"889411": {"stops": [_stop("87723759", 0)]}})]
+    out = train_station_stats(days, {"87723759": 0}, {"week": 7}, date(2026, 8, 16))
+    assert out["889411"]["87723759"]["week"] == {"obs": 1, "enough": False}
+
+
+_DESSERTE = {
+    "stations": [
+        {"id": "A", "name": "Bourg-en-Bresse"},
+        {"id": "B", "name": "Villars-les-Dombes"},
+        {"id": "C", "name": "Lyon Perrache"},
+    ],
+    "trips": [
+        {"tripId": "OCESN889441_complet", "serviceId": "PLEIN", "stops": [
+            {"stationId": "A"}, {"stationId": "B"}, {"stationId": "C"}]},
+        {"tripId": "OCESN889441_court", "serviceId": "COURT", "stops": [
+            {"stationId": "A"}, {"stationId": "B"}]},
+    ],
+    "calendarDates": (
+        # 3 lundis complets, 1 lundi raccourci → seul le dernier est une anomalie.
+        [{"serviceId": "PLEIN", "date": d, "exception": "added"}
+         for d in ("2026-08-17", "2026-08-24", "2026-08-31")]
+        + [{"serviceId": "COURT", "date": "2026-09-07", "exception": "added"}]
+        # Le dimanche a son propre schéma : jamais Perrache, ce n'est pas une anomalie.
+        + [{"serviceId": "COURT", "date": d, "exception": "added"}
+           for d in ("2026-08-16", "2026-08-23", "2026-08-30")]
+    ),
+}
+
+
+def test_desserte_anomalies_repere_le_terminus_raccourci():
+    out = desserte_anomalies(_DESSERTE, "2026-08-15")
+    assert [(a["date"], a["train"], a["missing"]) for a in out] == [
+        ("2026-09-07", "889441", ["Lyon Perrache"])
+    ]
+
+
+def test_desserte_anomalies_ignore_le_schema_propre_au_week_end():
+    # Aucun dimanche ne doit sortir : la référence est calculée par jour de semaine.
+    assert not [a for a in desserte_anomalies(_DESSERTE, "2026-08-15") if a["date"] == "2026-08-16"]
+
+
+def test_desserte_anomalies_ne_regarde_pas_le_passe():
+    assert desserte_anomalies(_DESSERTE, "2026-09-08") == []

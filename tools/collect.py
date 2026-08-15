@@ -24,13 +24,17 @@ from pathlib import Path
 from google.transit import gtfs_realtime_pb2
 
 from stats_lib import (
+    MIN_OBS,
     aggregate_stations,
     coverage_of,
+    desserte_anomalies,
     daily_trend_point,
     merge_stops,
+    percentile,
     scheduled_numbers,
     station_order,
     train_number,
+    train_station_stats,
     uic_of,
 )
 
@@ -132,11 +136,24 @@ def merge_history(obs, now_iso, line32):
 
 def _aggregate(recs):
     n = len(recs)
+    # Un pourcentage sur 1 ou 2 trajets n'est pas une statistique, c'est une anecdote
+    # affichée comme une certitude. En deçà du seuil on ne publie que le brut ;
+    # `onTimePct` étant déjà optionnel, aucun consommateur n'a à changer de schéma.
+    entry = {"obs": n, "enough": n >= MIN_OBS}
+    if not entry["enough"]:
+        return entry
     cancelled = sum(1 for r in recs if r["cancelled"])
-    delays = sorted(
-        r["finalDelayS"] for r in recs if r["finalDelayS"] is not None and not r["cancelled"]
-    )
-    entry = {"obs": n, "cancelledPct": round(100 * cancelled / n)}
+    ran = [r for r in recs if r["finalDelayS"] is not None and not r["cancelled"]]
+    delays = sorted(r["finalDelayS"] for r in ran)
+    entry["cancelledPct"] = round(100 * cancelled / n)
+    # skippedStops et maxDelayS étaient collectés depuis le début sans être lus :
+    # le premier dit « ce train ne s'est pas arrêté », le second permet de repérer
+    # les trajets partis en retard puis rattrapés — deux vécus très différents d'un
+    # même retard final.
+    entry["skippedPct"] = round(100 * sum(1 for r in recs if r.get("skippedStops")) / n)
+    if ran:
+        recovered = sum(1 for r in ran if (r.get("maxDelayS") or 0) - r["finalDelayS"] >= 120)
+        entry["recoveredPct"] = round(100 * recovered / len(ran))
     if delays:
         # onTimePct honnête, cohérent avec daily_trend_point : à l'heure rapporté à
         # TOUTES les observations de la fenêtre. Une suppression — ou un trajet sans
@@ -150,6 +167,9 @@ def _aggregate(recs):
         entry["meanDelayMin"] = round(sum(delays) / len(delays) / 60)
         entry["cumDelayMin"] = round(sum(delays) / 60)
         entry["maxDelayMin"] = round(max(delays) / 60)
+        # p90 plutôt que le seul max : le max est figé pour un an par un incident
+        # unique, le p90 répond à « j'arrive avant quelle heure 9 fois sur 10 ? ».
+        entry["p90DelayMin"] = round(percentile(delays, 90) / 60)
     return entry
 
 
@@ -219,6 +239,7 @@ def compute_stats(now_iso, line32):
                         for name, days in WINDOWS.items()
                     },
                     "onTimeThresholdMin": ON_TIME_S // 60,
+                    "minObs": MIN_OBS,
                     # Couverture de la collecte : sans elle, un train jamais
                     # échantillonné sort du dénominateur sans laisser de trace et
                     # gonfle mécaniquement le % à l'heure.
@@ -258,6 +279,41 @@ def compute_stats(now_iso, line32):
             {
                 "meta": {"updatedAt": now_iso},
                 "stations": aggregate_stations(days_records, station_ref, order_by_uic),
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+
+    # Ponctualité croisée train × gare. Fichier séparé et non fusionné dans
+    # line32.json : ~120 Ko, à ne télécharger que pour une fiche train, pas à
+    # chaque lancement. Le seuil de 5 min s'applique ici au passage en gare.
+    (stats_dir / "train-stations.json").write_text(
+        json.dumps(
+            {
+                "meta": {
+                    "updatedAt": now_iso,
+                    "windows": WINDOWS,
+                    "onTimeThresholdMin": ON_TIME_S // 60,
+                    "minObs": MIN_OBS,
+                },
+                "trains": train_station_stats(days_records, order_by_uic, WINDOWS, today),
+            },
+            indent=1,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+
+    # Dessertes réduites à venir. L'information est déductible de line32.json, mais
+    # y arriver demande de croiser 168 trips et 119 dates de service : on la
+    # pré-calcule ici plutôt que dans chaque client.
+    (stats_dir / "desserte.json").write_text(
+        json.dumps(
+            {
+                "meta": {"updatedAt": now_iso, "from": today.isoformat()},
+                "anomalies": desserte_anomalies(line32, today.isoformat()),
             },
             indent=1,
             sort_keys=True,

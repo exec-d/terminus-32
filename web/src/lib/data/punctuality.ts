@@ -2,7 +2,12 @@ export type Windows = 'week' | 'month' | 'year';
 
 export interface WindowStats {
   obs: number;
+  /** false quand la fenêtre compte trop peu d'observations pour publier un pourcentage. */
+  enough?: boolean;
   onTimePct?: number;
+  p90DelayMin?: number;
+  skippedPct?: number;
+  recoveredPct?: number;
   cancelledPct?: number;
   medianDelayMin?: number;
   meanDelayMin?: number;
@@ -33,7 +38,7 @@ export function delayTotals(stats: Line32Stats, win: Windows): DelayTotals {
   let max = 0;
   for (const key of Object.keys(stats.trains)) {
     const w = stats.trains[key]?.[win];
-    if (!w || (w.obs ?? 0) <= 0) continue;
+    if (!w || (w.obs ?? 0) <= 0 || w.enough === false) continue;
     cum += w.cumDelayMin ?? 0;
     max = Math.max(max, w.maxDelayMin ?? 0);
   }
@@ -57,7 +62,10 @@ export function aggregatePunctuality(stats: Line32Stats, win: Windows): Aggregat
   for (const key of Object.keys(stats.trains)) {
     const w = stats.trains[key]?.[win];
     const obs = w?.obs ?? 0;
-    if (!w || obs <= 0) continue;
+    // `enough: false` = pas assez d'observations pour conclure. L'inclure ajouterait
+    // ses passages au dénominateur sans jamais rien créditer à `onTime` : une lacune
+    // de mesure se lirait comme un train non ponctuel.
+    if (!w || obs <= 0 || w.enough === false) continue;
 
     trains += 1;
     const cancelledPct = w.cancelledPct ?? 0;
