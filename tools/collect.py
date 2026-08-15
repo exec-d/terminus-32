@@ -4,12 +4,15 @@
 Échantillonne le flux national TripUpdates, filtre les trains de la ligne 32
 (numéros extraits de line32.json, présent à la racine du dépôt), fusionne
 l'observation dans history/<date>.json (clé = date de service du trip, ce qui
-rend les runs idempotents et permet au run du matin de rattraper la veille),
-puis recalcule stats/line32.json sur trois fenêtres glissantes (semaine, mois, année).
+rend les runs idempotents), puis recalcule stats/line32.json sur trois fenêtres
+glissantes (semaine, mois, année).
 
-Le flux est un instantané : il retient la journée de service en cours (retards
-finaux des trains déjà arrivés inclus), d'où un échantillonnage périodique
-(toutes les 4 h) au lieu d'un polling continu.
+Le flux ne porte un train que sur une fenêtre courte (~1 h avant son départ,
+jusqu'à peu après son arrivée) : il ne conserve PAS la journée de service écoulée.
+Un train non échantillonné pendant cette fenêtre est donc perdu définitivement —
+aucun run ultérieur ne le rattrape. D'où un échantillonnage toutes les 30 min
+(cf. collect-stats.yml), qui laisse 3 passages minimum par train, et le bloc
+`coverage` écrit dans chaque journée pour rendre une lacune éventuelle visible.
 """
 
 import json
@@ -20,23 +23,29 @@ from pathlib import Path
 
 from google.transit import gtfs_realtime_pb2
 
-from stats_lib import aggregate_stations, daily_trend_point, merge_stops, station_order, uic_of
+from stats_lib import (
+    aggregate_stations,
+    coverage_of,
+    daily_trend_point,
+    merge_stops,
+    scheduled_numbers,
+    station_order,
+    train_number,
+    uic_of,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 FEED_URL = "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates"
-TRAIN_RE = re.compile(r"OCESN(\d+)")
 ON_TIME_S = 300  # seuil SNCF : à l'heure si retard final <= 5 min
 WINDOWS = {"week": 7, "month": 30, "year": 365}  # fenêtres glissantes, en jours
 
 
-def train_number(trip_id):
-    m = TRAIN_RE.search(trip_id)
-    return m.group(1) if m else None
+def load_line32():
+    return json.loads((ROOT / "line32.json").read_text())
 
 
-def load_line32_numbers():
-    data = json.loads((ROOT / "line32.json").read_text())
-    return {n for t in data["trips"] if (n := train_number(t["tripId"]))}
+def load_line32_numbers(line32):
+    return {n for t in line32["trips"] if (n := train_number(t["tripId"]))}
 
 
 def fetch_feed():
@@ -92,7 +101,7 @@ def observe(feed, numbers):
     return obs
 
 
-def merge_history(obs, now_iso):
+def merge_history(obs, now_iso, line32):
     hist = ROOT / "history"
     hist.mkdir(exist_ok=True)
     for date, trains in obs.items():
@@ -117,6 +126,7 @@ def merge_history(obs, now_iso):
                     "stops": merge_stops(old.get("stops", []), rec.get("stops", [])),
                 }
             day["trains"][num] = rec
+        day["coverage"] = coverage_of(scheduled_numbers(line32, iso), day["trains"])
         path.write_text(json.dumps(day, indent=1, sort_keys=True) + "\n")
 
 
@@ -155,16 +165,36 @@ def _history_paths():
     return [p for p in sorted((ROOT / "history").glob("*.json")) if _DATE_STEM.match(p.stem)]
 
 
-def compute_stats(now_iso):
+def _window_coverage(day_coverage, today, days):
+    """Part des trains programmés réellement observés sur une fenêtre glissante.
+
+    Ne comptent que les journées dont le programme est connu (cf. scheduled_numbers) :
+    inclure les autres ferait passer une lacune pour une couverture parfaite.
+    """
+    rows = [c for d, c in day_coverage if d >= today - timedelta(days=days) and c.get("scheduled")]
+    scheduled = sum(c["scheduled"] for c in rows)
+    observed = sum(c["scheduled"] - len(c["missing"]) for c in rows)
+    return {
+        "days": len(rows),
+        "scheduled": scheduled,
+        "observed": observed,
+        "pct": round(100 * observed / scheduled) if scheduled else None,
+    }
+
+
+def compute_stats(now_iso, line32):
     today = datetime.now(timezone.utc).date()
     horizon = today - timedelta(days=max(WINDOWS.values()))
-    per_train, days_seen = {}, []
+    per_train, days_seen, day_coverage = {}, [], []
     for path in _history_paths():
         day = datetime.strptime(path.stem, "%Y-%m-%d").date()
         if day < horizon:
             continue
         days_seen.append(day)
-        for num, rec in json.loads(path.read_text())["trains"].items():
+        content = json.loads(path.read_text())
+        if content.get("coverage"):
+            day_coverage.append((day, content["coverage"]))
+        for num, rec in content["trains"].items():
             per_train.setdefault(num, []).append((day, rec))
 
     trains = {}
@@ -189,6 +219,13 @@ def compute_stats(now_iso):
                         for name, days in WINDOWS.items()
                     },
                     "onTimeThresholdMin": ON_TIME_S // 60,
+                    # Couverture de la collecte : sans elle, un train jamais
+                    # échantillonné sort du dénominateur sans laisser de trace et
+                    # gonfle mécaniquement le % à l'heure.
+                    "coverage": {
+                        name: _window_coverage(day_coverage, today, days)
+                        for name, days in WINDOWS.items()
+                    },
                 },
                 "trains": trains,
             },
@@ -198,7 +235,6 @@ def compute_stats(now_iso):
         + "\n"
     )
 
-    line32 = json.loads((ROOT / "line32.json").read_text())
     station_ref = line32["stations"]
     order_by_uic = station_order(line32)
     days_records = [
@@ -232,21 +268,29 @@ def compute_stats(now_iso):
 
 def main():
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    numbers = load_line32_numbers()
+    line32 = load_line32()
+    numbers = load_line32_numbers(line32)
     obs = observe(fetch_feed(), numbers)
     seen = sum(len(t) for t in obs.values())
     print(f"trains ligne 32 dans le flux : {seen} (dates de service : {sorted(obs)})")
 
+    # Hors circulation (nuit), le flux ne porte aucun train de la ligne. Écrire
+    # quand même republierait des stats identiques à l'horodatage près : un commit
+    # vide toutes les 30 min. On sort sans rien toucher.
+    if not obs:
+        print("aucun train de la ligne dans le flux — rien à écrire")
+        return
+
     # Diagnostic : log des arrêts non mappés (validation du mapping UIC au 1er run live)
-    known = {uic_of(s["id"]) for s in json.loads((ROOT / "line32.json").read_text())["stations"]}
+    known = {uic_of(s["id"]) for s in line32["stations"]}
     seen_uics = {s["uic"] for t in obs.values() for rec in t.values() for s in rec.get("stops", [])}
     unknown = seen_uics - known
     if unknown:
         print(f"⚠ arrêts hors référentiel (UIC non mappés) : {sorted(unknown)}")
 
-    merge_history(obs, now_iso)
-    compute_stats(now_iso)
-    print("history/ et stats/line32.json à jour")
+    merge_history(obs, now_iso, line32)
+    compute_stats(now_iso, line32)
+    print("history/ et stats/ à jour")
 
 
 if __name__ == "__main__":

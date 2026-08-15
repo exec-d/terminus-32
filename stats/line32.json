@@ -1,12 +1,32 @@
 {
  "meta": {
+  "coverage": {
+   "month": {
+    "days": 7,
+    "observed": 119,
+    "pct": 55,
+    "scheduled": 215
+   },
+   "week": {
+    "days": 7,
+    "observed": 119,
+    "pct": 55,
+    "scheduled": 215
+   },
+   "year": {
+    "days": 7,
+    "observed": 119,
+    "pct": 55,
+    "scheduled": 215
+   }
+  },
   "daysWithData": {
    "month": 31,
    "week": 8,
    "year": 43
   },
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-15T04:21:28+00:00",
+  "updatedAt": "2026-08-15T12:04:35+00:00",
   "windows": {
    "month": 30,
    "week": 7,

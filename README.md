@@ -10,15 +10,23 @@ La partie **publique** du projet [TERMinus](https://github.com/exec-d/terminus) 
   GTFS national SNCF et **mis à jour automatiquement chaque semaine** par la CI du repo app.
 - **`stats/line32.json`** — statistiques de ponctualité par train (% à l'heure au seuil SNCF de
   5 min, retard médian, % suppression) sur **trois fenêtres glissantes** (semaine, mois, année),
-  recalculées **toutes les 4 h** par le workflow `collect-stats.yml` de ce dépôt
+  recalculées **toutes les 30 min** par le workflow `collect-stats.yml` de ce dépôt
   (`tools/collect.py` échantillonne le flux GTFS-RT). Le `% à l'heure` rapporte les
   trajets ponctuels à **toutes** les observations de la fenêtre : une suppression y
-  compte comme non-à-l'heure (jamais retirée du dénominateur).
+  compte comme non-à-l'heure (jamais retirée du dénominateur). `meta.coverage`
+  indique quelle part du programme a effectivement été observée sur chaque fenêtre —
+  un `% à l'heure` ne se lit pas sans lui.
 - **`stats/downloads.json`** — téléchargements de l'APK par version (`download_count` des assets
   GitHub Releases), recalculés quotidiennement par le workflow `collect-downloads.yml`
   (`tools/collect_downloads.py`).
 - **`history/AAAA-MM-JJ.json`** — observations brutes par journée de service (retard final,
-  retard max, arrêts sautés, suppression), auditables dans l'historique git.
+  retard max, arrêts sautés, suppression), auditables dans l'historique git. Chaque journée
+  porte un bloc `coverage` (trains programmés, observés, manquants) : le flux GTFS-RT ne
+  retient un train qu'environ 1 h avant son départ et jusqu'à peu après son arrivée, un
+  train manqué est donc **définitivement** perdu. D'où l'échantillonnage toutes les 30 min,
+  qui laisse au moins 3 passages par train, et ce bloc qui rend toute lacune visible plutôt
+  que de la laisser sortir silencieusement du dénominateur. `python tools/audit.py` affiche
+  la couverture journée par journée (`--fail-under 95` pour un contrôle automatisé).
 - **`history/downloads-AAAA-MM-JJ.json`** — snapshot quotidien des téléchargements APK par version,
   pour garder un historique temporel.
 - **`app/latest.json`** — manifeste de la dernière version de l'application (version, URL de
