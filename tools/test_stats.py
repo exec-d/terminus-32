@@ -1,4 +1,13 @@
-from stats_lib import uic_of, daily_trend_point, merge_stops, aggregate_stations, station_order
+from stats_lib import (
+    aggregate_stations,
+    coverage_of,
+    daily_trend_point,
+    merge_stops,
+    scheduled_numbers,
+    station_order,
+    train_number,
+    uic_of,
+)
 
 
 def test_uic_of_extracts_code():
@@ -117,3 +126,53 @@ def test_station_order_from_beb_to_lyon_trip():
         ]
     }
     assert station_order(line32) == {"1111111": 0, "2222222": 1, "3333333": 2}
+
+
+def test_train_number_extrait_le_numero_commercial():
+    assert train_number("OCESN889439F1187_F:TER:FR:Line::ABC::87743005:87722025:12:2100:20260813") == "889439"
+    assert train_number("sans-numero") is None
+    assert train_number(None) is None
+
+
+_LINE32 = {
+    "trips": [
+        {"tripId": "OCESN889439F1187_x", "serviceId": "A"},
+        {"tripId": "OCESN889485F1187_x", "serviceId": "A"},
+        {"tripId": "OCESN889441F1187_x", "serviceId": "B"},
+    ],
+    "calendarDates": [
+        {"serviceId": "A", "date": "2026-08-16", "exception": "added"},
+        {"serviceId": "B", "date": "2026-08-17", "exception": "added"},
+        {"serviceId": "B", "date": "2026-08-16", "exception": "removed"},
+    ],
+}
+
+
+def test_scheduled_numbers_ne_retient_que_les_services_actifs_du_jour():
+    # Le service B est explicitement retiré le 16 : son train ne doit pas être attendu.
+    assert scheduled_numbers(_LINE32, "2026-08-16") == {"889439", "889485"}
+    assert scheduled_numbers(_LINE32, "2026-08-17") == {"889441"}
+
+
+def test_scheduled_numbers_hors_calendrier_vaut_none():
+    # Journée antérieure au référentiel : programme inconnu, surtout pas « 0 attendu ».
+    assert scheduled_numbers(_LINE32, "2026-07-04") is None
+
+
+def test_coverage_of_signale_les_trains_jamais_vus():
+    cov = coverage_of({"1", "2", "3", "4"}, {"1": {}, "3": {}})
+    assert cov == {"scheduled": 4, "observed": 2, "pct": 50, "missing": ["2", "4"]}
+
+
+def test_coverage_of_ignore_les_trains_hors_programme():
+    # Un train observé mais non programmé (renfort, erreur de calendrier) ne doit pas
+    # faire dépasser 100 % : la couverture mesure le programme, pas le volume vu.
+    cov = coverage_of({"1", "2"}, {"1": {}, "2": {}, "999": {}})
+    assert cov["pct"] == 100
+    assert cov["scheduled"] == 2
+    assert cov["missing"] == []
+
+
+def test_coverage_of_sans_programme_connu_reste_indetermine():
+    cov = coverage_of(None, {"1": {}})
+    assert cov == {"scheduled": None, "observed": 1, "pct": None, "missing": None}

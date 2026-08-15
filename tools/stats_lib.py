@@ -19,6 +19,59 @@ def uic_of(raw_id):
     return m.group(1) if m else None
 
 
+_TRAIN_RE = re.compile(r"OCESN(\d+)")
+
+
+def train_number(trip_id):
+    """Numéro de train commercial d'un tripId GTFS SNCF, ou None."""
+    if not trip_id:
+        return None
+    m = _TRAIN_RE.search(trip_id)
+    return m.group(1) if m else None
+
+
+def scheduled_numbers(line32, date):
+    """Numéros programmés une date de service donnée (AAAA-MM-JJ), ou None.
+
+    None quand la date sort du calendrier publié : le référentiel est régénéré
+    chaque semaine et ne couvre pas le passé lointain. On ne peut alors ni
+    affirmer ni infirmer une lacune — mieux vaut l'avouer que compter 0 attendu.
+    """
+    if not any(c["date"] == date for c in line32.get("calendarDates", [])):
+        return None
+    services = {
+        c["serviceId"]
+        for c in line32["calendarDates"]
+        if c["date"] == date and c["exception"] == "added"
+    }
+    return {
+        n
+        for t in line32.get("trips", [])
+        if t.get("serviceId") in services and (n := train_number(t.get("tripId")))
+    }
+
+
+def coverage_of(scheduled, observed):
+    """Couverture d'une journée : ce qui était programmé vs ce qu'on a vraiment vu.
+
+    Le flux GTFS-RT ne porte un train que sur une fenêtre courte autour de son
+    passage : un train manqué est perdu définitivement, jamais rattrapable. D'où
+    ce bloc, qui rend la lacune visible dans la donnée au lieu de la laisser
+    disparaître silencieusement du dénominateur des stats.
+    """
+    seen = set(observed)
+    if scheduled is None:
+        return {"scheduled": None, "observed": len(seen), "pct": None, "missing": None}
+    missing = sorted(set(scheduled) - seen)
+    total = len(scheduled)
+    return {
+        "scheduled": total,
+        "observed": len(seen),
+        "pct": round(100 * (total - len(missing)) / total) if total else None,
+        "missing": missing,
+    }
+
+
 def daily_trend_point(day):
     """Point de tendance honnête pour une journée d'historique.
 

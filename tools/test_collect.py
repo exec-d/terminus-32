@@ -2,7 +2,10 @@ import pytest
 
 pytest.importorskip("google.transit")  # skip si la lib GTFS-RT n'est pas installée
 from google.transit import gtfs_realtime_pb2  # noqa: E402
-from collect import _aggregate, stops_from_trip_update  # noqa: E402
+import json  # noqa: E402
+
+import collect  # noqa: E402
+from collect import _aggregate, merge_history, stops_from_trip_update  # noqa: E402
 
 
 def _tu():
@@ -62,3 +65,47 @@ def test_aggregate_all_cancelled_has_no_delay_stats():
     assert out["cancelledPct"] == 100
     assert "onTimePct" not in out
     assert "medianDelayMin" not in out
+
+
+_LINE32 = {
+    "trips": [
+        {"tripId": "OCESN889439_x", "serviceId": "A"},
+        {"tripId": "OCESN889485_x", "serviceId": "A"},
+    ],
+    "calendarDates": [{"serviceId": "A", "date": "2026-08-16", "exception": "added"}],
+}
+
+
+def _rec(delay):
+    return {
+        "finalDelayS": delay,
+        "maxDelayS": delay or 0,
+        "skippedStops": 0,
+        "cancelled": False,
+        "stops": [],
+    }
+
+
+def test_merge_history_stampe_la_couverture_et_reste_idempotent(tmp_path, monkeypatch):
+    # Le flux ne garde pas la journée écoulée : un train jamais échantillonné doit
+    # rester visible comme manquant, pas disparaître du dénominateur.
+    monkeypatch.setattr(collect, "ROOT", tmp_path)
+    (tmp_path / "history").mkdir()
+
+    merge_history({"20260816": {"889439": _rec(0)}}, "2026-08-16T10:00:00+00:00", _LINE32)
+    day = json.loads((tmp_path / "history" / "2026-08-16.json").read_text())
+    assert day["coverage"] == {
+        "scheduled": 2,
+        "observed": 1,
+        "pct": 50,
+        "missing": ["889485"],
+    }
+
+    # Second passage : le train manquant est vu, la couverture se referme et le
+    # retard final le plus tardif prime (fusion idempotente par date de service).
+    merge_history({"20260816": {"889485": _rec(120)}}, "2026-08-16T10:30:00+00:00", _LINE32)
+    day = json.loads((tmp_path / "history" / "2026-08-16.json").read_text())
+    assert day["coverage"]["pct"] == 100
+    assert day["coverage"]["missing"] == []
+    assert len(day["samples"]) == 2
+    assert day["trains"]["889485"]["finalDelayS"] == 120

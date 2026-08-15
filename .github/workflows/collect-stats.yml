@@ -1,14 +1,22 @@
 name: Collecte ponctualité ligne 32
 
-# Le flux GTFS-RT retient la journée de service en cours. Échantillonnage
-# toutes les 4 h (00/04/08/12/16/20 UTC) : couvre chaque train pendant qu'il est
-# vivant dans le flux — notamment ceux du petit matin, que l'ancien rythme
-# (14h/23h45/5h30 Paris) manquait. Les crons sont best-effort côté GitHub ; la
-# fusion par date de service rend les runs idempotents (pas de double comptage),
-# un passage raté est rattrapé par le suivant.
+# Le flux GTFS-RT ne retient PAS la journée de service écoulée : un train n'y
+# apparaît qu'environ 1 h avant son départ et disparaît peu après son arrivée,
+# soit une fenêtre de vie de ~1 h 40. Un train manqué pendant cette fenêtre est
+# perdu pour toujours — aucun run ultérieur ne le rattrape.
+#
+# L'ancien rythme (toutes les 4 h) ne voyait donc que les trains passant près
+# d'un run : 55 % des trains programmés collectés, et 0 % de ceux partant après
+# 18 h, c'est-à-dire précisément les plus en retard. Toutes les 30 min, chaque
+# train tombe dans au moins 3 fenêtres d'échantillonnage : il faudrait 3 runs
+# consécutifs ratés pour créer un trou. Les crons GitHub sont best-effort, d'où
+# cette marge. La fusion par date de service reste idempotente (pas de double
+# comptage), et le bloc `coverage` de chaque journée rend toute lacune visible.
+#
+# Hors circulation, collect.py sort sans rien écrire : pas de commit vide la nuit.
 on:
   schedule:
-    - cron: '0 */4 * * *'  # toutes les 4 h (UTC) ; Paris été 02/06/10/14/18/22
+    - cron: '*/30 * * * *'  # toutes les 30 min (UTC), toute l'année (DST incluse)
   workflow_dispatch:
 
 # Moindre privilège : contents pour committer history/ et stats/.
@@ -37,6 +45,19 @@ jobs:
 
       - name: Collecte + stats
         run: python tools/collect.py
+
+      # Rend la complétude lisible dans le résumé du run : une lacune se voit tout
+      # de suite, au lieu d'attendre qu'un pourcentage à l'heure paraisse trop beau.
+      - name: Audit de couverture
+        if: always()
+        run: |
+          {
+            echo '## Couverture de la collecte'
+            echo
+            echo '```'
+            python tools/audit.py --days 3
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit si changement
         run: |
