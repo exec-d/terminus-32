@@ -1,11 +1,10 @@
 {
  "coverage": {
   "missing": [
-   "889439",
    "889441"
   ],
-  "observed": 9,
-  "pct": 82,
+  "observed": 10,
+  "pct": 91,
   "scheduled": 11
  },
  "date": "2026-08-16",
@@ -29,7 +28,8 @@
   "2026-08-16T14:46:51+00:00",
   "2026-08-16T15:14:38+00:00",
   "2026-08-16T15:44:00+00:00",
-  "2026-08-16T16:15:53+00:00"
+  "2026-08-16T16:15:53+00:00",
+  "2026-08-16T16:48:50+00:00"
  ],
  "trains": {
   "889415": {
@@ -306,17 +306,17 @@
   },
   "889435": {
    "cancelled": false,
-   "finalDelayS": 1500,
-   "maxDelayS": 1500,
+   "finalDelayS": 1800,
+   "maxDelayS": 1800,
    "skippedStops": 9,
    "stops": [
     {
-     "delayS": 1500,
+     "delayS": 1800,
      "skipped": false,
      "uic": "87722025"
     },
     {
-     "delayS": 1500,
+     "delayS": 1800,
      "skipped": false,
      "uic": "87723197"
     },
@@ -369,6 +369,74 @@
      "delayS": 0,
      "skipped": false,
      "uic": "87743005"
+    }
+   ]
+  },
+  "889439": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
     }
    ]
   },
@@ -578,8 +646,8 @@
   },
   "889485": {
    "cancelled": false,
-   "finalDelayS": 0,
-   "maxDelayS": 0,
+   "finalDelayS": 900,
+   "maxDelayS": 900,
    "skippedStops": 9,
    "stops": [
     {
@@ -638,7 +706,7 @@
      "uic": "87723791"
     },
     {
-     "delayS": 0,
+     "delayS": 900,
      "skipped": false,
      "uic": "87743005"
     }
