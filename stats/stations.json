@@ -1,10 +1,10 @@
 {
  "meta": {
-  "updatedAt": "2026-08-16T14:15:52+00:00"
+  "updatedAt": "2026-08-16T14:46:51+00:00"
  },
  "stations": [
   {
-   "meanDelayS": 58,
+   "meanDelayS": 60,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
    "obs": 582,
@@ -94,7 +94,7 @@
    "uic": "87723700"
   },
   {
-   "meanDelayS": 50,
+   "meanDelayS": 53,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
    "obs": 586,
@@ -103,7 +103,7 @@
    "uic": "87723197"
   },
   {
-   "meanDelayS": 43,
+   "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
    "obs": 586,
