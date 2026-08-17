@@ -18,7 +18,7 @@
       "mergedIds": [
         "1683276"
       ],
-      "name": "Bourg-en-Bresse-Sémard Gare-Sémard Gare",
+      "name": "Sémard Gare",
       "lat": 46.199844,
       "lon": 5.215644,
       "distanceM": 57
@@ -28,7 +28,7 @@
       "mergedIds": [
         "1683240"
       ],
-      "name": "Bourg-en-Bresse-Peloux Gare-Peloux Gare",
+      "name": "Peloux Gare",
       "lat": 46.199693,
       "lon": 5.213607,
       "distanceM": 118
@@ -36,23 +36,17 @@
     {
       "id": "1683251",
       "mergedIds": [
-        "1683040"
+        "1683040",
+        "1684410"
       ],
-      "name": "Bourg-en-Bresse-Victoire Gare-Victoire Gare",
+      "name": "Victoire Gare",
       "lat": 46.20134,
       "lon": 5.215137,
       "distanceM": 137
     },
     {
-      "id": "1684410",
-      "name": "Bourg-en-Bresse-BOURG-EN-BRESSE - VICTOIRE GARE-BOURG-EN-BRESSE - VI",
-      "lat": 46.201688,
-      "lon": 5.215069,
-      "distanceM": 175
-    },
-    {
       "id": "1684359",
-      "name": "Bourg-en-Bresse-BOURG EN BRESSE - GARE SNCF-BOURG EN BRESSE - GA",
+      "name": "GARE SNCF",
       "lat": 46.201707,
       "lon": 5.214942,
       "distanceM": 178
@@ -2312,6 +2306,26 @@
     },
     {
       "stopId": "1683251",
+      "routeId": "128",
+      "headsign": "Meillonnas - Village",
+      "times": [
+        {
+          "serviceId": "17",
+          "dep": [
+            "17:14:00",
+            "18:14:00"
+          ]
+        },
+        {
+          "serviceId": "20",
+          "dep": [
+            "12:14:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
       "routeId": "160",
       "headsign": "BOURG EN BRESSE - LYCEES",
       "times": [
@@ -2418,6 +2432,118 @@
           "serviceId": "18",
           "dep": [
             "07:34:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "163",
+      "headsign": "MONTRACOL - ECOLE-EGLISE",
+      "times": [
+        {
+          "serviceId": "20",
+          "dep": [
+            "12:12:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "164",
+      "headsign": "BOURG EN BRESSE - LYCEES",
+      "times": [
+        {
+          "serviceId": "18",
+          "dep": [
+            "07:30:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "164",
+      "headsign": "BUELLAS - CLOS DES CHENES",
+      "times": [
+        {
+          "serviceId": "17",
+          "dep": [
+            "17:17:00",
+            "18:15:00"
+          ]
+        },
+        {
+          "serviceId": "20",
+          "dep": [
+            "12:18:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "165",
+      "headsign": "BOURG EN BRESSE - LYCEES",
+      "times": [
+        {
+          "serviceId": "18",
+          "dep": [
+            "07:35:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "165",
+      "headsign": "VANDEINS - ECOLE-MAIRIE",
+      "times": [
+        {
+          "serviceId": "17",
+          "dep": [
+            "17:12:00",
+            "18:12:00"
+          ]
+        },
+        {
+          "serviceId": "20",
+          "dep": [
+            "12:18:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "166",
+      "headsign": "BOURG EN BRESSE - LYCEES",
+      "times": [
+        {
+          "serviceId": "18",
+          "dep": [
+            "07:35:00"
+          ]
+        }
+      ]
+    },
+    {
+      "stopId": "1683251",
+      "routeId": "166",
+      "headsign": "SAINT-DENIS-LES-BOURG - CHAMAMBARD",
+      "times": [
+        {
+          "serviceId": "17",
+          "dep": [
+            "17:15:00",
+            "18:14:00"
+          ]
+        },
+        {
+          "serviceId": "20",
+          "dep": [
+            "12:14:00"
           ]
         }
       ]
@@ -3188,139 +3314,7 @@
       ]
     },
     {
-      "stopId": "1684410",
-      "routeId": "128",
-      "headsign": "Meillonnas - Village",
-      "times": [
-        {
-          "serviceId": "17",
-          "dep": [
-            "17:14:00",
-            "18:14:00"
-          ]
-        },
-        {
-          "serviceId": "20",
-          "dep": [
-            "12:14:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "163",
-      "headsign": "MONTRACOL - ECOLE-EGLISE",
-      "times": [
-        {
-          "serviceId": "20",
-          "dep": [
-            "12:12:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "164",
-      "headsign": "BOURG EN BRESSE - LYCEES",
-      "times": [
-        {
-          "serviceId": "18",
-          "dep": [
-            "07:30:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "164",
-      "headsign": "BUELLAS - CLOS DES CHENES",
-      "times": [
-        {
-          "serviceId": "17",
-          "dep": [
-            "17:17:00",
-            "18:15:00"
-          ]
-        },
-        {
-          "serviceId": "20",
-          "dep": [
-            "12:18:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "165",
-      "headsign": "BOURG EN BRESSE - LYCEES",
-      "times": [
-        {
-          "serviceId": "18",
-          "dep": [
-            "07:35:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "165",
-      "headsign": "VANDEINS - ECOLE-MAIRIE",
-      "times": [
-        {
-          "serviceId": "17",
-          "dep": [
-            "17:12:00",
-            "18:12:00"
-          ]
-        },
-        {
-          "serviceId": "20",
-          "dep": [
-            "12:18:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "166",
-      "headsign": "BOURG EN BRESSE - LYCEES",
-      "times": [
-        {
-          "serviceId": "18",
-          "dep": [
-            "07:35:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
-      "routeId": "166",
-      "headsign": "SAINT-DENIS-LES-BOURG - CHAMAMBARD",
-      "times": [
-        {
-          "serviceId": "17",
-          "dep": [
-            "17:15:00",
-            "18:14:00"
-          ]
-        },
-        {
-          "serviceId": "20",
-          "dep": [
-            "12:14:00"
-          ]
-        }
-      ]
-    },
-    {
-      "stopId": "1684410",
+      "stopId": "1683251",
       "routeId": "RJEREA",
       "headsign": "EREA LA CHAGNE",
       "times": [
@@ -3339,7 +3333,7 @@
       ]
     },
     {
-      "stopId": "1684410",
+      "stopId": "1683251",
       "routeId": "RJEREA",
       "headsign": "VICTOIRE GARE",
       "times": [
