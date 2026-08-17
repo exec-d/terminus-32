@@ -26,6 +26,20 @@ Calculés à partir des flux **GTFS-RT** de la SNCF diffusés via
 > Statistiques calculées à partir des données temps réel de la SNCF diffusées via
 > transport.data.gouv.fr, sous licence ODbL 1.0.
 
+## `correspondances/` — mini-référentiel des correspondances urbaines
+
+Extrait du jeu **GTFS Rubis** (Grand Bourg Agglomération) diffusé sur le Point d'Accès National
+[transport.data.gouv.fr](https://transport.data.gouv.fr), sous
+[Licence Ouverte 2.0 (Etalab)](https://www.etalab.gouv.fr/licence-ouverte-open-licence/).
+
+Ces fichiers sont dérivés du jeu source : sélection des arrêts proches de la gare, regroupement des
+homonymes, remise en état des libellés et restructuration en tableaux de départs. La Licence Ouverte
+n'impose **pas** de partage à l'identique — contrairement à l'ODbL de `line32.json`, la dérivation
+n'entraîne donc aucune obligation de licence sur le fichier produit. Seule l'attribution est due.
+
+> Contient des données de Grand Bourg Agglomération diffusées via transport.data.gouv.fr,
+> sous Licence Ouverte 2.0.
+
 ## Autres jeux utilisés par l'application
 
 L'application TERMinus interroge en direct, sans les redistribuer, deux jeux supplémentaires. Ils
