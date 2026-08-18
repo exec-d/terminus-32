@@ -3,20 +3,20 @@
   "coverage": {
    "month": {
     "days": 10,
-    "observed": 202,
-    "pct": 67,
+    "observed": 204,
+    "pct": 68,
     "scheduled": 300
    },
    "week": {
     "days": 8,
-    "observed": 174,
-    "pct": 69,
+    "observed": 176,
+    "pct": 70,
     "scheduled": 252
    },
    "year": {
     "days": 10,
-    "observed": 202,
-    "pct": 67,
+    "observed": 204,
+    "pct": 68,
     "scheduled": 300
    }
   },
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-18T12:30:48+00:00",
+  "updatedAt": "2026-08-18T13:36:56+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -666,15 +666,24 @@
     "maxDelayMin": 25,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 23,
+    "obs": 24,
     "onTimePct": 96,
     "p90DelayMin": 0,
     "recoveredPct": 4,
     "skippedPct": 4
    },
    "week": {
-    "enough": false,
-    "obs": 4
+    "cancelledPct": 0,
+    "cumDelayMin": 25,
+    "enough": true,
+    "maxDelayMin": 25,
+    "meanDelayMin": 5,
+    "medianDelayMin": 0,
+    "obs": 5,
+    "onTimePct": 80,
+    "p90DelayMin": 25,
+    "recoveredPct": 20,
+    "skippedPct": 20
    },
    "year": {
     "cancelledPct": 0,
@@ -683,8 +692,8 @@
     "maxDelayMin": 25,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 36,
-    "onTimePct": 94,
+    "obs": 37,
+    "onTimePct": 95,
     "p90DelayMin": 0,
     "recoveredPct": 3,
     "skippedPct": 3
@@ -1209,15 +1218,15 @@
     "maxDelayMin": 15,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 18,
-    "onTimePct": 94,
+    "obs": 19,
+    "onTimePct": 95,
     "p90DelayMin": 0,
     "recoveredPct": 0,
-    "skippedPct": 6
+    "skippedPct": 5
    },
    "week": {
     "enough": false,
-    "obs": 3
+    "obs": 4
    },
    "year": {
     "cancelledPct": 0,
@@ -1226,11 +1235,11 @@
     "maxDelayMin": 25,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 30,
-    "onTimePct": 93,
+    "obs": 31,
+    "onTimePct": 94,
     "p90DelayMin": 0,
     "recoveredPct": 3,
-    "skippedPct": 7
+    "skippedPct": 6
    }
   },
   "889483": {
