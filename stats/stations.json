@@ -1,10 +1,10 @@
 {
  "meta": {
-  "updatedAt": "2026-08-20T05:54:39+00:00"
+  "updatedAt": "2026-08-20T06:33:34+00:00"
  },
  "stations": [
   {
-   "meanDelayS": 60,
+   "meanDelayS": 61,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
    "obs": 709,
@@ -13,7 +13,7 @@
    "uic": "87743005"
   },
   {
-   "meanDelayS": 45,
+   "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Servas - Lent",
    "obs": 709,
@@ -22,7 +22,7 @@
    "uic": "87723791"
   },
   {
-   "meanDelayS": 43,
+   "meanDelayS": 45,
    "medianDelayS": 0,
    "name": "Saint-Paul-de-Varax",
    "obs": 709,
@@ -31,7 +31,7 @@
    "uic": "87723783"
   },
   {
-   "meanDelayS": 43,
+   "meanDelayS": 44,
    "medianDelayS": 0,
    "name": "Marlieux - Ch\u00e2tillon",
    "obs": 709,
@@ -40,7 +40,7 @@
    "uic": "87723767"
   },
   {
-   "meanDelayS": 45,
+   "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Villars-les-Dombes",
    "obs": 713,
@@ -85,7 +85,7 @@
    "uic": "87723718"
   },
   {
-   "meanDelayS": 44,
+   "meanDelayS": 45,
    "medianDelayS": 0,
    "name": "Sathonay - Rillieux",
    "obs": 713,
@@ -94,7 +94,7 @@
    "uic": "87723700"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
    "obs": 713,
@@ -103,7 +103,7 @@
    "uic": "87723197"
   },
   {
-   "meanDelayS": 41,
+   "meanDelayS": 43,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
    "obs": 713,
