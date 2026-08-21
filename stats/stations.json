@@ -1,40 +1,40 @@
 {
  "meta": {
-  "updatedAt": "2026-08-21T04:09:50+00:00"
+  "updatedAt": "2026-08-21T05:02:35+00:00"
  },
  "stations": [
   {
-   "meanDelayS": 64,
+   "meanDelayS": 65,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
-   "obs": 741,
+   "obs": 744,
    "order": 0,
    "skippedPct": 1,
    "uic": "87743005"
   },
   {
-   "meanDelayS": 50,
+   "meanDelayS": 51,
    "medianDelayS": 0,
    "name": "Servas - Lent",
-   "obs": 741,
+   "obs": 744,
    "order": 1,
    "skippedPct": 2,
    "uic": "87723791"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Saint-Paul-de-Varax",
-   "obs": 741,
+   "obs": 744,
    "order": 2,
    "skippedPct": 2,
    "uic": "87723783"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Marlieux - Ch\u00e2tillon",
-   "obs": 741,
+   "obs": 744,
    "order": 3,
    "skippedPct": 2,
    "uic": "87723767"
@@ -43,43 +43,43 @@
    "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Villars-les-Dombes",
-   "obs": 745,
+   "obs": 748,
    "order": 4,
    "skippedPct": 2,
    "uic": "87723759"
   },
   {
-   "meanDelayS": 42,
+   "meanDelayS": 43,
    "medianDelayS": 0,
    "name": "Saint-Marcel en Dombes",
-   "obs": 655,
+   "obs": 657,
    "order": 5,
    "skippedPct": 2,
    "uic": "87723742"
   },
   {
-   "meanDelayS": 42,
+   "meanDelayS": 43,
    "medianDelayS": 0,
    "name": "Saint-Andr\u00e9-de-Corcy",
-   "obs": 655,
+   "obs": 657,
    "order": 6,
    "skippedPct": 2,
    "uic": "87723734"
   },
   {
-   "meanDelayS": 42,
+   "meanDelayS": 43,
    "medianDelayS": 0,
    "name": "Mionnay",
-   "obs": 643,
+   "obs": 645,
    "order": 7,
    "skippedPct": 2,
    "uic": "87723726"
   },
   {
-   "meanDelayS": 43,
+   "meanDelayS": 44,
    "medianDelayS": 0,
    "name": "Les \u00c9chets",
-   "obs": 643,
+   "obs": 645,
    "order": 8,
    "skippedPct": 2,
    "uic": "87723718"
@@ -88,7 +88,7 @@
    "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Sathonay - Rillieux",
-   "obs": 745,
+   "obs": 748,
    "order": 9,
    "skippedPct": 2,
    "uic": "87723700"
@@ -97,7 +97,7 @@
    "meanDelayS": 53,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
-   "obs": 745,
+   "obs": 748,
    "order": 10,
    "skippedPct": 1,
    "uic": "87723197"
@@ -106,16 +106,16 @@
    "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
-   "obs": 745,
+   "obs": 748,
    "order": 11,
    "skippedPct": 1,
    "uic": "87722025"
   },
   {
-   "meanDelayS": 45,
+   "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Lyon Vaise",
-   "obs": 369,
+   "obs": 371,
    "order": 12,
    "skippedPct": 2,
    "uic": "87721001"
