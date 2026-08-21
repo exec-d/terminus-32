@@ -2,7 +2,7 @@
  "meta": {
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-21T05:56:00+00:00",
+  "updatedAt": "2026-08-21T06:37:30+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -1427,7 +1427,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1453,7 +1453,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1479,7 +1479,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1505,7 +1505,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1531,7 +1531,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1557,7 +1557,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1583,7 +1583,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    },
@@ -1609,7 +1609,7 @@
      "medianDelayS": 0,
      "obs": 29,
      "onTimePct": 97,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     }
    }
@@ -7627,7 +7627,7 @@
      "medianDelayS": 0,
      "obs": 6,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "year": {
@@ -7653,7 +7653,7 @@
      "medianDelayS": 0,
      "obs": 6,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "year": {
@@ -7679,7 +7679,7 @@
      "medianDelayS": 0,
      "obs": 6,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 300,
      "skippedPct": 0
     },
     "year": {
@@ -7705,7 +7705,7 @@
      "medianDelayS": 0,
      "obs": 6,
      "onTimePct": 100,
-     "p90DelayS": 0,
+     "p90DelayS": 120,
      "skippedPct": 0
     },
     "year": {
