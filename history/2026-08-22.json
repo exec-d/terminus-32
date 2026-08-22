@@ -1,7 +1,6 @@
 {
  "coverage": {
   "missing": [
-   "889433",
    "889435",
    "889439",
    "889483",
@@ -10,8 +9,8 @@
    "889489",
    "889490"
   ],
-  "observed": 12,
-  "pct": 60,
+  "observed": 13,
+  "pct": 65,
   "scheduled": 20
  },
  "date": "2026-08-22",
@@ -33,7 +32,8 @@
   "2026-08-22T11:14:30+00:00",
   "2026-08-22T11:43:04+00:00",
   "2026-08-22T12:23:56+00:00",
-  "2026-08-22T13:08:23+00:00"
+  "2026-08-22T13:08:23+00:00",
+  "2026-08-22T13:50:16+00:00"
  ],
  "trains": {
   "889411": {
@@ -453,52 +453,7 @@
     {
      "delayS": null,
      "skipped": true,
-     "uic": "87743005"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723791"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723783"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723767"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723759"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723742"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723734"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723726"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723718"
-    },
-    {
-     "delayS": null,
-     "skipped": true,
-     "uic": "87723700"
+     "uic": "87722025"
     },
     {
      "delayS": null,
@@ -508,6 +463,119 @@
     {
      "delayS": null,
      "skipped": true,
+     "uic": "87723700"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723718"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723726"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723734"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723742"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723759"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723767"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723783"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87723791"
+    },
+    {
+     "delayS": null,
+     "skipped": true,
+     "uic": "87743005"
+    }
+   ]
+  },
+  "889433": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
      "uic": "87722025"
     }
    ]
