@@ -2,7 +2,7 @@
  "meta": {
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-22T04:58:15+00:00",
+  "updatedAt": "2026-08-22T05:28:24+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -2672,25 +2672,25 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 14,
-     "onTimePct": 93,
+     "onTimePct": 86,
      "p90DelayS": 300,
-     "skippedPct": 0
+     "skippedPct": 7
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 900,
-     "skippedPct": 0
+     "skippedPct": 14
     },
     "year": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 20,
-     "onTimePct": 90,
-     "p90DelayS": 300,
-     "skippedPct": 0
+     "onTimePct": 85,
+     "p90DelayS": 900,
+     "skippedPct": 5
     }
    },
    "87723197": {

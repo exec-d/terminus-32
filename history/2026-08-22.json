@@ -26,7 +26,8 @@
  "samples": [
   "2026-08-22T03:13:41+00:00",
   "2026-08-22T04:03:40+00:00",
-  "2026-08-22T04:58:15+00:00"
+  "2026-08-22T04:58:15+00:00",
+  "2026-08-22T05:28:24+00:00"
  ],
  "trains": {
   "889411": {
@@ -101,11 +102,11 @@
    "cancelled": false,
    "finalDelayS": 0,
    "maxDelayS": 0,
-   "skippedStops": 0,
+   "skippedStops": 1,
    "stops": [
     {
      "delayS": 0,
-     "skipped": false,
+     "skipped": true,
      "uic": "87722025"
     },
     {
@@ -174,52 +175,7 @@
     {
      "delayS": 0,
      "skipped": false,
-     "uic": "87743005"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723791"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723783"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723767"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723759"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723742"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723734"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723726"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723718"
-    },
-    {
-     "delayS": 0,
-     "skipped": false,
-     "uic": "87723700"
+     "uic": "87722025"
     },
     {
      "delayS": 0,
@@ -229,7 +185,52 @@
     {
      "delayS": 0,
      "skipped": false,
-     "uic": "87722025"
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
     }
    ]
   },
