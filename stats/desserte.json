@@ -1,24 +1,6 @@
 {
  "anomalies": [
   {
-   "date": "2026-08-21",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 10,
-   "train": "889363",
-   "usualCount": 11
-  },
-  {
-   "date": "2026-08-21",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889431",
-   "usualCount": 13
-  },
-  {
    "date": "2026-11-30",
    "missing": [
     "Lyon Perrache"
@@ -92,7 +74,7 @@
   }
  ],
  "meta": {
-  "from": "2026-08-21",
-  "updatedAt": "2026-08-21T19:46:03+00:00"
+  "from": "2026-08-22",
+  "updatedAt": "2026-08-22T03:13:41+00:00"
  }
 }
