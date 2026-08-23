@@ -2,7 +2,7 @@
  "meta": {
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-23T13:09:35+00:00",
+  "updatedAt": "2026-08-23T13:52:14+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -5301,7 +5301,7 @@
      "medianDelayS": 0,
      "obs": 8,
      "onTimePct": 75,
-     "p90DelayS": 0,
+     "p90DelayS": 120,
      "skippedPct": 25
     },
     "year": {
