@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-17",
+    "generatedAt": "2026-08-24",
     "network": "rubis",
     "networkName": "Rubis",
     "anchorStationId": "StopArea:OCE87743005",
@@ -4107,141 +4107,6 @@
   ],
   "calendarDates": [
     {
-      "serviceId": "5",
-      "date": "2026-11-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-20",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-12-18",
-      "exception": "added"
-    },
-    {
       "serviceId": "12",
       "date": "2026-10-19",
       "exception": "added"
@@ -4329,66 +4194,6 @@
     {
       "serviceId": "12",
       "date": "2026-12-31",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-11-20",
       "exception": "added"
     },
     {
@@ -4957,6 +4762,61 @@
       "exception": "added"
     },
     {
+      "serviceId": "18",
+      "date": "2026-11-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-11-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-11",
+      "exception": "added"
+    },
+    {
       "serviceId": "20",
       "date": "2026-04-29",
       "exception": "added"
@@ -5072,83 +4932,653 @@
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
+      "date": "2026-10-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-10-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-10-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-20",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
+      "date": "2026-11-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "3",
       "date": "2026-11-27",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-11-30",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-01",
       "exception": "added"
     },
     {
-      "serviceId": "18",
-      "date": "2026-12-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-03",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-04",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-07",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-08",
       "exception": "added"
     },
     {
-      "serviceId": "18",
-      "date": "2026-12-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-10",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-11",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-14",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-15",
       "exception": "added"
     },
     {
-      "serviceId": "18",
-      "date": "2026-12-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-17",
       "exception": "added"
     },
     {
-      "serviceId": "18",
+      "serviceId": "3",
       "date": "2026-12-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-04-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-04-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-04-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-04-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-20",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-05-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-06-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-07-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-07-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-09-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-10-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-11-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "4",
+      "date": "2026-12-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-04-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-04-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-04-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-04-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-06",
       "exception": "added"
     },
     {
@@ -5557,6 +5987,536 @@
       "exception": "added"
     },
     {
+      "serviceId": "5",
+      "date": "2026-05-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-20",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-05-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-06-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-07-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-07-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-07-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-09-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-10-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-20",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-11-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "5",
+      "date": "2026-12-18",
+      "exception": "added"
+    },
+    {
       "serviceId": "7",
       "date": "2026-04-29",
       "exception": "added"
@@ -5669,6 +6629,401 @@
     {
       "serviceId": "7",
       "date": "2026-12-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-04-27",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-04-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-04-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-05-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-23",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-26",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-06-30",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-07-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-07-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-04",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-07",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-11",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-18",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-21",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-22",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-24",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-25",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-28",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-09-29",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-01",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-08",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-10-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-02",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-03",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-05",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-06",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-09",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-10",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-12",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-13",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-19",
+      "exception": "added"
+    },
+    {
+      "serviceId": "17",
+      "date": "2026-11-20",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-14",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-15",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-16",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-17",
+      "exception": "added"
+    },
+    {
+      "serviceId": "18",
+      "date": "2026-12-18",
       "exception": "added"
     },
     {
@@ -5917,641 +7272,6 @@
       "exception": "added"
     },
     {
-      "serviceId": "3",
-      "date": "2026-10-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-10-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-10-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-20",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-11-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "3",
-      "date": "2026-12-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-04-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-04-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-04-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-04-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-20",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-05-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-06-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-07-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-07-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-09-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-10-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-11-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "4",
-      "date": "2026-12-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-04-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-04-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-04-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-04-30",
-      "exception": "added"
-    },
-    {
       "serviceId": "10",
       "date": "2026-07-25",
       "exception": "added"
@@ -6789,726 +7509,6 @@
     {
       "serviceId": "10",
       "date": "2026-12-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-04-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-04-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-04-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-05-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-06-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-07-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-07-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-09-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "17",
-      "date": "2026-10-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-20",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-27",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-05-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-19",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-26",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-06-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-07-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-07-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-07-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-10",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-11",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-17",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-18",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-21",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-22",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-23",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-24",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-25",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-28",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-29",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-09-30",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-01",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-07",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-08",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-12",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-13",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-14",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-15",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-10-16",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-02",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-03",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-04",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-05",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-06",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-09",
-      "exception": "added"
-    },
-    {
-      "serviceId": "5",
-      "date": "2026-11-10",
       "exception": "added"
     }
   ]
