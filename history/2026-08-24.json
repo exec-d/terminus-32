@@ -14,7 +14,6 @@
    "889437",
    "889439",
    "889441",
-   "889479",
    "889481",
    "889483",
    "889485",
@@ -22,8 +21,8 @@
    "889489",
    "889490"
   ],
-  "observed": 23,
-  "pct": 53,
+  "observed": 24,
+  "pct": 56,
   "scheduled": 43
  },
  "date": "2026-08-24",
@@ -38,7 +37,8 @@
   "2026-08-24T09:39:12+00:00",
   "2026-08-24T10:30:49+00:00",
   "2026-08-24T11:20:03+00:00",
-  "2026-08-24T11:51:26+00:00"
+  "2026-08-24T11:51:26+00:00",
+  "2026-08-24T12:34:02+00:00"
  ],
  "trains": {
   "887411": {
@@ -1558,6 +1558,74 @@
      "skipped": false,
      "uic": "87721001"
     },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    }
+   ]
+  },
+  "889479": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
     {
      "delayS": 0,
      "skipped": false,
