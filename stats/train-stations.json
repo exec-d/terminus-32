@@ -2,7 +2,7 @@
  "meta": {
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-26T06:57:36+00:00",
+  "updatedAt": "2026-08-26T07:44:32+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -3926,15 +3926,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 17,
-     "onTimePct": 94,
-     "p90DelayS": 0,
+     "onTimePct": 88,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 6,
-     "onTimePct": 83,
+     "onTimePct": 67,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -3942,7 +3942,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 27,
-     "onTimePct": 96,
+     "onTimePct": 93,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -3952,15 +3952,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -3968,7 +3968,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -3978,15 +3978,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -3994,7 +3994,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4004,15 +4004,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4020,7 +4020,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4030,15 +4030,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4046,7 +4046,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4056,15 +4056,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4072,7 +4072,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4082,15 +4082,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4098,7 +4098,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4108,15 +4108,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4124,7 +4124,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4134,15 +4134,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1200,
      "skippedPct": 0
     },
@@ -4150,7 +4150,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
@@ -4160,15 +4160,15 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 19,
-     "onTimePct": 95,
-     "p90DelayS": 0,
+     "onTimePct": 89,
+     "p90DelayS": 600,
      "skippedPct": 0
     },
     "week": {
      "enough": true,
      "medianDelayS": 0,
      "obs": 7,
-     "onTimePct": 86,
+     "onTimePct": 71,
      "p90DelayS": 1500,
      "skippedPct": 0
     },
@@ -4176,7 +4176,7 @@
      "enough": true,
      "medianDelayS": 0,
      "obs": 32,
-     "onTimePct": 97,
+     "onTimePct": 94,
      "p90DelayS": 0,
      "skippedPct": 0
     }
