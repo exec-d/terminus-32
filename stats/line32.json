@@ -3,20 +3,20 @@
   "coverage": {
    "month": {
     "days": 21,
-    "observed": 508,
-    "pct": 75,
+    "observed": 510,
+    "pct": 76,
     "scheduled": 675
    },
    "week": {
     "days": 8,
-    "observed": 181,
-    "pct": 68,
+    "observed": 183,
+    "pct": 69,
     "scheduled": 265
    },
    "year": {
     "days": 21,
-    "observed": 508,
-    "pct": 75,
+    "observed": 510,
+    "pct": 76,
     "scheduled": 675
    }
   },
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-08-29T05:03:57+00:00",
+  "updatedAt": "2026-08-29T11:43:20+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -665,7 +665,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 18,
+    "obs": 19,
     "onTimePct": 100,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -678,7 +678,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 5,
+    "obs": 6,
     "onTimePct": 100,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -691,7 +691,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 27,
+    "obs": 28,
     "onTimePct": 100,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -1217,28 +1217,37 @@
     "maxDelayMin": 10,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 19,
-    "onTimePct": 89,
+    "obs": 20,
+    "onTimePct": 90,
     "p90DelayMin": 5,
     "recoveredPct": 11,
     "skippedPct": 5
    },
    "week": {
-    "enough": false,
-    "obs": 4
+    "cancelledPct": 20,
+    "cumDelayMin": 0,
+    "enough": true,
+    "maxDelayMin": 0,
+    "meanDelayMin": 0,
+    "medianDelayMin": 0,
+    "obs": 5,
+    "onTimePct": 80,
+    "p90DelayMin": 0,
+    "recoveredPct": 0,
+    "skippedPct": 20
    },
    "year": {
-    "cancelledPct": 5,
+    "cancelledPct": 4,
     "cumDelayMin": 15,
     "enough": true,
     "maxDelayMin": 10,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 22,
+    "obs": 23,
     "onTimePct": 91,
     "p90DelayMin": 0,
-    "recoveredPct": 10,
-    "skippedPct": 5
+    "recoveredPct": 9,
+    "skippedPct": 4
    }
   },
   "889479": {
