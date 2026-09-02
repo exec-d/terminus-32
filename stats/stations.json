@@ -1,13 +1,13 @@
 {
  "meta": {
-  "updatedAt": "2026-09-02T07:13:12+00:00"
+  "updatedAt": "2026-09-02T12:11:55+00:00"
  },
  "stations": [
   {
    "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Lyon Vaise",
-   "obs": 526,
+   "obs": 529,
    "order": 0,
    "skippedPct": 3,
    "uic": "87721001"
@@ -16,7 +16,7 @@
    "meanDelayS": 52,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
-   "obs": 1011,
+   "obs": 1015,
    "order": 1,
    "skippedPct": 1,
    "uic": "87722025"
@@ -25,7 +25,7 @@
    "meanDelayS": 59,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
-   "obs": 1011,
+   "obs": 1015,
    "order": 2,
    "skippedPct": 1,
    "uic": "87723197"
@@ -34,7 +34,7 @@
    "meanDelayS": 57,
    "medianDelayS": 0,
    "name": "Sathonay - Rillieux",
-   "obs": 1011,
+   "obs": 1015,
    "order": 3,
    "skippedPct": 2,
    "uic": "87723700"
@@ -43,7 +43,7 @@
    "meanDelayS": 52,
    "medianDelayS": 0,
    "name": "Les \u00c9chets",
-   "obs": 883,
+   "obs": 887,
    "order": 4,
    "skippedPct": 2,
    "uic": "87723718"
@@ -52,7 +52,7 @@
    "meanDelayS": 51,
    "medianDelayS": 0,
    "name": "Mionnay",
-   "obs": 883,
+   "obs": 887,
    "order": 5,
    "skippedPct": 2,
    "uic": "87723726"
@@ -61,7 +61,7 @@
    "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Saint-Andr\u00e9-de-Corcy",
-   "obs": 898,
+   "obs": 902,
    "order": 6,
    "skippedPct": 2,
    "uic": "87723734"
@@ -70,7 +70,7 @@
    "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Saint-Marcel en Dombes",
-   "obs": 898,
+   "obs": 902,
    "order": 7,
    "skippedPct": 2,
    "uic": "87723742"
@@ -79,7 +79,7 @@
    "meanDelayS": 56,
    "medianDelayS": 0,
    "name": "Villars-les-Dombes",
-   "obs": 1011,
+   "obs": 1015,
    "order": 8,
    "skippedPct": 2,
    "uic": "87723759"
@@ -88,7 +88,7 @@
    "meanDelayS": 57,
    "medianDelayS": 0,
    "name": "Marlieux - Ch\u00e2tillon",
-   "obs": 981,
+   "obs": 985,
    "order": 9,
    "skippedPct": 2,
    "uic": "87723767"
@@ -97,7 +97,7 @@
    "meanDelayS": 55,
    "medianDelayS": 0,
    "name": "Saint-Paul-de-Varax",
-   "obs": 981,
+   "obs": 985,
    "order": 10,
    "skippedPct": 2,
    "uic": "87723783"
@@ -106,7 +106,7 @@
    "meanDelayS": 55,
    "medianDelayS": 0,
    "name": "Servas - Lent",
-   "obs": 981,
+   "obs": 985,
    "order": 11,
    "skippedPct": 2,
    "uic": "87723791"
@@ -115,7 +115,7 @@
    "meanDelayS": 66,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
-   "obs": 981,
+   "obs": 985,
    "order": 12,
    "skippedPct": 1,
    "uic": "87743005"
