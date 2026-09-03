@@ -9,7 +9,7 @@
 
 <article class="doc">
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Dernière mise à jour : 28 juillet 2026</p>
+  <p class="updated">Dernière mise à jour : 3 septembre 2026</p>
 
   <p class="lead">
     TERMinus fonctionne sans vous connaître. Il n'y a pas de compte, pas d'inscription, pas
@@ -27,8 +27,9 @@
       ouvert.
     </li>
     <li>
-      Aucune donnée ne nous est envoyée. Nous n'avons pas de serveur, donc pas de base de données,
-      donc rien à consulter, à revendre ou à perdre.
+      Aucune donnée ne nous est envoyée <b>par l'application elle-même</b>. Nous n'avons pas de
+      serveur, donc pas de base de données, donc rien à consulter, à revendre ou à perdre. La seule
+      exception est un signalement que <b>vous</b> décidez d'envoyer : voir « Signaler un problème » ci-dessous.
     </li>
   </ul>
 
@@ -228,16 +229,43 @@
     elle sait seulement quelles gares vous avez choisies, et elle est la seule à le savoir.
   </p>
 
+  <h2>Signaler un problème</h2>
+  <p>
+    Depuis l'écran « À propos », l'application propose de nous signaler un dysfonctionnement. C'est
+    le <b>seul</b> cas où une information quitte votre téléphone à destination de l'éditeur, et il
+    ne se produit <b>que si vous le déclenchez</b>.
+  </p>
+  <p>
+    Ce que le rapport contient : la version de l'application, la date et la taille du référentiel
+    horaire installé, l'état du flux temps réel, vos réglages d'affichage (thème, taille du texte,
+    contraste), la version de votre système, l'écran d'où part le signalement, et le texte que vous
+    écrivez. <b
+      >La gare et le sens que vous consultiez n'y figurent que si vous cochez la case prévue</b
+    > — elle est décochée par défaut, parce que ces deux informations dessinent un trajet.
+  </p>
+  <p>
+    Le rapport complet vous est <b>affiché avant tout envoi</b> : rien ne part que vous n'ayez pu lire,
+    et vous pouvez modifier votre texte ou renoncer. Deux sorties vous sont proposées : ouvrir votre application
+    de messagerie sur un courriel prérempli, ou copier le rapport pour en faire ce que vous voulez. L'application
+    n'envoie rien elle-même — c'est votre client de messagerie qui envoie, et votre adresse d'expéditeur
+    nous parvient donc avec le message.
+  </p>
+  <p>
+    Ces courriels sont conservés le temps de traiter le signalement, puis supprimés. Ils ne sont ni
+    recoupés, ni transmis, ni utilisés pour autre chose.
+  </p>
+
   <h2>Vos droits</h2>
   <p>
     Le RGPD vous ouvre un droit d'accès, de rectification, d'effacement, de limitation et
     d'opposition.
   </p>
   <p>
-    Nous ne détenons aucune donnée vous concernant et nous ne pouvons vous identifier d'aucune
-    manière. Dans cette situation, l'article 11 du RGPD prévoit que les droits d'accès, de
-    rectification, d'effacement, de limitation et de portabilité ne s'exercent pas auprès du
-    responsable de traitement : il n'aurait rien à vous montrer, ni rien à corriger.
+    <b>Tant que vous ne nous avez pas écrit</b>, nous ne détenons aucune donnée vous concernant et
+    nous ne pouvons vous identifier d'aucune manière. Dans cette situation, l'article 11 du RGPD
+    prévoit que les droits d'accès, de rectification, d'effacement, de limitation et de portabilité
+    ne s'exercent pas auprès du responsable de traitement : il n'aurait rien à vous montrer, ni rien
+    à corriger.
   </p>
   <p>
     En pratique, vous exercez ces droits <b>directement sur votre appareil</b>, et sans nous
@@ -253,6 +281,10 @@
       couper les notifications : le réglage dédié dans l'application, ou la permission Android.
     </li>
   </ul>
+  <p>
+    Si vous nous avez envoyé un signalement, ces droits s'exercent alors normalement sur ce courriel
+    : écrivez-nous et nous le supprimons.
+  </p>
   <p>
     Vous pouvez écrire à <a href="mailto:kevin@delfour.co">kevin@delfour.co</a> pour toute question,
     et vous avez le droit d'introduire une réclamation auprès de la <b>CNIL</b> (3 place de
@@ -278,8 +310,9 @@
   <h2>Responsable de traitement</h2>
   <p>Kevin Delfour — <a href="mailto:kevin@delfour.co">kevin@delfour.co</a>.</p>
   <p>
-    Nous ne recevons aucune de vos données, mais c'est bien nous qui décidons de ce que
-    l'application enregistre sur votre téléphone et des serveurs qu'elle contacte. À ce titre, la
-    responsabilité de ces choix nous revient, et cette page est là pour en rendre compte.
+    Hors signalement que vous choisissez de nous envoyer, nous ne recevons aucune de vos données,
+    mais c'est bien nous qui décidons de ce que l'application enregistre sur votre téléphone et des
+    serveurs qu'elle contacte. À ce titre, la responsabilité de ces choix nous revient, et cette
+    page est là pour en rendre compte.
   </p>
 </article>
