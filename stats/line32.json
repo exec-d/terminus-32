@@ -3,19 +3,19 @@
   "coverage": {
    "month": {
     "days": 29,
-    "observed": 651,
+    "observed": 653,
     "pct": 70,
     "scheduled": 931
    },
    "week": {
     "days": 8,
-    "observed": 136,
-    "pct": 53,
+    "observed": 138,
+    "pct": 54,
     "scheduled": 256
    },
    "year": {
     "days": 29,
-    "observed": 651,
+    "observed": 653,
     "pct": 70,
     "scheduled": 931
    }
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-09-06T13:00:40+00:00",
+  "updatedAt": "2026-09-06T16:22:03+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -847,15 +847,24 @@
     "maxDelayMin": 30,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 25,
+    "obs": 26,
     "onTimePct": 92,
     "p90DelayMin": 5,
     "recoveredPct": 4,
     "skippedPct": 4
    },
    "week": {
-    "enough": false,
-    "obs": 4
+    "cancelledPct": 0,
+    "cumDelayMin": 5,
+    "enough": true,
+    "maxDelayMin": 5,
+    "meanDelayMin": 1,
+    "medianDelayMin": 0,
+    "obs": 5,
+    "onTimePct": 100,
+    "p90DelayMin": 5,
+    "recoveredPct": 20,
+    "skippedPct": 0
    },
    "year": {
     "cancelledPct": 2,
@@ -864,7 +873,7 @@
     "maxDelayMin": 30,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 41,
+    "obs": 42,
     "onTimePct": 93,
     "p90DelayMin": 0,
     "recoveredPct": 5,
@@ -1363,15 +1372,24 @@
     "maxDelayMin": 30,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 25,
+    "obs": 26,
     "onTimePct": 96,
     "p90DelayMin": 5,
     "recoveredPct": 4,
     "skippedPct": 4
    },
    "week": {
-    "enough": false,
-    "obs": 4
+    "cancelledPct": 0,
+    "cumDelayMin": 5,
+    "enough": true,
+    "maxDelayMin": 5,
+    "meanDelayMin": 1,
+    "medianDelayMin": 0,
+    "obs": 5,
+    "onTimePct": 100,
+    "p90DelayMin": 5,
+    "recoveredPct": 20,
+    "skippedPct": 0
    },
    "year": {
     "cancelledPct": 0,
@@ -1380,7 +1398,7 @@
     "maxDelayMin": 30,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 40,
+    "obs": 41,
     "onTimePct": 95,
     "p90DelayMin": 5,
     "recoveredPct": 2,
