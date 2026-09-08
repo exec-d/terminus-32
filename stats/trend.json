@@ -1,7 +1,7 @@
 {
  "meta": {
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-09-07T16:34:41+00:00"
+  "updatedAt": "2026-09-08T05:31:10+00:00"
  },
  "points": [
   {
@@ -399,6 +399,12 @@
    "date": "2026-09-07",
    "obs": 23,
    "onTimePct": 96
+  },
+  {
+   "cancelledPct": 0,
+   "date": "2026-09-08",
+   "obs": 10,
+   "onTimePct": 100
   }
  ]
 }
