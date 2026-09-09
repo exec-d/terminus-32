@@ -13,27 +13,24 @@
    "889423",
    "889431",
    "889437",
-   "889439",
-   "889441",
    "889461",
    "889469",
    "889471",
    "889473",
    "889479",
    "889481",
-   "889487",
-   "889489",
-   "889490"
+   "889487"
   ],
-  "observed": 20,
-  "pct": 47,
+  "observed": 24,
+  "pct": 56,
   "scheduled": 43
  },
  "date": "2026-09-09",
  "samples": [
   "2026-09-09T06:15:25+00:00",
   "2026-09-09T11:38:35+00:00",
-  "2026-09-09T15:42:34+00:00"
+  "2026-09-09T15:42:34+00:00",
+  "2026-09-09T18:58:52+00:00"
  ],
  "trains": {
   "887415": {
@@ -923,6 +920,142 @@
     }
    ]
   },
+  "889439": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 300,
+   "skippedStops": 0,
+   "stops": [
+    {
+     "delayS": 300,
+     "skipped": false,
+     "uic": "87743005"
+    },
+    {
+     "delayS": 300,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 300,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 300,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 300,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 120,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
+    }
+   ]
+  },
+  "889441": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
+    }
+   ]
+  },
   "889463": {
    "cancelled": false,
    "finalDelayS": 900,
@@ -1299,6 +1432,147 @@
      "skipped": false,
      "uic": "87721001"
     },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    }
+   ]
+  },
+  "889489": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87721001"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87722025"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723197"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723700"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723718"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723726"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723734"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723742"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723759"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723767"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723783"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87723791"
+    },
+    {
+     "delayS": 0,
+     "skipped": false,
+     "uic": "87743005"
+    }
+   ]
+  },
+  "889490": {
+   "cancelled": false,
+   "finalDelayS": 0,
+   "maxDelayS": 0,
+   "skippedStops": 0,
+   "stops": [
     {
      "delayS": 0,
      "skipped": false,
