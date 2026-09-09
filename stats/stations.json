@@ -1,94 +1,94 @@
 {
  "meta": {
-  "updatedAt": "2026-09-08T18:13:41+00:00"
+  "updatedAt": "2026-09-09T06:15:25+00:00"
  },
  "stations": [
   {
    "meanDelayS": 46,
    "medianDelayS": 0,
    "name": "Lyon Vaise",
-   "obs": 613,
+   "obs": 619,
    "order": 0,
    "skippedPct": 2,
    "uic": "87721001"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Lyon Perrache",
-   "obs": 1153,
+   "obs": 1161,
    "order": 1,
    "skippedPct": 1,
    "uic": "87722025"
   },
   {
-   "meanDelayS": 55,
+   "meanDelayS": 56,
    "medianDelayS": 0,
    "name": "Lyon Part Dieu",
-   "obs": 1153,
+   "obs": 1161,
    "order": 2,
    "skippedPct": 1,
    "uic": "87723197"
   },
   {
-   "meanDelayS": 54,
+   "meanDelayS": 55,
    "medianDelayS": 0,
    "name": "Sathonay - Rillieux",
-   "obs": 1153,
+   "obs": 1161,
    "order": 3,
    "skippedPct": 2,
    "uic": "87723700"
   },
   {
-   "meanDelayS": 49,
+   "meanDelayS": 50,
    "medianDelayS": 0,
    "name": "Les \u00c9chets",
-   "obs": 1010,
+   "obs": 1016,
    "order": 4,
    "skippedPct": 2,
    "uic": "87723718"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Mionnay",
-   "obs": 1010,
+   "obs": 1016,
    "order": 5,
    "skippedPct": 2,
    "uic": "87723726"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Saint-Andr\u00e9-de-Corcy",
-   "obs": 1029,
+   "obs": 1035,
    "order": 6,
    "skippedPct": 2,
    "uic": "87723734"
   },
   {
-   "meanDelayS": 48,
+   "meanDelayS": 49,
    "medianDelayS": 0,
    "name": "Saint-Marcel en Dombes",
-   "obs": 1029,
+   "obs": 1035,
    "order": 7,
    "skippedPct": 2,
    "uic": "87723742"
   },
   {
-   "meanDelayS": 53,
+   "meanDelayS": 54,
    "medianDelayS": 0,
    "name": "Villars-les-Dombes",
-   "obs": 1153,
+   "obs": 1161,
    "order": 8,
    "skippedPct": 2,
    "uic": "87723759"
   },
   {
-   "meanDelayS": 54,
+   "meanDelayS": 55,
    "medianDelayS": 0,
    "name": "Marlieux - Ch\u00e2tillon",
-   "obs": 1103,
+   "obs": 1110,
    "order": 9,
    "skippedPct": 2,
    "uic": "87723767"
@@ -97,25 +97,25 @@
    "meanDelayS": 53,
    "medianDelayS": 0,
    "name": "Saint-Paul-de-Varax",
-   "obs": 1103,
+   "obs": 1110,
    "order": 10,
    "skippedPct": 2,
    "uic": "87723783"
   },
   {
-   "meanDelayS": 52,
+   "meanDelayS": 53,
    "medianDelayS": 0,
    "name": "Servas - Lent",
-   "obs": 1103,
+   "obs": 1110,
    "order": 11,
    "skippedPct": 2,
    "uic": "87723791"
   },
   {
-   "meanDelayS": 61,
+   "meanDelayS": 62,
    "medianDelayS": 0,
    "name": "Bourg-en-Bresse",
-   "obs": 1103,
+   "obs": 1110,
    "order": 12,
    "skippedPct": 1,
    "uic": "87743005"
