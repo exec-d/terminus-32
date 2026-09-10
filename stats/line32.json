@@ -3,19 +3,19 @@
   "coverage": {
    "month": {
     "days": 31,
-    "observed": 703,
+    "observed": 705,
     "pct": 67,
     "scheduled": 1055
    },
    "week": {
     "days": 8,
-    "observed": 153,
-    "pct": 53,
+    "observed": 155,
+    "pct": 54,
     "scheduled": 288
    },
    "year": {
     "days": 33,
-    "observed": 731,
+    "observed": 733,
     "pct": 66,
     "scheduled": 1103
    }
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-09-10T02:29:31+00:00",
+  "updatedAt": "2026-09-10T07:28:03+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -623,15 +623,15 @@
     "maxDelayMin": 20,
     "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 14,
-    "onTimePct": 86,
+    "obs": 15,
+    "onTimePct": 87,
     "p90DelayMin": 10,
     "recoveredPct": 7,
     "skippedPct": 0
    },
    "week": {
     "enough": false,
-    "obs": 2
+    "obs": 3
    },
    "year": {
     "cancelledPct": 2,
@@ -640,7 +640,7 @@
     "maxDelayMin": 20,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 42,
+    "obs": 43,
     "onTimePct": 93,
     "p90DelayMin": 0,
     "recoveredPct": 2,
@@ -1107,7 +1107,7 @@
     "maxDelayMin": 5,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 18,
+    "obs": 19,
     "onTimePct": 100,
     "p90DelayMin": 5,
     "recoveredPct": 0,
@@ -1115,7 +1115,7 @@
    },
    "week": {
     "enough": false,
-    "obs": 2
+    "obs": 3
    },
    "year": {
     "cancelledPct": 0,
@@ -1124,8 +1124,8 @@
     "maxDelayMin": 10,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 28,
-    "onTimePct": 96,
+    "obs": 29,
+    "onTimePct": 97,
     "p90DelayMin": 5,
     "recoveredPct": 0,
     "skippedPct": 0
