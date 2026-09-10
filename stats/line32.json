@@ -3,19 +3,19 @@
   "coverage": {
    "month": {
     "days": 31,
-    "observed": 717,
+    "observed": 719,
     "pct": 68,
     "scheduled": 1055
    },
    "week": {
     "days": 8,
-    "observed": 167,
-    "pct": 58,
+    "observed": 169,
+    "pct": 59,
     "scheduled": 288
    },
    "year": {
     "days": 33,
-    "observed": 745,
+    "observed": 747,
     "pct": 68,
     "scheduled": 1103
    }
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-09-10T16:34:45+00:00",
+  "updatedAt": "2026-09-10T19:24:32+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -979,7 +979,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 19,
+    "obs": 20,
     "onTimePct": 95,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -992,7 +992,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 5,
+    "obs": 6,
     "onTimePct": 100,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -1005,7 +1005,7 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 20,
+    "obs": 21,
     "onTimePct": 95,
     "p90DelayMin": 0,
     "recoveredPct": 0,
@@ -1513,28 +1513,37 @@
     "maxDelayMin": 10,
     "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 16,
+    "obs": 17,
     "onTimePct": 88,
     "p90DelayMin": 0,
-    "recoveredPct": 7,
+    "recoveredPct": 6,
     "skippedPct": 6
    },
    "week": {
-    "enough": false,
-    "obs": 4
+    "cancelledPct": 0,
+    "cumDelayMin": 0,
+    "enough": true,
+    "maxDelayMin": 0,
+    "meanDelayMin": 0,
+    "medianDelayMin": 0,
+    "obs": 5,
+    "onTimePct": 100,
+    "p90DelayMin": 0,
+    "recoveredPct": 0,
+    "skippedPct": 0
    },
    "year": {
-    "cancelledPct": 6,
+    "cancelledPct": 5,
     "cumDelayMin": 45,
     "enough": true,
     "maxDelayMin": 35,
-    "meanDelayMin": 3,
+    "meanDelayMin": 2,
     "medianDelayMin": 0,
-    "obs": 18,
-    "onTimePct": 83,
+    "obs": 19,
+    "onTimePct": 84,
     "p90DelayMin": 10,
     "recoveredPct": 6,
-    "skippedPct": 6
+    "skippedPct": 5
    }
   }
  }
