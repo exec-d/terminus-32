@@ -1,80 +1,188 @@
 {
  "anomalies": [
   {
-   "date": "2026-11-30",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 8,
+   "train": "887415",
+   "usualCount": 9
   },
   {
-   "date": "2026-12-01",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 8,
+   "train": "887463",
+   "usualCount": 9
   },
   {
-   "date": "2026-12-02",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 8,
+   "train": "887483",
+   "usualCount": 9
   },
   {
-   "date": "2026-12-03",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 10,
+   "train": "889363",
+   "usualCount": 11
   },
   {
-   "date": "2026-12-04",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 12,
+   "train": "889413",
+   "usualCount": 13
   },
   {
-   "date": "2026-12-09",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 12,
+   "train": "889425",
+   "usualCount": 13
   },
   {
-   "date": "2026-12-10",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 12,
+   "train": "889427",
+   "usualCount": 13
   },
   {
-   "date": "2026-12-11",
+   "date": "2026-09-14",
    "missing": [
-    "Lyon Perrache"
+    "Lyon Vaise"
    ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
+   "servedCount": 12,
+   "train": "889461",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-09-14",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889469",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-09-14",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889477",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-09-14",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889483",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-09-14",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889485",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889415",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889421",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889425",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889431",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889435",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889473",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889481",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-11-11",
+   "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889485",
+   "usualCount": 13
   }
  ],
  "meta": {
   "from": "2026-09-14",
-  "updatedAt": "2026-09-14T03:44:51+00:00"
+  "updatedAt": "2026-09-14T09:26:44+00:00"
  }
 }
