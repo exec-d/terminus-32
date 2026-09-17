@@ -1,0 +1,79 @@
+name: Refresh tracé ligne 32
+
+# Extrait le tracé des voies depuis OpenStreetMap et le publie dans
+# `track/line32.json` (cf. exec-d/terminus#89).
+#
+# **Manuel seulement, et c'est délibéré.** Les autres chaînes de ce dépôt sont
+# planifiées parce que leur donnée bouge : les horaires changent chaque semaine,
+# la ponctualité toutes les demi-heures. Une voie ferrée, non. Ce qui bouge, en
+# revanche, c'est OpenStreetMap : un contributeur peut scinder une voie ou
+# corriger un tracé n'importe quand. Un cron committerait ces retouches sans que
+# personne ne les regarde, et l'app afficherait un train ailleurs du jour au
+# lendemain. Ici, quelqu'un lance le run et lit le résumé avant de garder.
+#
+# Les garde-fous d'`extract_track.py` font échouer le run plutôt que d'écrire un
+# tracé douteux : gare trop loin du rail, gares non reliées, longueur hors de
+# proportion avec la distance à vol d'oiseau.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-track
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      # L'extracteur n'utilise que la bibliothèque standard ; `requirements.txt`
+      # est installé pour rester cohérent avec les autres workflows du dépôt.
+      - name: Dépendances
+        run: pip install -r tools/requirements.txt
+
+      - name: Extraction du tracé
+        id: extract
+        run: |
+          {
+            echo '## Tracé extrait'
+            echo
+            echo '```'
+            python tools/extract_track.py
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # Le diff est ce qu'on relit : un tracé qui change de longueur ou de
+      # nombre de points l'annonce ici, avant le commit.
+      - name: Écart avec le tracé publié
+        if: always()
+        run: |
+          {
+            echo '## Écart'
+            echo
+            echo '```'
+            git diff --stat -- track/ || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit si changement
+        run: |
+          git add track
+          if git diff --cached --quiet; then
+            echo "tracé inchangé"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "data: tracé de la ligne 32 depuis OpenStreetMap"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi

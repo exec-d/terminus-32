@@ -40,6 +40,21 @@ n'entraîne donc aucune obligation de licence sur le fichier produit. Seule l'at
 > Contient des données de Grand Bourg Agglomération diffusées via transport.data.gouv.fr,
 > sous Licence Ouverte 2.0.
 
+## `track/line32.json` — tracé des voies
+
+Dérivé d'**OpenStreetMap**, sous
+[Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/).
+
+Le GTFS national SNCF ne publie pas de `shapes.txt` : la géométrie des voies n'existe donc dans
+aucune des sources de transport que ce dépôt utilise déjà. Elle est extraite d'OSM par
+`tools/extract_track.py`, qui charge les voies ferrées du corridor Bourg-en-Bresse ⇄ Lyon et en
+tire le plus court chemin d'une gare à la suivante, puis le simplifie.
+
+L'ODbL impose le **partage à l'identique** : le fichier produit est une base de données dérivée, et
+il est publié sous la même licence, comme `line32.json`.
+
+> Contient des données © les contributeurs OpenStreetMap, sous ODbL 1.0.
+
 ## Autres jeux utilisés par l'application
 
 L'application TERMinus interroge en direct, sans les redistribuer, deux jeux supplémentaires. Ils
