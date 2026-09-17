@@ -21,17 +21,6 @@ name: Refresh tracé et décor ligne 32
 # proportion avec la distance à vol d'oiseau.
 on:
   workflow_dispatch:
-  # TEMPORAIRE — à retirer avant de fusionner. Un `workflow_dispatch` n'est
-  # déclenchable que si le fichier existe sur la branche par défaut : sans ce
-  # `push`, l'extracteur de décor ne pourrait pas tourner une seule fois contre
-  # le vrai Overpass avant d'être fusionné. Le filtre de chemins exclut les
-  # sorties, pour que le commit produit par le run ne redéclenche pas le run.
-  push:
-    branches: [claude/trains-multi-day-display-sfentv]
-    paths:
-      - 'tools/extract_track.py'
-      - 'tools/extract_context.py'
-      - '.github/workflows/refresh-track.yml'
 
 permissions:
   contents: write
