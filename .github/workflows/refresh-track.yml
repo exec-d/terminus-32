@@ -1,7 +1,12 @@
-name: Refresh tracé ligne 32
+name: Refresh tracé et décor ligne 32
 
-# Extrait le tracé des voies depuis OpenStreetMap et le publie dans
-# `track/line32.json` (cf. exec-d/terminus#89).
+# Extrait depuis OpenStreetMap le tracé des voies (`track/line32.json`) et le
+# décor de la carte — cours d'eau et plans d'eau (`context/line32.json`).
+# Cf. exec-d/terminus#89.
+#
+# Les deux vont ensemble : même source, même licence, même raison de ne bouger
+# qu'à la demande. Un run les régénère tous les deux, et le résumé montre les
+# deux diffs.
 #
 # **Manuel seulement, et c'est délibéré.** Les autres chaînes de ce dépôt sont
 # planifiées parce que leur donnée bouge : les horaires changent chaque semaine,
@@ -16,6 +21,17 @@ name: Refresh tracé ligne 32
 # proportion avec la distance à vol d'oiseau.
 on:
   workflow_dispatch:
+  # TEMPORAIRE — à retirer avant de fusionner. Un `workflow_dispatch` n'est
+  # déclenchable que si le fichier existe sur la branche par défaut : sans ce
+  # `push`, l'extracteur de décor ne pourrait pas tourner une seule fois contre
+  # le vrai Overpass avant d'être fusionné. Le filtre de chemins exclut les
+  # sorties, pour que le commit produit par le run ne redéclenche pas le run.
+  push:
+    branches: [claude/trains-multi-day-display-sfentv]
+    paths:
+      - 'tools/extract_track.py'
+      - 'tools/extract_context.py'
+      - '.github/workflows/refresh-track.yml'
 
 permissions:
   contents: write
@@ -42,13 +58,22 @@ jobs:
         run: pip install -r tools/requirements.txt
 
       - name: Extraction du tracé
-        id: extract
         run: |
           {
             echo '## Tracé extrait'
             echo
             echo '```'
             python tools/extract_track.py
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Extraction du décor
+        run: |
+          {
+            echo '## Décor extrait'
+            echo
+            echo '```'
+            python tools/extract_context.py
             echo '```'
           } | tee -a "$GITHUB_STEP_SUMMARY"
 
@@ -61,19 +86,19 @@ jobs:
             echo '## Écart'
             echo
             echo '```'
-            git diff --stat -- track/ || true
+            git diff --stat -- track/ context/ || true
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit si changement
         run: |
-          git add track
+          git add track context
           if git diff --cached --quiet; then
-            echo "tracé inchangé"
+            echo "tracé et décor inchangés"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "data: tracé de la ligne 32 depuis OpenStreetMap"
+            git commit -m "data: tracé et décor de la ligne 32 depuis OpenStreetMap"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
