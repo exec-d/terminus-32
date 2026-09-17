@@ -55,6 +55,19 @@ il est publié sous la même licence, comme `line32.json`.
 
 > Contient des données © les contributeurs OpenStreetMap, sous ODbL 1.0.
 
+## `context/line32.json` — décor de la carte
+
+Dérivé d'**OpenStreetMap**, sous
+[Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/), comme le tracé.
+
+Les cours d'eau et les plans d'eau du corridor, extraits par `tools/extract_context.py`. Ils servent
+de repères sur la carte du parcours : la Saône et le Rhône placent Lyon, les étangs disent la Dombes.
+Rien d'autre n'est extrait — ni routes, ni zones urbaines, ni limites administratives.
+
+Partage à l'identique, donc même licence que la source.
+
+> Contient des données © les contributeurs OpenStreetMap, sous ODbL 1.0.
+
 ## Autres jeux utilisés par l'application
 
 L'application TERMinus interroge en direct, sans les redistribuer, deux jeux supplémentaires. Ils
