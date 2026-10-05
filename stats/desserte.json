@@ -21,6 +21,15 @@
   {
    "date": "2026-10-07",
    "missing": [
+    "Lyon Vaise"
+   ],
+   "servedCount": 12,
+   "train": "889421",
+   "usualCount": 13
+  },
+  {
+   "date": "2026-10-07",
+   "missing": [
     "Lyon Perrache"
    ],
    "servedCount": 11,
@@ -642,6 +651,6 @@
  ],
  "meta": {
   "from": "2026-10-05",
-  "updatedAt": "2026-10-05T05:59:37+00:00"
+  "updatedAt": "2026-10-05T14:08:49+00:00"
  }
 }
