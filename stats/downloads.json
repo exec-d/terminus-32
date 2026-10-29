@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-28T12:52:22+00:00",
+    "updatedAt": "2026-10-29T12:58:49+00:00",
     "source": "github-releases",
     "repo": "exec-d/terminus-32"
   },
@@ -9,7 +9,7 @@
       "tag": "v1.12.0",
       "publishedAt": "2026-10-27T12:54:49Z",
       "apkName": "terminus-v1.12.0.apk",
-      "downloadCount": 0
+      "downloadCount": 2
     },
     {
       "tag": "v1.11.0",
@@ -187,6 +187,6 @@
     }
   ],
   "totals": {
-    "allApkDownloads": 70
+    "allApkDownloads": 72
   }
 }
