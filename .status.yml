@@ -6,9 +6,13 @@
 phase: publié
 canal: "https://exec-d.github.io/terminus-32/"
 jalon: ""
-maj: 2026-08-29
+maj: 2026-11-03
 taches:
   faites: []
-  restantes: []
+  restantes: [Basculer les tâches planifiées sur l'infra vitamin-d]
 notes: |
-  Phase devinée à l'amorçage d'après le tag v1.6.0 — à relire.
+  Site de stats + dépôt de données lu par l'app (référentiel, ponctualité,
+  correspondances). Plus de publication d'APK ici depuis la 1.12.0.
+  La collecte « toutes les 30 min » tourne en pratique 4 à 6 fois par jour
+  (planification GitHub) et pèse sur le quota Actions de l'org (#19) :
+  réglé par la bascule sur l'infra vitamin-d.
