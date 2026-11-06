@@ -1,15 +1,6 @@
 {
  "anomalies": [
   {
-   "date": "2026-11-05",
-   "missing": [
-    "Lyon Perrache"
-   ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
-  },
-  {
    "date": "2026-11-06",
    "missing": [
     "Lyon Perrache"
@@ -434,7 +425,7 @@
   }
  ],
  "meta": {
-  "from": "2026-11-05",
-  "updatedAt": "2026-11-05T17:00:11+00:00"
+  "from": "2026-11-06",
+  "updatedAt": "2026-11-06T11:15:41+00:00"
  }
 }
