@@ -1,87 +1,6 @@
 {
  "anomalies": [
   {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889415",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889421",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889425",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889431",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889435",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Perrache"
-   ],
-   "servedCount": 11,
-   "train": "889441",
-   "usualCount": 12
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889473",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889481",
-   "usualCount": 13
-  },
-  {
-   "date": "2026-11-11",
-   "missing": [
-    "Lyon Vaise"
-   ],
-   "servedCount": 12,
-   "train": "889485",
-   "usualCount": 13
-  },
-  {
    "date": "2026-11-12",
    "missing": [
     "Lyon Perrache"
@@ -407,7 +326,7 @@
   }
  ],
  "meta": {
-  "from": "2026-11-11",
-  "updatedAt": "2026-11-11T16:48:06+00:00"
+  "from": "2026-11-12",
+  "updatedAt": "2026-11-12T03:58:28+00:00"
  }
 }
