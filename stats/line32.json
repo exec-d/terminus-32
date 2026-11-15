@@ -3,19 +3,19 @@
   "coverage": {
    "month": {
     "days": 31,
-    "observed": 442,
+    "observed": 444,
     "pct": 43,
     "scheduled": 1021
    },
    "week": {
     "days": 8,
-    "observed": 74,
-    "pct": 33,
+    "observed": 76,
+    "pct": 34,
     "scheduled": 224
    },
    "year": {
     "days": 99,
-    "observed": 1677,
+    "observed": 1679,
     "pct": 50,
     "scheduled": 3349
    }
@@ -27,7 +27,7 @@
   },
   "minObs": 5,
   "onTimeThresholdMin": 5,
-  "updatedAt": "2026-11-15T14:53:27+00:00",
+  "updatedAt": "2026-11-15T20:03:48+00:00",
   "windows": {
    "month": 30,
    "week": 7,
@@ -850,26 +850,30 @@
   "889439": {
    "month": {
     "cancelledPct": 0,
-    "cumDelayMin": 5,
+    "cumDelayMin": 40,
     "enough": true,
-    "maxDelayMin": 5,
-    "meanDelayMin": 0,
+    "maxDelayMin": 35,
+    "meanDelayMin": 3,
     "medianDelayMin": 0,
-    "obs": 13,
-    "onTimePct": 100,
-    "p90DelayMin": 0,
-    "recoveredPct": 8,
+    "obs": 14,
+    "onTimePct": 93,
+    "p90DelayMin": 5,
+    "recoveredPct": 7,
     "skippedPct": 0
+   },
+   "week": {
+    "enough": false,
+    "obs": 1
    },
    "year": {
     "cancelledPct": 0,
-    "cumDelayMin": 20,
+    "cumDelayMin": 55,
     "enough": true,
-    "maxDelayMin": 5,
-    "meanDelayMin": 0,
+    "maxDelayMin": 35,
+    "meanDelayMin": 1,
     "medianDelayMin": 0,
-    "obs": 71,
-    "onTimePct": 100,
+    "obs": 72,
+    "onTimePct": 99,
     "p90DelayMin": 0,
     "recoveredPct": 3,
     "skippedPct": 0
@@ -883,15 +887,15 @@
     "maxDelayMin": 0,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 13,
+    "obs": 14,
     "onTimePct": 100,
     "p90DelayMin": 0,
-    "recoveredPct": 15,
+    "recoveredPct": 14,
     "skippedPct": 0
    },
    "week": {
     "enough": false,
-    "obs": 2
+    "obs": 3
    },
    "year": {
     "cancelledPct": 2,
@@ -900,7 +904,7 @@
     "maxDelayMin": 10,
     "meanDelayMin": 0,
     "medianDelayMin": 0,
-    "obs": 49,
+    "obs": 50,
     "onTimePct": 96,
     "p90DelayMin": 0,
     "recoveredPct": 4,
